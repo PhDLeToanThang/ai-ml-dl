@@ -1,11 +1,13 @@
 # Ai-ML-DL (AI / Machine Learning / Deep Learn)
 
 ## Phần 1. Dựng AI trên Local Windows PC:
-Cach cai LLama + python 3.10.6 stable-diffusion-webgui (no gpu): Goi cai python 3.10.6  https://www.python.org/downloads/release/python-3106/
-B1. Download vs install git for windows
+Các bước cài LLama + python 3.10.6 stable-diffusion-webgui (no gpu): 
+Goi cai python 3.10.6  https://www.python.org/downloads/release/python-3106/
+
+### Bước 1. Download vs install git for windows
 https://git-scm.com/download/win
 
-B2. Install python-3.10.6 from link:
+### Bước 2. Install python-3.10.6 from link:
  https://www.python.org/downloads/release/python-3106/
  https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe
 
@@ -15,12 +17,12 @@ Downoad ve thu muc c:\ai va cai C:\Python310
 
 python -m pip install --upgrade pip
 
-B3. Download clone vao thu muc Local c:\ai   
+### Bước 3. Download clone vao thu muc Local c:\ai   
 cd c:\ai
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 Luu y: dung VPN keet noi git clone hay bi loi timeout, nen dung internet ket noi.
 
-B4. Truy cap trang github repository ckpt link
+### Bước 4. Truy cap trang github repository ckpt link
 https://huggingface.co/runwayml/stable-diffusion-v1-5
 Download ve file: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt   (- 4.27GB, ema-only weight. uses less VRAM - suitable for inference)
 
@@ -31,7 +33,7 @@ luu ve C:\ai\stable-diffusion-webui\models\Stable-diffusion\
 								+ v1-5-pruned.ckpt
 
 
-B5. Mo bang notepad++ sua file C:\ai\stable-diffusion-webui\webui-user.bat
+### Bước 5. Mo bang notepad++ sua file C:\ai\stable-diffusion-webui\webui-user.bat
 
 @echo off
 set PYTHON=
@@ -46,7 +48,8 @@ Tham khao: https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Command-
 Chung ta cho chay file bat:
 c:\ai\stable-diffusion-webui>webui-user.bat  (click thang vao file nay cho chay)
 
-----> errror:
+### Một số lỗi ở Windows
+errror:
 Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu121
 ERROR: Could not find a version that satisfies the requirement torch==2.1.2 (from versions: 2.2.0, 2.2.0+cu121, 2.2.1, 2.2.1+cu121, 2.2.2, 2.2.2+cu121, 2.3.0, 2.3.0+cu121, 2.3.1, 2.3.1+cu121, 2.4.0, 2.4.0+cu121)
 ERROR: No matching distribution found for torch==2.1.2
@@ -73,7 +76,7 @@ export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --no-half-vae 
 
 
 
--------------  Here's how I fixed it: dung cho Ubuntu 20/22/24.04:
+### Một số lỗi ở Ubuntu  Here's how I fixed it: dung cho Ubuntu 20/22/24.04:
 https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/15667
 
 sudo add-apt-repository ppa:deadsnakes/ppa
@@ -94,12 +97,14 @@ You need to downgrade your python to 3.11 as @Dr.Snoopy commented.
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118  (https://download.pytorch.org/whl/cu121)
 
 
+<hr></hr>
 
 ## Phần 2. Cách dựng ML trên Local Ubuntu Server: 
 -Cai OLLAMA in windows: Xây dựng ChatGPT trên Local Python Jupyter để Chatbot FAQ:
 
 https://github.com/PhDLeToanThang/BA_DA_CI-CD_copilot/wiki/Ch%C6%B0%C6%A1ng-4_Trang-1_X%C3%A2y-d%E1%BB%B1ng-ChatGPT-tr%C3%AAn-Local-Python-Jupyter-%C4%91%E1%BB%83-Chatbot-FAQ
 
+```ollama
 Ollama - Llama 3 how to install more model: If you're opening this Notebook on colab, you will probably need to install LlamaIndex.
 !pip install llama-index-llms-ollama
 
@@ -111,7 +116,7 @@ Ollama - Llama 3 how to install more model: If you're opening this Notebook on c
 
 !/bin/bash -e
 
-# Phần 1. Các bước cài Python trên Unix/Linux OS: 
+### Bước 1. Các bước cài Python trên Unix/Linux OS: 
 ## Install Ollama:
 ## Open a terminal on your Ubuntu server.
 ## Run the following command to install Ollama: 
@@ -137,21 +142,21 @@ ollama --version
 
 ## Explore other models supported by Ollama as needed.
 
-# Phần 2- Optional: Web Interface (Open WebUI):
+# Bước 2- Optional: Web Interface (Open WebUI):
 ## If you prefer a web-based interface, you can install Ollama WebUI:
 ## Install Snapd (if not already installed):
 
 sudo apt update && sudo apt install snapd -y
 
-## Install Ollama WebUI: 
+### Install Ollama WebUI: 
 sudo snap install ollama-webui --beta
-## Access the WebUI at http://localhost:8080/auth/ in your browser.
+**Access the WebUI at http://localhost:8080/auth/ in your browser.**
 
-# Phần 3-Install model ollama3
+### Bước 3-Install model ollama3
 snap install ollama
 ollama pull llama3
-## ref: https://github.com/ollama/ollama/blob/main/README.md#import-from-gguf
-## list models on ollama: https://ollama.com/library
+**ref: https://github.com/ollama/ollama/blob/main/README.md#import-from-gguf**
+**list models on ollama: https://ollama.com/library**
 
 ollama pull medllama2
 ollama pull sqlcoder
@@ -163,3 +168,4 @@ ollama pull gemma:7b
 ##  "model": "medllama2",
 ##  "prompt":"A 35-year-old woman presents with a persistent dry cough, shortness of breath, and fatigue. She is initially suspected of having asthma, but her spirometry results do not improve with bronchodilators. What could be the diagnosis?"
 ## }'
+```
