@@ -1,4 +1,4 @@
-# Ai-ML-DL (AI / Machine Learning / Deep Learn)
+# Stable Diffusion checkpoint
 
 ## Phần 1. Dựng AI trên Local Windows PC:
 Các bước cài LLama + python 3.10.6 stable-diffusion-webgui (no gpu): 
@@ -182,5 +182,10 @@ Nói chung là không có GPU, RAM máy laptop <= 8GRAM nên cũng khó tránh c
 
 ![image](https://github.com/user-attachments/assets/65adb9ea-e5fb-4331-821a-10f54a68d420)
 
+### Ví dụ 1:
+
 "Vẽ giúp tôi ảnh bìa môn vSphere Operate, scale vs extend security version 8.0u3 với icon ảnh của tôi ở trang https://github.com/phdletoanthang"
 
+Kết quả bỏ quá đi các bạn ;(
+
+### ví dụ 2: 
