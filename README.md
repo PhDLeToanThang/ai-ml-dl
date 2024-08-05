@@ -32,7 +32,6 @@ luu ve C:\ai\stable-diffusion-webui\models\Stable-diffusion\
 								+ v1-5-pruned-emaonly.ckpt
 								+ v1-5-pruned.ckpt
 
-
 ### Bước 5. Mo bang notepad++ sua file C:\ai\stable-diffusion-webui\webui-user.bat
 
 @echo off
@@ -68,13 +67,18 @@ executable = C:\Python310\python.exe
 command = C:\Python310\python.exe -m venv c:\ai\stable-diffusion-webui\venv
 
 -----------
+
 python -m pip install torch==2.1.2 torchvision==0.16.2
 python -m pip install torch==2.3.1 torchvision==0.18.1
 
 export COMMANDLINE_ARGS="--skip-torch-cuda-test --upcast-sampling --no-half-vae --use-cpu interrogate"
 
+Cuối cùng vào thư mục C:\ai\   \env
+xoá thư mục này và cho chạy lại c:\ai\   webui-ủe.bat
 
+Open web: http://127.0.0.1:7860/
 
+---------
 
 ### Một số lỗi ở Ubuntu  Here's how I fixed it: dung cho Ubuntu 20/22/24.04:
 https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/15667
