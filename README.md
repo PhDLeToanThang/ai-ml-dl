@@ -173,3 +173,14 @@ ollama pull gemma:7b
 ##  "prompt":"A 35-year-old woman presents with a persistent dry cough, shortness of breath, and fatigue. She is initially suspected of having asthma, but her spirometry results do not improve with bronchodilators. What could be the diagnosis?"
 ## }'
 ```
+
+## Phần 3. Khai thác sử dụng ở cổng [https://](http://127.0.0.1:7860/)
+
+![image](https://github.com/user-attachments/assets/19a15a0b-cabb-4345-b1cc-a5c34cfe408e)
+
+Nói chung là không có GPU, RAM máy laptop <= 8GRAM nên cũng khó tránh chuyện ì ạch vẫn tiến về phía trước.
+
+![image](https://github.com/user-attachments/assets/65adb9ea-e5fb-4331-821a-10f54a68d420)
+
+"Vẽ giúp tôi ảnh bìa môn vSphere Operate, scale vs extend security version 8.0u3 với icon ảnh của tôi ở trang https://github.com/phdletoanthang"
+
