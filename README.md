@@ -92,6 +92,10 @@ Thay đổi tên cho dịch vụ OLLAMA (ví dụ: OLLAMA).
 
 Lưu trữ mật khẩu OLLAMA.
 
+![image](https://github.com/user-attachments/assets/a0b0ecab-40be-40c2-9b7d-f121954121f7)
+
+Truy cập: http://localhost:8080
+
 <hr></hr>
 
 ## Phần 2. Cài và chạy OLLAMA 3.1 trên Ubuntu linux:
@@ -150,3 +154,20 @@ ollama pull gemma:7b
 
 - Chạy bằng lệnh:  bash ./ollama31.sh
 
+<hr></hr>
+
+## Phần 3. Khai thác sử dụng LLAMA 3.1:
+
+_ví dụ 1: Đặt câu hỏi cố gắng đưa thông tin đầy đủ, như phiên bản, số hiệu phần mềm_ 
+
+```q
+Hướng dẫn chi tiết các bước nâng cấp từ vSphere 7.0u3 lên vSphere 8.0u2 và vCenter 7 HA lên vCenter 8u2 Enhanced Link Mode ?
+```
+
+![image](https://github.com/user-attachments/assets/2000ee1e-b2e0-4f9c-8323-b8e2d6096d56)
+
+_Ví dụ 2: Tự động recording và transcription viết từ audio.micro sang văn bản tiếng nguyên gốc, làm phụ đề_
+
+![image](https://github.com/user-attachments/assets/4ed9c9ec-22dc-47f2-9635-9498612585b5)
+
+![image](https://github.com/user-attachments/assets/2a7f0067-dc0e-40ce-aabe-18767a31c128)
