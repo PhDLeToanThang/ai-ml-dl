@@ -2,7 +2,7 @@
 
 ## Tác động Ảnh hưởng đầu tiên có lợi cho giới CNTT:
 
-1. Business Analytic and Data Analytics by CI/CD,Agile,Scrum with Copilot:
+**1. Business Analytic and Data Analytics by CI/CD,Agile,Scrum with Copilot:**
 
 - Phân tích dữ liệu và phân tích kinh doanh bằng CI/CD, Agile, Scrum với khai thác sử dụng AI/ML Local DB làm Co-pilot fix thuật toán, sửa code và Troubleshoot.
 
@@ -22,13 +22,18 @@ Họ mở rộng đội ngũ và tạo ra các trung tâm xuất sắc để thi
 dữ liệu và phân tích đa mục tiêu trong tổ chức của họ.
 ```
 
-2. IT Helpdesk - KB vs Troubleshooting:
+**2. IT Helpdesk - KB vs Troubleshooting:**
 
 ## Phần 1. Cài và chạy OLLAMA 3.1 với Python3.11 trên Windows 11:
 
 Hướng dẫn cài đặt Open-WebUI và OLLAMA trên Windows 11:
+**Bước 1: Tải và cài Python3.11 trên windows x64**
+- Tạo thư mục cd c:\python311
+- Tải bộ cài python3.11 và cài vào thư mục c:\python311
+- Tiếp theo dùng cmd /admin gõ lệnh cd c:\python311 và
+- python.exe -m pip install --upgrade pip
 
-Bước 1: Tải mã Open-WebUI
+**Bước 2: Tải mã Open-WebUI**
 
 Mở trình duyệt web và truy cập vào trang chủ của Open-WebUI: https://open-web-ui.com/
 
@@ -38,19 +43,17 @@ Chọn định dạng tệp (ví dụ: .msi) và tên tệp.
 
 Tải mã hoàn tất, click vào nút "Lưu trữ" (Save) để lưu trữ tệp.
 
-Bước 2: Cài đặt Open-WebUI
+**Bước 2: Cài đặt Open-WebUI**
 
-Mở File Explorer và tìm đến vị trí tải mã Open-WebUI.
+Sau khi cài xong python3.11, chúng ta dùng lệnh cmd /admin chuyển về thư mục này
 
-Click vào nút "Cài đặt" (Install) để cài đặt Open-WebUI.
+cd c:\python311
 
-Chọn ngôn ngữ cài đặt và đọc các thông tin về quyền lợi và nghĩa vụ.
+tiếp theo gõ lệnh cài open-webui: python -m pip install open-webui
 
-Nhấn "Next" để tiếp tục cài đặt.
+![image](https://github.com/user-attachments/assets/2f7264ca-c379-44ca-ace3-ff935b3223dc)
 
-Cài đặt hoàn tất, click vào nút "Finish" để đóng cửa sổ cài đặt.
-
-Bước 3: Tải mã OLLAMA
+**Bước 3: Tải mã OLLAMA**
 
 Mở trình duyệt web và truy cập vào trang chủ của OLLAMA: https://ollama.io/
 
@@ -60,7 +63,7 @@ Chọn định dạng tệp (ví dụ: .msi) và tên tệp.
 
 Tải mã hoàn tất, click vào nút "Lưu trữ" (Save) để lưu trữ tệp.
 
-Bước 4: Cài đặt OLLAMA
+**Bước 4: Cài đặt OLLAMA**
 
 Mở File Explorer và tìm đến vị trí tải mã OLLAMA.
 
@@ -72,29 +75,33 @@ Nhấn "Next" để tiếp tục cài đặt.
 
 Cài đặt hoàn tất, click vào nút "Finish" để đóng cửa sổ cài đặt.
 
-Bước 5: Xử lý cài đặt
-
-Mở Open-WebUI và OLLAMA trên màn hình chính của Windows 11.
-
-Nhấn F5 để mở ứng dụng Open-WebUI.
-
-Lọc tìm "Open Web UI" và mở ứng dụng.
-
-Nhấn F5 để mở ứng dụng OLLAMA.
-
-Bước 6: Cài đặt OLLAMA
-
-Dọn lịch trình OLLAMA.
-
-Cài đặt OLLAMA.
-
-Thay đổi tên cho dịch vụ OLLAMA (ví dụ: OLLAMA).
-
-Lưu trữ mật khẩu OLLAMA.
+**Bước 5. Mở dịch vụ vs Truy cập open-webui**
 
 ![image](https://github.com/user-attachments/assets/a0b0ecab-40be-40c2-9b7d-f121954121f7)
 
-Truy cập: http://localhost:8080
+- Mở cmd và nhập lệnh: open-webui serve
+
+![image](https://github.com/user-attachments/assets/f5bf50b1-ac73-4aef-858d-2f7947813f49)
+
+Lần đầu truy cập: [http://localhost:8080](http://localhost:8080/auth)  
+
+Chúng ta cần đăng ký account mới qua email và nhập mật khẩu local.
+
+![image](https://github.com/user-attachments/assets/48e8e307-dc4c-4dce-9560-d6d39a3d9348)
+
+**Bước 6. Cài thêm các Models hỗ trợ OLLama3**
+
+- Mở cmd và nhập các lệnh:
+- ollama pull llama3
+- ollama pull medllama2
+- ollama pull sqlcoder
+- ollama pull gemma:7b
+
+#Tham khảo các thư viện Models ollama: https://ollama.com/library
+
+- Sau khi download xong các modles cần thì trên màn web sẽ có thể chọn:
+
+![image](https://github.com/user-attachments/assets/d54e9040-6db1-41a8-bcb0-5dbbacd9b5b3)
 
 <hr></hr>
 
