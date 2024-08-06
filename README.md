@@ -1,4 +1,4 @@
-# Ai - ML - DL 
+# AI/LLM/DL 
 
 ## Tác động Ảnh hưởng đầu tiên có lợi cho giới CNTT:
 
@@ -171,3 +171,24 @@ _Ví dụ 2: Tự động recording và transcription viết từ audio.micro sa
 ![image](https://github.com/user-attachments/assets/4ed9c9ec-22dc-47f2-9635-9498612585b5)
 
 ![image](https://github.com/user-attachments/assets/2a7f0067-dc0e-40ce-aabe-18767a31c128)
+
+_Ví dự 3: Thảo luận về nội dung câu hỏi đề thi và đáp án đúng_
+```q
+Hãy tìm cho tôi 3 đáp án đúng trong câu hỏi sau, và giải thích tại sao bạn chọn 3 đáp án đó? 
+An administrator is working with VMware Support and is asked to provide log bundles for the ESXi hosts in an environment.
+Which three options does the administrator have? (Choose three.)
+```
+```a
+A. Generate a combined log bundle for all ESXi hosts using the vCenter Management Interface
+B. Generate a separate log bundle for each ESXi host using the vSphere Host Client.
+C. Generate a combined log bundle for all ESXi hosts using the vSphere Client.
+D. Generate a separate log bundle for each ESXi host using the vSphere Client.
+E. Generate a separate log bundle for each ESXi host using the vCenter Management Interface.
+F. Generate a combined log bundle for all ESXi hosts using the vSphere Host Client.
+```
+
+![image](https://github.com/user-attachments/assets/726fd8db-bd5e-4ca7-81d2-77528b7044b7)
+
+-> AI local trả lời và chọn 3 đáp án trên vẫn sai nhé:
+
+"Cannot be "Generate a combined log bundle for all ESXi hosts using the vCenter Management Interface" or "Generate a separate log bundle for each ESXi host using the vCenter Management Interface": you don't have access to the ESXi logs from the VAMI Cannot be "Generate a combined log bundle for all ESXi hosts using the vSphere Host Client." : for the Host Client, you can only get the logs of the corresponding host, not the others. So correct answer is: BCD"
