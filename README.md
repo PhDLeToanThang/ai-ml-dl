@@ -24,7 +24,7 @@ dữ liệu và phân tích đa mục tiêu trong tổ chức của họ.
 
 2. IT Helpdesk - KB vs Troubleshooting:
 
-## Phần 1. Cài và chạy OLLAMA 3.1 với Python3.12, Jupyter Notebook trên Windows 11:
+## Phần 1. Cài và chạy OLLAMA 3.1 với Python3.11 trên Windows 11:
 
 Hướng dẫn cài đặt Open-WebUI và OLLAMA trên Windows 11:
 
