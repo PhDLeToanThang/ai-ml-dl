@@ -211,3 +211,13 @@ _Theo bài viết: https://www.artificialintelligence-news.com/news/microsoft-un
 
 _Tác giả: Ryan Daws is a senior editor at TechForge Media_
 
+Trong sơ đồ trên đây cho rằng SLM (Small Language Models) nhỏ và hiệu quả cao thì có MS Phi3
+
+![image](https://github.com/user-attachments/assets/6ebf9db4-8c87-41fa-ae13-d7a1dceec3de)
+
+Vậy ta có thể truy cập vào trang Huggingface.co để tìm 
+
+https://huggingface.co/models?sort=trending&search=phi
+
+![image](https://github.com/user-attachments/assets/362607f4-f622-4669-9890-b305dd68ca11)
+
