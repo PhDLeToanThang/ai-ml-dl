@@ -221,3 +221,43 @@ https://huggingface.co/models?sort=trending&search=phi
 
 ![image](https://github.com/user-attachments/assets/362607f4-f622-4669-9890-b305dd68ca11)
 
+Nhưng do chúng ta dùng Ollama3.1 lầm Agent Client LLM trên nền Windows, nên chúng ta truy cập thư viện của Ollama để cài thêm Model Phi3 nhanh hơn
+
+https://ollama.com/library?q=phi3
+
+![image](https://github.com/user-attachments/assets/9e95f0bf-cf4a-4546-a52f-6f502862f5a5)
+
+![image](https://github.com/user-attachments/assets/662d7ca0-e0fc-4c23-880e-c62e8505e9f7)
+
+Xuất hiện dòng lệnh:  
+
+**Bước 1. Mở terminal hoặc cmd**
+
+![image](https://github.com/user-attachments/assets/f904e374-d94a-4ee6-bb2b-bc38a2a90dca)
+
+Chuyển tới thư mục: cd c:\python311
+
+Nhập lệnh: ollama run phi3:3.8b
+
+![image](https://github.com/user-attachments/assets/4a0299ca-bc95-40a7-ac02-7ac333e4cb22)
+
+**Bước 2. Chúng ta có thể chat ở ngay màn lệnh**
+
+![image](https://github.com/user-attachments/assets/caf64b41-61cc-4154-b18e-d1a0784fcbc9)
+
+**hoặc Bước 3. Chuyển sang màn Browser: Open-webui và refresh**
+
+![image](https://github.com/user-attachments/assets/6b8c5ed9-2bc8-4a2f-8a6b-7d8d017a1967)
+
+**Bạn cũng có thể tìm trong Ollama.com để download các Models hiện đại như:
+
+gpt-3.5-turbo:  ollama run Eomer/gpt-3.5-turbo
+
+taozhiyuai/openbiollm-llama-3: ollama run taozhiyuai/openbiollm-llama-3:70b_q2_k
+Advancing Open-source Large Language Models in Medical Domain
+
+cniongolo/biomistral:  ollama run cniongolo/biomistral
+A Quantize version of Biomistral made by MaziyarPanahi on HuggingFace. BioMistral-7B-GGUF Model creator: BioMistral Original model: BioMistral/BioMistral-7B
+
+monotykamary/medichat-llama3: ollama run monotykamary/medichat-llama3
+Built upon the powerful LLaMa-3 architecture and fine-tuned on an extensive dataset of health information, this model leverages its vast medical knowledge to offer clear, comprehensive answers.
