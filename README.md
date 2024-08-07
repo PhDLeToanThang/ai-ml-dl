@@ -27,13 +27,13 @@ dữ liệu và phân tích đa mục tiêu trong tổ chức của họ.
 ## Phần 1. Cài và chạy OLLAMA 3.1 với Python3.11 trên Windows 11:
 
 Hướng dẫn cài đặt Open-WebUI và OLLAMA trên Windows 11:
-**Bước 1: Tải và cài Python3.11 trên windows x64**
+> **Bước 1: Tải và cài Python3.11 trên windows x64**
 - Tạo thư mục cd c:\python311
 - Tải bộ cài python3.11 và cài vào thư mục c:\python311
 - Tiếp theo dùng cmd /admin gõ lệnh cd c:\python311 và
 - python.exe -m pip install --upgrade pip
 
-**Bước 2: Tải mã Open-WebUI**
+> **Bước 2: Tải mã Open-WebUI**
 
 Mở trình duyệt web và truy cập vào trang chủ của Open-WebUI: https://open-web-ui.com/
 
@@ -43,7 +43,7 @@ Chọn định dạng tệp (ví dụ: .msi) và tên tệp.
 
 Tải mã hoàn tất, click vào nút "Lưu trữ" (Save) để lưu trữ tệp.
 
-**Bước 2: Cài đặt Open-WebUI**
+> **Bước 3: Cài đặt Open-WebUI**
 
 Sau khi cài xong python3.11, chúng ta dùng lệnh cmd /admin chuyển về thư mục này
 
@@ -53,7 +53,7 @@ tiếp theo gõ lệnh cài open-webui: python -m pip install open-webui
 
 ![image](https://github.com/user-attachments/assets/2f7264ca-c379-44ca-ace3-ff935b3223dc)
 
-**Bước 3: Tải mã OLLAMA**
+> **Bước 4: Tải mã OLLAMA**
 
 Mở trình duyệt web và truy cập vào trang chủ của OLLAMA: https://ollama.io/
 
@@ -63,7 +63,7 @@ Chọn định dạng tệp (ví dụ: .msi) và tên tệp.
 
 Tải mã hoàn tất, click vào nút "Lưu trữ" (Save) để lưu trữ tệp.
 
-**Bước 4: Cài đặt OLLAMA**
+> **Bước 5: Cài đặt OLLAMA**
 
 Mở File Explorer và tìm đến vị trí tải mã OLLAMA.
 
@@ -75,7 +75,7 @@ Nhấn "Next" để tiếp tục cài đặt.
 
 Cài đặt hoàn tất, click vào nút "Finish" để đóng cửa sổ cài đặt.
 
-**Bước 5. Mở dịch vụ vs Truy cập open-webui**
+> **Bước 6. Mở dịch vụ vs Truy cập open-webui**
 
 ![image](https://github.com/user-attachments/assets/a0b0ecab-40be-40c2-9b7d-f121954121f7)
 
@@ -89,7 +89,7 @@ Chúng ta cần đăng ký account mới qua email và nhập mật khẩu local
 
 ![image](https://github.com/user-attachments/assets/48e8e307-dc4c-4dce-9560-d6d39a3d9348)
 
-**Bước 6. Cài thêm các Models hỗ trợ OLLama3**
+> **Bước 7. Cài thêm các Models hỗ trợ OLLama3**
 
 - Mở cmd và nhập các lệnh:
 - ollama pull llama3
@@ -107,7 +107,7 @@ Chúng ta cần đăng ký account mới qua email và nhập mật khẩu local
 
 ## Phần 2. Cài và chạy OLLAMA 3.1 trên Ubuntu linux:
 
-### Bước 1. Mở terminal của Ubuntu.
+> **Bước 1. Mở terminal của Ubuntu.**
 
 - Copy toàn bộ đoạn code bash / sh dưới đây và dán vào 1 file ollama31.sh
 
@@ -159,7 +159,12 @@ ollama pull gemma:7b
 # }'
 ```
 
-- Chạy bằng lệnh:  bash ./ollama31.sh
+> **Bước 2. Chạy bằng lệnh:**
+```bash
+bash ./ollama31.sh
+```
+
+
 
 <hr></hr>
 
@@ -199,3 +204,10 @@ F. Generate a combined log bundle for all ESXi hosts using the vSphere Host Clie
 -> AI local trả lời và chọn 3 đáp án trên vẫn sai nhé:
 
 "Cannot be "Generate a combined log bundle for all ESXi hosts using the vCenter Management Interface" or "Generate a separate log bundle for each ESXi host using the vCenter Management Interface": you don't have access to the ESXi logs from the VAMI Cannot be "Generate a combined log bundle for all ESXi hosts using the vSphere Host Client." : for the Host Client, you can only get the logs of the corresponding host, not the others. So correct answer is: BCD"
+
+# Phần 4. Cách cài thêm các Models cho các lĩnh vực AI/LLAMA khác:
+
+_Theo bài viết: https://www.artificialintelligence-news.com/news/microsoft-unveils-phi-3-family-compact-language-models/_
+
+_Tác giả: Ryan Daws is a senior editor at TechForge Media_
+
