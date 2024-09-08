@@ -249,7 +249,7 @@ Nhập lệnh: ollama run phi3:3.8b
 
 ![image](https://github.com/user-attachments/assets/6b8c5ed9-2bc8-4a2f-8a6b-7d8d017a1967)
 
-**Bạn cũng có thể tìm trong Ollama.com để download các Models hiện đại như:
+**Bạn cũng có thể tìm trong Ollama.com để download các Models hiện đại như:**
 
 gpt-3.5-turbo:  ollama run Eomer/gpt-3.5-turbo
 
@@ -261,3 +261,39 @@ A Quantize version of Biomistral made by MaziyarPanahi on HuggingFace. BioMistra
 
 monotykamary/medichat-llama3: ollama run monotykamary/medichat-llama3
 Built upon the powerful LLaMa-3 architecture and fine-tuned on an extensive dataset of health information, this model leverages its vast medical knowledge to offer clear, comprehensive answers.
+
+# Phần 5. Xây dựng các dự án Tin-Y-Sinh dùng thêm medicine-Llama3-8B Models cho Llama3.1:
+
+_Tham khảo: Medicine Llama3 8B - Top Medical AI Model - Install Locally: https://www.youtube.com/watch?v=r8p8LxMAHcE_
+
+Bước 1. Install Ollama: https://ollama.com/
+Bước 2.1. Nếu bạn đang dùng Python3.11 và Jupyter notebook sẽ dùng lệnh: !pip install transformers torch
+
+![image](https://github.com/user-attachments/assets/4c9c4544-085a-4e32-88a9-a210bc8215dc)
+
+Bước 2.2: Nếu dùng Win cmd và Ollama, thì sẽ dùng lệnh cài
+cmd> pip install transformers torch
+
+![image](https://github.com/user-attachments/assets/88b6da41-7e48-4aa3-96ef-3ced8cbdce95)
+
+Bước 2.3. Sau khi cài thành công, chúng ta dùng tiếp lệnh:
+
+cmd> cd c:\python310\
+
+cmd > ollama pull medllama2
+
+![image](https://github.com/user-attachments/assets/7e7c43d7-b362-4df3-a9dd-47e02462cd03)
+
+hoặc  https://ollama.com/monotykamary/medichat-llama3
+
+![image](https://github.com/user-attachments/assets/4d34dc8a-508c-46e7-87c0-520f63ef3dae)
+
+cmd > ollama run monotykamary/medichat-llama3
+
+cmd> open-webui serve
+
+![image](https://github.com/user-attachments/assets/a8cd1837-4454-4740-81f8-c8f2247675c8)
+
+và màn hình Web:
+
+![image](https://github.com/user-attachments/assets/132ba697-e3bd-42c9-994b-2ee2702b35b8)
