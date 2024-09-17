@@ -290,6 +290,10 @@ hoặc  https://ollama.com/monotykamary/medichat-llama3
 
 cmd > ollama run monotykamary/medichat-llama3
 
+Lệnh kiểm tra các Models đã được download/active:  cmd > ollama list 
+
+![image](https://github.com/user-attachments/assets/ccc661fa-82f2-44c0-8839-b1910f0b07c1)
+
 cmd> open-webui serve
 
 ![image](https://github.com/user-attachments/assets/a8cd1837-4454-4740-81f8-c8f2247675c8)
@@ -297,3 +301,9 @@ cmd> open-webui serve
 và màn hình Web:
 
 ![image](https://github.com/user-attachments/assets/132ba697-e3bd-42c9-994b-2ee2702b35b8)
+
+- Tham khảo các tài liệu chức năng của open-webui: https://github.com/open-webui/pipelines
+
+- Hướng dẫn cài Open-webui trên docker/ollama: https://pypi.org/project/open-webui/
+
+- Hướng dẫn triển khai Open-webui trên linux/python làm ChatAI local webbase: https://community.hetzner.com/tutorials/ai-chatbot-with-ollama-and-open-webui
