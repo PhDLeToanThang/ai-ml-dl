@@ -35,7 +35,7 @@ Hướng dẫn cài đặt Open-WebUI và OLLAMA trên Windows 11:
 
 > **Bước 2: Tải mã Open-WebUI**
 
-Mở trình duyệt web và truy cập vào trang chủ của Open-WebUI: https://open-web-ui.com/
+Mở trình duyệt web và truy cập vào trang chủ của Open-WebUI: [https://openwebui.com/](https://openwebui.com/)
 
 Click vào nút "Tải mã" (Download) để tải mã Open-WebUI.
 
@@ -55,7 +55,7 @@ tiếp theo gõ lệnh cài open-webui: python -m pip install open-webui
 
 > **Bước 4: Tải mã OLLAMA**
 
-Mở trình duyệt web và truy cập vào trang chủ của OLLAMA: https://ollama.io/
+Mở trình duyệt web và truy cập vào trang chủ của OLLAMA: [https://ollama.com/](https://ollama.com/)
 
 Click vào nút "Tải mã" (Download) để tải mã OLLAMA.
 
@@ -163,7 +163,6 @@ ollama pull gemma:7b
 ```bash
 bash ./ollama31.sh
 ```
-
 
 
 <hr></hr>
@@ -290,7 +289,7 @@ hoặc  https://ollama.com/monotykamary/medichat-llama3
 
 cmd > ollama run monotykamary/medichat-llama3
 
-Lệnh kiểm tra các Models đã được download/active:  cmd > ollama list 
+Lệnh kiểm tra các Models đã được download/active:  cmd > ollama list
 
 ![image](https://github.com/user-attachments/assets/ccc661fa-82f2-44c0-8839-b1910f0b07c1)
 
