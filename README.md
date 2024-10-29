@@ -49,7 +49,11 @@ Sau khi cài xong python3.11, chúng ta dùng lệnh cmd /admin chuyển về th
 
 cd c:\python311
 
-tiếp theo gõ lệnh cài open-webui: python -m pip install open-webui
+- cài biến môi trường cho python 3.11 bằng 2 dòng lệnh:
+py -m venv sample_env
+sample_env\Scripts\activate
+ 
+- tiếp theo gõ lệnh cài open-webui: python -m pip install open-webui
 
 ![image](https://github.com/user-attachments/assets/2f7264ca-c379-44ca-ace3-ff935b3223dc)
 
@@ -79,8 +83,13 @@ Cài đặt hoàn tất, click vào nút "Finish" để đóng cửa sổ cài �
 
 ![image](https://github.com/user-attachments/assets/a0b0ecab-40be-40c2-9b7d-f121954121f7)
 
-- Mở cmd và nhập lệnh: open-webui serve
-
+- Mở cmd và nhập lệnh 4 dòng lệnh sau:
+  ```sh
+  cd c:\python311
+  py -m venv sample_env
+  sample_env\Scripts\activate
+  open-webui serve ```
+  
 ![image](https://github.com/user-attachments/assets/f5bf50b1-ac73-4aef-858d-2f7947813f49)
 
 Lần đầu truy cập: [http://localhost:8080](http://localhost:8080/auth)  
