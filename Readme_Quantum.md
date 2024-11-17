@@ -7,6 +7,7 @@ Hướng dẫn cài đặt Python 3.11 trên Windows 11:
 - Tải bộ cài python3.11 và cài vào thư mục c:\python311
 - Tiếp theo dùng cmd /admin gõ lệnh cd c:\python311 và
 - python.exe -m pip install --upgrade pip
+- Tạo thư mục chứa riêng các code và phần mềm python ví dụ: c:\python311\workspaces
 
 > **Bước 1: Tạo môi trường ảo mới**
 Bạn có thể sử dụng venv để tạo một môi trường ảo mới. Chạy lệnh sau trong terminal:
