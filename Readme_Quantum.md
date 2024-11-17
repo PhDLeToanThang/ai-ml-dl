@@ -73,4 +73,31 @@ Nếu bạn không thấy lỗi nào, thì việc cài đặt đã thành công.
 Nếu bạn vẫn cần sử dụng gói cũ hơn, bạn nên tạo một môi trường ảo riêng biệt cho chúng.
 
 
-##II. Dùng AI chuyển các hàm AI/ML như Tensorflow sang Quantum chạy trên Python 3.11 Jupyter notebook:
+## II. Dùng AI chuyển các hàm AI/ML như Tensorflow sang Quantum chạy trên Python 3.11 Jupyter notebook:
+
+> Mở cmd /admin là cửa sổ terminal trên windows
+- chuyển thư mục: cd c:\python311\workspaces
+  
+> Chạy 2 lệnh để mở biến môi trường rành riêng cho Quantum (xem lại phần I):
+Trên macOS/Linux:
+```
+python3 -m venv quantum
+```
+
+Trên Windows:
+```
+python -m venv quantum
+```
+> **Bước 2: Chạy môi trường ảo mới:**
+Trên macOS/Linux:
+```
+source quantum/bin/activate
+```
+
+Trên Windows:
+```
+quantum\Scripts\activate
+```
+> **Bước 3: Chạy lện mở môi trường lập trình Python 3.11 trên Jupyter notebook:
+![image](https://github.com/user-attachments/assets/e27e3a35-1f4d-467b-b30f-8e5067e166cc)
+
