@@ -20,6 +20,11 @@ Yêu cầu tham số Class xác định Host của Python Server / Ubuntu linux:
 
 ![image](https://github.com/user-attachments/assets/bb145abb-f2ed-4804-849f-c8be4aca4030)
 
+> Sau khi cài đặt python,
+> bạn cần cài đặt gói mlbackend (bao gồm tensorflow) trên máy chủ python này.
+> TensorFlow và Tensorboard đều đã được cài đặt, cũng như MoodlemlBackend. Moodle và Python đều đã được cài đặt trên cùng một máy chủ hoặc cài ở máy chủ riêng.
+> FAQ: vâng - nghe có vẻ như moodlemlbackend không chạy đúng - tên người dùng/mật khẩu mặc định được mã hóa cứng trong gói đó - chúng tôi đã xây dựng các phiên bản gói của riêng mình và thả nó vào máy chủ bên ngoài thay vì trên máy cục bộ vì chúng tôi có nhiều giao diện web trên hầu hết các trang web của khách hàng. (chúng tôi cũng thay đổi mật khẩu mặc định
+> Tham khảo: Admins can change analytics settings and setup different machine learning backends (https://tracker.moodle.org/browse/MDLQA-11576)
 
 ## mlbackend/php
 
