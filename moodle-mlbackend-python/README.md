@@ -21,15 +21,17 @@ Yêu cầu tham số Class xác định Host của Python Server / Ubuntu linux:
 ![image](https://github.com/user-attachments/assets/bb145abb-f2ed-4804-849f-c8be4aca4030)
 
 ```req
-tensorflow==2.7.*
-sklearn
+tensorflow==2.7.1,<2.8
+scikit-learn>=0.21,<0.22
 numpy>=1.19.2,<1.20
-matplotlib>=3.0,<3.4
+matplotlib>=3.0,<3.1
 boto3>=1.9.0,<1.10
-flask>=1.0.2,<2.0.0
+flask>=1.0.2,<1.1
 pytest-flask
-joblib>=0.13.0
+joblib>=0.13.0,<0.14
 markupsafe<2.1.0
+itsdangerous==2.0.1',
+Jinja2>=3.0.1,<3.1',
 ```
 **> Troubleshooting và FAQ:**
 > Sau khi cài đặt python, bạn cần cài đặt gói mlbackend (bao gồm tensorflow) trên máy chủ python này.
@@ -41,6 +43,8 @@ markupsafe<2.1.0
 > - Chúng tôi đã xây dựng các phiên bản gói của riêng mình và thả nó vào máy chủ bên ngoài thay vì trên máy cục bộ vì chúng tôi có nhiều giao diện web trên hầu hết các trang web của khách hàng.
 >   
 > - Chúng tôi cũng thay đổi mật khẩu mặc định _Tham khảo: Admins can change analytics settings and setup different machine learning backends (https://tracker.moodle.org/browse/MDLQA-11576)_
+
+## Các bước cài đặt Python 3.8 trên ubuntu 22.04
 
 ## mlbackend/php
 
