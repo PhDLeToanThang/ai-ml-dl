@@ -20,6 +20,16 @@ Yêu cầu tham số Class xác định Host của Python Server / Ubuntu linux:
 
 ![image](https://github.com/user-attachments/assets/bb145abb-f2ed-4804-849f-c8be4aca4030)
 
+tensorflow==2.7.*
+sklearn
+numpy>=1.19.2,<1.20
+matplotlib>=3.0,<3.4
+boto3>=1.9.0,<1.10
+flask>=1.0.2,<2.0.0
+pytest-flask
+joblib>=0.13.0
+markupsafe<2.1.0
+
 > Sau khi cài đặt python,
 > bạn cần cài đặt gói mlbackend (bao gồm tensorflow) trên máy chủ python này.
 > TensorFlow và Tensorboard đều đã được cài đặt, cũng như MoodlemlBackend. Moodle và Python đều đã được cài đặt trên cùng một máy chủ hoặc cài ở máy chủ riêng.
