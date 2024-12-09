@@ -11,7 +11,7 @@ sudo apt install xrdp -y
 sudo apt install xserver-xorg-core -y
 sudo apt install xserver-xorg-input-all -y
 sudo apt install xorgxrdp -y
-
+sudo apt install ssh -y
 #You also need to grant access to the /etc/ssl/private/ssl-cert-snakeoil.key file for xrdp user. 
 #It is available to members of the ssl-cert group by default.
 # add xrdp into ssl-cert group
@@ -27,8 +27,6 @@ systemctl is-active xrdp
 sudo systemctl enable xrdp # start xrdp on system start
 
 #Firewall configuration:   
-sudo ufw allow 3389
-
 # (dải ipv4 cho guacamole Server tới con VM cần điều khiển) 
 sudo ufw allow from 10.10.10.0/24 to any port 3389 
 sudo ufw allow from 10.10.11.0/24 to any port 3389 
@@ -57,9 +55,13 @@ sudo systemctl start openvswitch-switch
 systemctl restart systemd-networkd
 
 #Firewall configuration:
-sudo ufw allow 3389
-sudo ufw allow ssh
-
+sudo ufw allow from 10.10.10.0/24 to any port ssh 
+sudo ufw allow from 10.10.11.0/24 to any port ssh
+sudo ufw allow from 192.168.100.0/24 to any port ssh
+sudo ufw allow from 192.168.101.0/24 to any port ssh
+sudo ufw allow from 192.168.1.0/24 to any port ssh 
+sudo ufw allow from 192.168.2.0/24 to any port ssh  
+sudo ufw allow from 192.168.3.0/24 to any port ssh
 #sudo ufw enable 
 
 
