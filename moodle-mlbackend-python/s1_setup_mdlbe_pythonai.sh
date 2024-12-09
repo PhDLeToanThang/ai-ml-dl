@@ -62,8 +62,9 @@ sudo ufw allow from 192.168.101.0/24 to any port ssh
 sudo ufw allow from 192.168.1.0/24 to any port ssh 
 sudo ufw allow from 192.168.2.0/24 to any port ssh  
 sudo ufw allow from 192.168.3.0/24 to any port ssh
-#sudo ufw enable 
-
+sudo systemctl restart ssh
+sudo ufw enable 
+sudo systemctl restart ufw
 
 # Step 2 – Install Python 3.8
 # You can install whatever version of python3 best suits your requirements, by using deadsnakes PPA, we'll install python 3.8, First, add the PPA:
