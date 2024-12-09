@@ -110,3 +110,6 @@ pip3 install wheel
 pip3 install twine
 pip3 install pandas
 pip3 install numpy
+
+# check version supported
+pip3 list
