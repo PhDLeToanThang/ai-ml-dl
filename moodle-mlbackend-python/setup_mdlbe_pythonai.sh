@@ -5,6 +5,9 @@ sudo apt list --upgradable
 sudo apt autoremove -y
 sudo apt upgrade -y
 
+#####
+# Phage 1: Install tools for OS Linux:
+
 # Cấu hình Remote Desktop Access RDP 3389 tới máy chủ vật lý hoặc máy ảo Ubuntu 20.x/22.x LTS server
 # https://thangletoan.wordpress.com/2023/10/31/cau-hinh-remote-desktop-access-rdp-3389-toi-may-chu-vat-ly-hoac-may-ao-ubuntu-20-x-22-x-lts-server/
 sudo apt install xrdp -y
@@ -66,55 +69,44 @@ sudo systemctl restart ssh
 sudo ufw enable 
 sudo systemctl restart ufw
 
-# Step 2 – Install Python 3.8
+#####
+# Phage 2: Install Python 3.8
 # You can install whatever version of python3 best suits your requirements, by using deadsnakes PPA, we'll install python 3.8, First, add the PPA:
+# setp 1: add cert:
 
-# sudo add-apt-repository ppa:deadsnakes/ppa
-# Now, you can install the required version of Python:
+sudo add-apt-repository ppa:deadsnakes/ppa
 
-# sudo apt install python3.8 -y
+# Step 2 Now, you can install the required version of Python:
+sudo apt install python3.8 -y
+sudo apt install -y python3-pip
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
 
-# Gói moodle-mlbackend-python-3.0.5 via python 3.8, Pip 1.7.x support tensorflow 2.7.x:
-# How to package a new version
+# Setp 3. setup environment for python:
+sudo apt install -y python3-venv
+mkdir open-webui
+cd open-webui
+python3 -m venv open-webui
+ls open-webui
 
-## Requirements
-# * PyPi credentials (moodlehq) to publish the new packages (twine will ask for them)
-# * Install wheels and twine if they are not installed yet
+# step 4. install pip version 1.7 flow enviroment of python 3.8
+source open-webui/bin/activate
 
-#        pip install wheel
-#        pip install twine
+# Step 5.1. install manual:
+pip -V
+pip install tensorflow==2.7
+pip install numpy==1.19.2
+pip install matplotlib==3.0
+pip install boto3==1.19.0
+pip install urllib3==1.20
+pip install boto3==1.12.0
 
-## Release process
-# Make your changes and build the wheel (it generates the dist files)
+pip install flask==1.0.2
+pip install joblib==0.13.0
+pip install markupsafe==2.1.0
 
-#        python setup.py bdist_wheel --universal
-
-# Install your new wheel locally (need to have moodlemlbackend>=3.0.2,<3.0.3 in /tmp/requirements.txt)
-# 
-# pip install -r /tmp/requirements.txt --no-index --find-links dist/moodlemlbackend-3.0.2-py2.py3-none-any.whl
-
-# Run tests if any and make sure all passing
-#        python3 -mpytest
-
-# Add all new dist files, commit changes and push them upstream (create merge request).
-# Once approved upload the generated dist file (credentials required)
-
-#        twine upload dist/*
-
-# Ensure that the VERSION git tag has been created.
-# Verify that ```moodlemlbackend/VERSION``` version matches the new version and push tags
-# Update the required moodle-mlbackend package version in Moodle core (```REQUIRED_PIP_PACKAGE_VERSION``` constant version in \mlbackend_python\processor class)
-# More info about packaging and uploading as well as detailed instructions can be found in <https://packaging.python.org/tutorials/packaging-projects/>
-
-
-
-
-# tensorflow==2.7.*
-# sklearn
-# numpy>=1.19.2,<1.20
-# matplotlib>=3.0,<3.4
-# boto3>=1.9.0,<1.10
-# flask>=1.0.2,<2.0.0
-# pytest-flask
-# joblib>=0.13.0
-# markupsafe<2.1.0
+pip install sklearn
+pip install pytest-flask
+pip3 install wheel
+pip3 install twine
+pip3 install pandas
+pip3 install numpy
