@@ -95,7 +95,6 @@ pip -V
 pip install tensorflow==2.7
 pip install numpy==1.19.2
 pip install matplotlib==3.0
-pip install boto3==1.9.0
 pip install urllib3==1.20
 pip install boto3==1.9.253
 pip install botocore==1.12.253
