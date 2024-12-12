@@ -79,8 +79,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 # Step 2 Now, you can install the required version of Python:
 sudo apt install python3.8 -y
 sudo apt install -y python3-pip
-sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
-
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev libfreetype6-dev libpng-dev pkg-config
 # Setp 3. setup environment for python:
 sudo apt install -y python3-venv
 mkdir open-webui
@@ -113,3 +112,8 @@ pip3 install numpy
 
 # check version supported
 pip3 list
+pip install -U pip
+pip install Cython
+pip install scikit-learn
+pip install moodlemlbackend
+pip show moodlemlbackend
