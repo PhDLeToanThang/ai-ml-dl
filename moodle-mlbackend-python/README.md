@@ -21,17 +21,36 @@ Yêu cầu tham số Class xác định Host của Python Server / Ubuntu linux:
 ![image](https://github.com/user-attachments/assets/bb145abb-f2ed-4804-849f-c8be4aca4030)
 
 ```req
-tensorflow==2.7.1,<2.8
-scikit-learn>=0.21,<0.22
-numpy>=1.19.2,<1.20
-matplotlib>=3.0,<3.1
-boto3>=1.9.0,<1.10
-flask>=1.0.2,<1.1
-pytest-flask
-joblib>=0.13.0,<0.14
-markupsafe<2.1.0
-itsdangerous==2.0.1',
-Jinja2>=3.0.1,<3.1',
+pip -V
+pip install tensorflow==2.7
+pip install numpy==1.19.2
+pip install matplotlib==3.0
+pip install boto3==1.9.0
+pip install urllib3==1.20
+pip install boto3==1.9.253
+pip install botocore==1.12.253
+pip install flask==1.0.2
+pip install joblib==0.13.0
+pip install markupsafe==2.1.0
+pip install pandas==1.3
+pip install numpy==1.19.5
+
+pip install sklearn
+pip install pytest-flask==1.3.0
+pip3 install wheel=0.45.1
+pip3 install twine==3.0.0
+pip install jmespath== 0.10.0
+pip install docutils==0.15.2
+
+# check version supported
+pip3 list
+pip install -U pip
+pip install Cython
+pip install scikit-learn==0.21.3
+pip install moodlemlbackend
+pip install --upgrade --force-reinstall moodlemlbackend
+
+pip show moodlemlbackend
 ```
 **> Troubleshooting và FAQ:**
 > Sau khi cài đặt python, bạn cần cài đặt gói mlbackend (bao gồm tensorflow) trên máy chủ python này.
