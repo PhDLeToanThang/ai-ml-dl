@@ -73,7 +73,7 @@ sudo systemctl restart ufw
 # Phage 2: Install Python 3.8
 # You can install whatever version of python3 best suits your requirements, by using deadsnakes PPA, we'll install python 3.8, First, add the PPA:
 # setp 1: add cert:
-
+cd ~
 sudo add-apt-repository ppa:deadsnakes/ppa
 
 # Step 2 Now, you can install the required version of Python:
@@ -95,25 +95,41 @@ pip -V
 pip install tensorflow==2.7
 pip install numpy==1.19.2
 pip install matplotlib==3.0
-pip install boto3==1.19.0
+pip install boto3==1.9.0
 pip install urllib3==1.20
-pip install boto3==1.12.0
-
+pip install boto3==1.9.253
+pip install botocore==1.12.253
 pip install flask==1.0.2
 pip install joblib==0.13.0
 pip install markupsafe==2.1.0
+pip install pandas==1.3
+pip install numpy==1.19.5
 
 pip install sklearn
-pip install pytest-flask
-pip3 install wheel
-pip3 install twine
-pip3 install pandas
-pip3 install numpy
+pip install pytest-flask==1.3.0
+pip3 install wheel=0.45.1
+pip3 install twine==3.0.0
+pip install jmespath== 0.10.0
+pip install docutils==0.15.2
 
 # check version supported
 pip3 list
 pip install -U pip
 pip install Cython
-pip install scikit-learn
+pip install scikit-learn==0.21.3
 pip install moodlemlbackend
+pip install --upgrade --force-reinstall moodlemlbackend
+
 pip show moodlemlbackend
+#(open-webui) root@mdlbepy1:~/open-webui# pip show moodlemlbackend
+#Name: moodlemlbackend
+#Version: 3.0.5
+#Summary: Python machine learning backend used by mlbackend_python Moodle plugin
+#Home-page: https://github.com/moodlehq/moodle-mlbackend-python
+#Author: Moodle HQ
+#Author-email: integration@moodle.com
+#License: GPLv3
+#Location: /root/open-webui/open-webui/lib/python3.8/site-packages
+#Requires: boto3, flask, itsdangerous, Jinja2, joblib, matplotlib, numpy, scikit-learn, tensorflow
+#Required-by:
+#(open-webui) root@mdlbepy1:~/open-webui#
