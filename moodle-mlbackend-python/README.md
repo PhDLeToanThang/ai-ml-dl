@@ -17,6 +17,11 @@ Yêu cầu chuẩn bị Settup Python / Ubuntu linux
 Yêu cầu tham số Class xác định Host của Python Server / Ubuntu linux:
 
 **- Check PIP requirement version: 3.0.5**
+pip           20.0.2
+pkg-resources 0.0.0
+setuptools    44.0.0
+(open-webui) root@mdl:~# python3 -V
+Python 3.8.10
 
 ![image](https://github.com/user-attachments/assets/bb145abb-f2ed-4804-849f-c8be4aca4030)
 
