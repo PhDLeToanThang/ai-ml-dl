@@ -93,31 +93,31 @@ source open-webui/bin/activate
 # Step 5.1. install manual:
 pip -V
 pip install tensorflow==2.7
-pip install numpy==1.19.2
+pip install numpy==1.19.5
 pip install matplotlib==3.0
 pip install urllib3==1.20
+pip uninstall urllib3==2.2.3 
+pip install urllib3==1.21.1
 pip install boto3==1.9.253
 pip install botocore==1.12.253
 pip install flask==1.0.2
 pip install joblib==0.13.0
-pip install markupsafe==2.1.0
+pip install markupsafe==2.1.1
 pip install pandas==1.3
-pip install numpy==1.19.5
-
-pip install sklearn
 pip install pytest-flask==1.3.0
-pip3 install wheel=0.45.1
-pip3 install twine==3.0.0
-pip install jmespath== 0.10.0
+pip install wheel==0.45.1
+pip install twine==3.0.0
+pip install jmespath==0.10.0
 pip install docutils==0.15.2
+pip install -U pip
+pip install Cython==3.0.11
+pip install scikit-learn==0.21.3
 
 # check version supported
 pip3 list
-pip install -U pip
-pip install Cython
-pip install scikit-learn==0.21.3
+
 pip install moodlemlbackend
-pip install --upgrade --force-reinstall moodlemlbackend
+#pip install --upgrade --force-reinstall moodlemlbackend
 
 pip show moodlemlbackend
 #(open-webui) root@mdlbepy1:~/open-webui# pip show moodlemlbackend
