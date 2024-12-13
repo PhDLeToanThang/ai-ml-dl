@@ -1,6 +1,6 @@
-# Moodle /lib/mlbackend
+#1. Moodle /lib/mlbackend
 
-## mlbackend/python
+##1.1. mlbackend/python
 
 Yêu cầu về Version settup:
 
@@ -57,19 +57,35 @@ pip install moodlemlbackend
 
 pip show moodlemlbackend
 ```
-**> Troubleshooting và FAQ:**
+**>1.1.1. Troubleshooting và FAQ:**
 > Sau khi cài đặt python, bạn cần cài đặt gói mlbackend (bao gồm tensorflow) trên máy chủ python này.
 > TensorFlow và Tensorboard đều đã được cài đặt, cũng như MoodlemlBackend. Moodle và Python đều đã được cài đặt trên cùng một máy chủ hoặc cài ở máy chủ riêng.
 > 
-> **FAQ:**
+> **1.1.2. FAQ:**
 > vâng - nghe có vẻ như moodlemlbackend không chạy đúng - tên người dùng/mật khẩu mặc định được mã hóa cứng trong gói đó.
 > 
 > - Chúng tôi đã xây dựng các phiên bản gói của riêng mình và thả nó vào máy chủ bên ngoài thay vì trên máy cục bộ vì chúng tôi có nhiều giao diện web trên hầu hết các trang web của khách hàng.
 >   
 > - Chúng tôi cũng thay đổi mật khẩu mặc định _Tham khảo: Admins can change analytics settings and setup different machine learning backends (https://tracker.moodle.org/browse/MDLQA-11576)_
 
-## Các bước cài đặt Python 3.8 trên ubuntu 22.04
+##1.1.3. Các bước cài đặt Python 3.8 trên ubuntu 22.04
+_Tham khảo: https://github.com/moodlehq/moodle-mlbackend-python/tree/master_
 
-## mlbackend/php
+Source code bash shell chạy lệnh cài toàn bộ gói moodle-mlbackend-python3 trên ubuntu linux:
+
+##1.1.4. 
+_Thamg khảo: https://flask.palletsprojects.com/en/stable/tutorial/deploy/_
+
+##1.1.5. Cấu hình trên moodle 4.5:
+_Tham khảo: https://docs.moodle.org/405/en/Analytics_settings_
+
+![image](https://github.com/user-attachments/assets/9a9a8c9c-e82b-48c8-a057-925cf00ddd5b)
+
+
+Use MOODLE_MLBACKEND_PYTHON_USERS environment var to set a list of users and password (comma-separated). 
+The value is 'default:sshhhh' (user: default, password: sshhhh).
+
+
+##1.2. mlbackend/php
 
 
