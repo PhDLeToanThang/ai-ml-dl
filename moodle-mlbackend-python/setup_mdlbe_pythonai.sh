@@ -132,3 +132,9 @@ pip show moodlemlbackend
 #Requires: boto3, flask, itsdangerous, Jinja2, joblib, matplotlib, numpy, scikit-learn, tensorflow
 #Required-by:
 #(open-webui) root@mdlbepy1:~/open-webui#
+
+# check list
+cd ~
+cd open-webui/
+source open-webui/bin/activate
+pip show moodlemlbackend
