@@ -1,6 +1,14 @@
-# Python AI 
+# Python 3.11 với jupyter notebook:
+## Phần cài Python 3.11 trên Linux OS:
 
-## Cai Python 3.11:
+
+> Hướng dẫn chi tiết các bước cấu hình để tôi có thể publish web jupyter notebook khi hiện thời chỉ có http://localhost:8888/lab
+
+
+
+
+
+## Phần Cài Python 3.11 trên Windows OS:
 Hướng dẫn cài đặt Python 3.11 trên Windows 11:
 > **Bước 1. Tải và cài Python3.11 trên windows x64**
 - Tạo thư mục cd c:\python311
