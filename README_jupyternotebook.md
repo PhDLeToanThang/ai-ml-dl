@@ -21,6 +21,13 @@ sudo ufw allow from 192.168.101.0/24 to any port ssh
 sudo ufw allow from 192.168.1.0/24 to any port ssh 
 sudo ufw allow from 192.168.2.0/24 to any port ssh  
 sudo ufw allow from 192.168.3.0/24 to any port ssh
+sudo ufw allow from 10.10.10.0/24 to any port 8888 
+sudo ufw allow from 10.10.11.0/24 to any port 8888
+sudo ufw allow from 192.168.100.0/24 to any port 8888
+sudo ufw allow from 192.168.101.0/24 to any port 8888
+sudo ufw allow from 192.168.1.0/24 to any port 8888 
+sudo ufw allow from 192.168.2.0/24 to any port 8888  
+sudo ufw allow from 192.168.3.0/24 to any port 8888
 sudo systemctl restart ssh
 sudo ufw enable 
 sudo systemctl restart ufw
@@ -101,23 +108,24 @@ jupyter notebook --generate-config
 thêm 2 dòng cấu hình sau:
 ```
 c.NotebookApp.ip = '0.0.0.0' # để cho phép truy cập từ mọi IP.
-c.NotebookApp.port = 8888 để # cấu hình cổng truy cập.
+c.NotebookApp.port = 8888 #để cấu hình cổng truy cập.
 ```
 
 Khởi chạy Jupyter Notebook trên VM, sử dụng câu lệnh:
 ```
-jupyter notebook --no-browser --port=8888 # để khởi động Jupyter Notebook Server trên VM.
+jupyter notebook --no-browser --port=8888 --allow-root # để khởi động Jupyter Notebook Server trên VM.
 ```
 Để truy cập vào Jupyter Notebook từ trình duyệt, truy cập http://[địa chỉ IP của máy chủ]:8888.
 ```
 http://192.168.100.37:8888
 ```
 
-Tóm lại, Public Jupyter Notebook trên Web mạng nội bộ:
+> Tóm lại, Public Jupyter Notebook trên Web mạng nội bộ:
 Để public Jupyter Notebook, bạn có thể tạo một notebook mới hoặc mở notebook đã có.
 Khi bạn mở notebook, sẽ có một URL tương ứng hiển thị trên trình duyệt.
 Copy URL đó và chia sẻ cho người khác để họ có thể truy cập Jupyter Notebook của bạn trên web.
-**Lưu ý:** Việc cấu hình và public Jupyter Notebook trên Cloud yêu cầu kiến thức về quản trị hệ thống cơ bản. Đảm bảo bạn hiểu rõ về bảo mật và quản lý truy cập khi public một Jupyter Notebook trên internet.
+**Lưu ý:** Việc cấu hình và public Jupyter Notebook trên Cloud yêu cầu kiến thức về quản trị hệ thống cơ bản. 
+Đảm bảo bạn hiểu rõ về bảo mật và quản lý truy cập khi public một Jupyter Notebook trên internet.
 
 
 ## Phần Cài Python 3.11 trên Windows OS:
