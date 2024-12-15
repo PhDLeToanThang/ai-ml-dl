@@ -1,19 +1,19 @@
 # Python 3.11 với jupyter notebook:
 ## Phần cài Python 3.11 trên Linux OS:
+```
 sudo apt install ufw -y
 sudo apt install net-tools -y
 sudo apt install gparted -y
 sudo apt install qemu-guest-agent -y
 sudo apt install gedit -y
 sudo apt install ifupdown -y
-
 sudo apt remove libreoffice-* -y
-
 sudo apt-get install openvswitch-switch -y
 sudo systemctl start openvswitch-switch
 systemctl restart systemd-networkd
-
+```
 #Firewall configuration:
+```
 sudo ufw allow from 10.10.10.0/24 to any port ssh 
 sudo ufw allow from 10.10.11.0/24 to any port ssh
 sudo ufw allow from 192.168.100.0/24 to any port ssh
@@ -24,29 +24,35 @@ sudo ufw allow from 192.168.3.0/24 to any port ssh
 sudo systemctl restart ssh
 sudo ufw enable 
 sudo systemctl restart ufw
-
+```
 #####
 # Phage 2: Install Python 3.8
 # You can install whatever version of python3 best suits your requirements, by using deadsnakes PPA, we'll install python 3.8, First, add the PPA:
 # setp 1: add cert:
+```
 cd ~
 sudo add-apt-repository ppa:deadsnakes/ppa
-
+```
 # Step 2 Now, you can install the required version of Python:
+```
 sudo apt install python3.11 -y
 sudo apt install -y python3-pip
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev libfreetype6-dev libpng-dev pkg-config
+```
 # Setp 3. setup environment for python:
+```
 sudo apt install -y python3-venv
 mkdir pythonai
 cd pythonai
 python3 -m venv pythonai
 ls pythonai
-
-# step 4. install pip version 1.7 flow enviroment of python 3.8
+```
+# step 4. install pip version 1.7 flow enviroment of python 3.11
+```
 source pythonai/bin/activate
-
+```
 # Step 5.1. install manual:
+```
 pip -V
 pip install tensorflow
 pip install numpy
@@ -67,10 +73,10 @@ pip install -U pip
 pip install Cython
 pip install scikit-learn
 pip3 list
-
 cd ~
 cd pythonai/
 source pythonai/bin/activate
+```
 
 > Hướng dẫn chi tiết các bước cấu hình để tôi có thể publish web jupyter notebook khi hiện thời chỉ có http://localhost:8888/lab
 Để có thể public một Jupyter Notebook trên web khi bạn chỉ có localhost:8888/lab (tức là Jupyter Lab chạy trên máy của bạn), 
