@@ -26,3 +26,6 @@ A course module to integrate Jupyter notebooks within Moodle courses. This modul
 
 You can find more information on Jupyter and its notebook here : https://docs.jupyter.org/en/latest/
 
+## Troubleshooting:
+_Authenticator “invalid username or password” with users that are clearly valid_
+Xin hãy xem ở issue:  https://github.com/PhDLeToanThang/ai-ml-dl/issues/6
