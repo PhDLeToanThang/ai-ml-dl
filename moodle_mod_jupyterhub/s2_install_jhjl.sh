@@ -61,7 +61,7 @@ sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
 cd /opt/jupyterhub/etc/jupyterhub/
 
 #Sau đó tạo tệp cấu hình mặc định
-sudo /opt/jupyterhub/etc/jupyterhub --generate-config
+sudo /opt/jupyterhub/bin/jupyterhub --generate-config
 # Điều này sẽ tạo ra tệp cấu hình mặc định /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 # Đường dẫn tới file cấu hình
 config_file="/opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py"
