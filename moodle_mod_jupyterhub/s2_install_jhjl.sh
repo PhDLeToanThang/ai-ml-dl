@@ -78,7 +78,7 @@ else
 fi
 #Step 8. Thiết lập dịch vụ Systemd
 sudo mkdir -p /opt/jupyterhub/etc/systemd
-sudo cat > /opt/jupyterhub/etc/systemd/jupyterhub.service <<END
+sudo cat > /opt/jupyterhub/etc/systemd/jupyterhub.service <<EOF
 [Unit]
 Description=JupyterHub
 After=syslog.target network.target
@@ -90,7 +90,7 @@ ExecStart=/opt/jupyterhub/bin/jupyterhub -f /opt/jupyterhub/etc/jupyterhub/jupyt
 
 [Install]
 WantedBy=multi-user.target
-END
+EOF
 
 #  liên kết tượng trưng tệp của mình vào thư mục systemd:
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
