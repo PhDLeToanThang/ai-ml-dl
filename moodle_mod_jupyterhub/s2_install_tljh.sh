@@ -35,7 +35,7 @@ sudo systemctl start nginx.service
 sudo systemctl enable nginx.service
 
 #Step 2. Installing Python 
-sudo apt install python3 python3-dev git curl
+sudo apt install python3 python3-dev git curl -y
 
 #Step 3. Configuring Firewall
 ufw allow 80/tcp
