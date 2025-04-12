@@ -105,7 +105,7 @@ sudo systemctl enable jupyterhub.service
 sudo systemctl start jupyterhub.service
 
 # kiểm tra tình trạng dịch vụ:
-sudo systemctl status jupyterhub.service
+#sudo systemctl status jupyterhub.service
 
 #Phần 2: Môi trường Conda
 #Step 9. Cài đặt conda cho toàn bộ hệ thống
