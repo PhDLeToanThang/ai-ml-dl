@@ -47,7 +47,7 @@ sudo python3 -m venv /opt/jupyterhub/
 #Step 5. cài đặt các gói Python cần thiết vào môi trường ảo mới
 sudo /opt/jupyterhub/bin/python3 -m pip install numpy pandas matplotlib
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel
-sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab
+sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab jupyter-core
 sudo /opt/jupyterhub/bin/python3 -m pip install ipywidgets
 
 #Step 6. JupyterHub hiện cũng mặc định yêu cầu configurable-http-proxy, cần nodejsvà npm. 
@@ -76,6 +76,7 @@ else
     echo "c.Spawner.default_url = '/lab'" >> "$config_file"
     echo "Đã thêm c.Spawner.default_url vào file cấu hình."
 fi
+
 #Step 8. Thiết lập dịch vụ Systemd
 sudo mkdir -p /opt/jupyterhub/etc/systemd
 sudo cat > /opt/jupyterhub/etc/systemd/jupyterhub.service <<EOF
@@ -140,8 +141,8 @@ sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix /usr/local/
 # người dùng sẽ phải thiết lập môi trường của riêng họ bằng shell. 
 # Khi đăng nhập, họ phải chạy. 
 # Sau đó, họ có thể sử dụng conda để thiết lập môi trường của họ, mặc dù họ cũng phải cài đặt 
-# Sau khi hoàn tất, họ có thể kích hoạt kernel của mình bằng cách sử dụng:conda init/opt/conda/bin/condaipykernel
-/path/to/kernel/env/bin/python -m ipykernel install --name 'python-my-env' --display-name "Python My Env"
+# Sau khi hoàn tất, họ có thể kích hoạt kernel của mình bằng cách sử dụng:conda init/opt/conda/bin/conda/ipykernel
+sudo /opt/conda/envs/python/bin/python -m ipykernel install --name 'python-my-env' --display-name "Python My Env"
 
 #Step 11. Thiết lập proxy ngược, Sử dụng Nginx:
 # Đầu tiên, chỉnh sửa tệp cấu hình /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
@@ -192,5 +193,5 @@ echo "}"  >> /etc/nginx/sites-available/$FQDN.conf
 
 sudo nginx -t
 sudo systemctl restart nginx.service
-
+sudo certbot --nginx -n -d $FQDN --email $emailcertbot --agree-tos --redirect --hsts
 fi
