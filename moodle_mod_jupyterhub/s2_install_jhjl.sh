@@ -75,7 +75,7 @@ else
     # Nếu không tìm thấy, thêm dòng mới vào cuối file
     echo "c.Spawner.default_url = '/lab'" >> "$config_file"
     echo "Đã thêm c.Spawner.default_url vào file cấu hình."
-
+fi
 #Step 8. Thiết lập dịch vụ Systemd
 sudo mkdir -p /opt/jupyterhub/etc/systemd
 sudo cat > /opt/jupyterhub/etc/systemd/jupyterhub.service <<END
@@ -155,7 +155,7 @@ else
     # Nếu không tìm thấy, thêm dòng mới vào cuối file
     echo "c.JupyterHub.bind_url = 'http://:8000/jupyter'" >> "$config_file"
     echo "Đã thêm c.JupyterHub.bind_url vào file cấu hình."
-	
+fi	
 echo "map $http_upgrade $connection_upgrade{		"  >> /etc/nginx/sites-available/$FQDN.conf
 echo "default upgrade;								"  >> /etc/nginx/sites-available/$FQDN.conf
 echo "'' close;       								"  >> /etc/nginx/sites-available/$FQDN.conf 
