@@ -13,6 +13,10 @@ echo "admin-username: e.g: admin"   # Tên Admin User access Jupyterhub
 read -e adminusername
 echo "admin-password: e.g: P@$$w0rd-1.22"
 read -s adminpass
+echo "user name: e.g: user"   # Tên User access Jupyterhub
+read -e usernamejh
+echo "user-password: e.g: P@$$w0rd-1.22"
+read -s userpassjh
 echo "Your Email address fro Certbot e.g: thang@company.vn" # Địa chỉ email của bạn để quản lý CA
 read -e emailcertbot
 
@@ -47,7 +51,7 @@ sudo python3 -m venv /opt/jupyterhub/
 #Step 5. cài đặt các gói Python cần thiết vào môi trường ảo mới
 sudo /opt/jupyterhub/bin/python3 -m pip install numpy pandas matplotlib
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel
-sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab jupyter-core
+sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab jupyter-core jupyterhub-idle-culler
 sudo /opt/jupyterhub/bin/python3 -m pip install ipywidgets
 
 #Step 6. JupyterHub hiện cũng mặc định yêu cầu configurable-http-proxy, cần nodejsvà npm. 
@@ -157,41 +161,72 @@ else
     echo "c.JupyterHub.bind_url = 'http://:8000/jupyter'" >> "$config_file"
     echo "Đã thêm c.JupyterHub.bind_url vào file cấu hình."
 fi	
-echo "map $http_upgrade $connection_upgrade{"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "default upgrade;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "'' close;"  >> /etc/nginx/sites-available/$FQDN.conf 
-echo "}"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "server {"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "listen 80 default_server;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    listen [::]:80 default_server;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    # Root directory của website"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    root /var/www/html;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    # File index mặc định"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "index.html index.htm index.nginx-debian.html;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    # Tên miền hoặc IP"  >> /etc/nginx/sites-available/$FQDN.conf
-echo '    server_name '$FQDN';'  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    # Cấu hình xử lý lỗi"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    location / {"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "        try_files $uri $uri/ =404;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    }"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "	location /jupyter/ {"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "# NOTE important to also set base url"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "# of jupyterhub to /jupyter in its config"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    proxy_pass http://127.0.0.1:8000;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    proxy_redirect   off;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    proxy_set_header X-Real-IP $remote_addr;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    proxy_set_header Host $host;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "proxy_set_header X-Forwarded-Proto $scheme;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    # websocket headers"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    proxy_set_header Upgrade $http_upgrade;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "proxy_set_header Connection $connection_upgrade;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    }"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "    error_log /var/log/nginx/error.log;"  >> /etc/nginx/sites-available/$FQDN.conf	
-echo "    access_log /var/log/nginx/access.log;"  >> /etc/nginx/sites-available/$FQDN.conf
-echo "}"  >> /etc/nginx/sites-available/$FQDN.conf		
+
+# Đường dẫn tới file jupyterhub_config.py
+CONFIG_FILE="/opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py"
+
+# Các tham số cần thêm vào file
+PARAMS="
+# Các tham số cấu hình mới
+c.Authenticator.allowed_users = {'${adminusername}','${usernamejh}'} 
+c.Authenticator.admin_users = {'${adminusername}'}
+c.PAMAuthenticator.admin_groups = {'wheel'}
+#If JupyterHub.admin_access is set to True, then admins have permission to log in as other users on their respective machines, for debugging
+JupyterHub.admin_access = True
+#Use LocalAuthenticator to create system users
+c.LocalAuthenticator.create_system_users = True
+#Spawners and single-user notebook servers
+c.Spawner.notebook_dir = '~/notebooks'
+c.JupyterHub.ip = '192.168.100.26'
+c.JupyterHub.hub_ip = '0.0.0.0' 
+c.JupyterHub.port = 443
+"
+# Ghi thêm vào cuối file
+echo "$PARAMS" >> "$CONFIG_FILE"
+echo "Cấu hình đã được thêm vào $CONFIG_FILE"
+
+# Tham khảo: https://jupyterhub.readthedocs.io/en/1.2.1/reference/config-proxy.html
+
+echo "map $http_upgrade \$connection_upgrade{"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "default upgrade;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "'' close;"  >> /etc/nginx/sites-enabled/$FQDN.conf 
+echo "}"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "server {"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    listen 80;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # Root directory của website"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    root /var/www/html/;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # File index mặc định"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    index.html index.htm index.nginx-debian.html;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # Tên miền hoặc IP"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo '    server_name '$FQDN';'  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # Cấu hình xử lý lỗi"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    location / {"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "        try_files $uri $uri/ =404;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    }"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "	  location /jupyter/ {"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # NOTE important to also set base url"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # of jupyterhub to /jupyter in its config"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_pass http://127.0.0.1:8000;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_redirect   off;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_set_header X-Real-IP $remote_addr;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_set_header Host \$host;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_set_header X-Forwarded-Proto \$scheme;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    # websocket headers"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_set_header upgrade \$http_upgrade;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    proxy_set_header connection \$connection_upgrade;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    }"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "    error_log /var/log/nginx/error.log;"  >> /etc/nginx/sites-enabled/$FQDN.conf	
+echo "    access_log /var/log/nginx/access.log;"  >> /etc/nginx/sites-enabled/$FQDN.conf
+echo "}"  >> /etc/nginx/sites-enabled/$FQDN.conf		
 
 sudo nginx -t
 sudo systemctl restart nginx.service
+
+# Install gdal from conda-forge.
+#sudo -E conda install -c conda-forge gdal
+# Install there with pip
+#sudo -E pip install there
+sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -n -d $FQDN --email $emailcertbot --agree-tos --redirect --hsts
 fi
