@@ -240,3 +240,16 @@ You can copy this XML and import it directly into draw.io to view, edit, and mai
 ### Save file or change extention file .xml > .drawio
 - Dùng Drawio mở file .drawio và chỉnh sửa
 
+![image](https://github.com/user-attachments/assets/ff50cd66-593e-4832-aba4-73eb49c4c963)
+
+- Sau đó Export dưới dạng XML:
+  
+![image](https://github.com/user-attachments/assets/3ea7e319-d34d-4679-941f-9a4c16c0cc01)
+
+- Mở nội dung XML có:
+
+![image](https://github.com/user-attachments/assets/c7b3b68e-73c7-4f37-9fd3-e070a44c68f5)
+
+- Cuối cùng đẩy file XML lên github:
+
+
