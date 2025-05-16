@@ -252,4 +252,28 @@ You can copy this XML and import it directly into draw.io to view, edit, and mai
 
 - Cuối cùng đẩy file XML lên github:
 
+![image](https://github.com/user-attachments/assets/26f6f3ca-5cda-447a-ac2c-125896b3dc3e)
 
+- Lấy URL Link của file XML trên raw.github
+
+>> trên github.com tôi có thể đưa hình ảnh hiển thị của drawio dạng file xml?
+bạn có thể đưa tệp Draw.io (.xml) lên GitHub và vẫn hiển thị hình ảnh trực tiếp bằng cách sử dụng Draw.io GitHub Integration hoặc Markdown hỗ trợ Draw.io.
+
+Cách tải lên tệp Draw.io (.xml) lên GitHub
+1️⃣ Tải lên tệp .drawio hoặc .xml
+
+Bạn có thể tải lên tệp .xml trên GitHub như một tệp thông thường.
+
+Nếu muốn chỉnh sửa trực tiếp trên GitHub, hãy đổi định dạng thành .drawio để tương thích với Diagrams.net (Draw.io).
+
+2️⃣ Hiển thị hình ảnh Draw.io trên GitHub
+
+Bạn có thể xuất hình ảnh từ Draw.io dưới dạng .png hoặc .svg rồi chèn vào README bằng Markdown:
+
+markdown
+![Diagram](https://raw.githubusercontent.com/username/repository/main/diagram.png)
+3️⃣ Sử dụng Draw.io trực tiếp trên GitHub
+
+Draw.io GitHub Plugin cho phép mở và chỉnh sửa .drawio ngay trong trình duyệt.
+
+Khi mở .drawio trên GitHub, bạn có thể chọn Edit using Draw.io để chỉnh sửa trực tiếp.
