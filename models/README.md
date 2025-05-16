@@ -271,7 +271,7 @@ Nếu muốn chỉnh sửa trực tiếp trên GitHub, hãy đổi định dạn
 Bạn có thể xuất hình ảnh từ Draw.io dưới dạng .png hoặc .svg rồi chèn vào README bằng Markdown:
 
 markdown
-![Diagram](https://raw.githubusercontent.com/username/repository/main/diagram.png)
+![Diagram](https://raw.githubusercontent.com/PhDLeToanThang/ai-ml-dl/refs/heads/main/models/Models_AI-Private_KNIME-AI-Assistant.drawio.svg)
 3️⃣ Sử dụng Draw.io trực tiếp trên GitHub
 
 Draw.io GitHub Plugin cho phép mở và chỉnh sửa .drawio ngay trong trình duyệt.
