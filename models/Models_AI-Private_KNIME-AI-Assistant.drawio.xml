@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.5">
+  <diagram id="AI-Classification-Model" name="AI Classification Model">
+    <mxGraphModel dx="1924" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-42" value="AI Agent cài ở Máy Chủ/Workstation nội bộ hoặc PC/Desktop" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=light-dark(#ccfdc9, #1f2f1e);strokeColor=#82b366;fontStyle=1;verticalAlign=bottom;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-41" y="319.5" width="830" height="545.5" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-24" value="AI Community for DEV-OPS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=light-dark(#66B2FF,#1F2F1E);strokeColor=light-dark(#b1d2ec, #446e2c);fontStyle=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-398" y="139" width="600" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;startArrow=classic;startFill=1;flowAnimation=1;" parent="1" source="nT6M87x5yDTAYBqzXqaO-21" target="nT6M87x5yDTAYBqzXqaO-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-21" value="AI Public" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=light-dark(#a2cdfb, #1f2f1e);strokeColor=#82b366;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-808" y="140" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="AI Classification Model" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="186" y="20" width="380" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="public-ai" value="Clone Models&amp;nbsp;&lt;div&gt;AI Public&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-17" y="340" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="private-ai" value="AI Host Owner" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=light-dark(#46b6fb, #1f2f1e);strokeColor=#82b366;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="257" y="140" width="465" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-assistant" value="AI Assistant&amp;nbsp;&lt;div&gt;Nhúng vào API&lt;br&gt;Desktop/Server&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="523" y="338" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ollama-models-container" value="Ollama Models" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-17" y="427" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;flowAnimation=1;" parent="1" source="model-3-2-1b" target="ollama-agent" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-8" value="DIMM RAM 3/4/5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontStyle=1" parent="TeGabMCdm9SQdb1AhYYS-7" vertex="1" connectable="0">
+          <mxGeometry x="-0.3333" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="model-3-2-1b" value="3.2:1b" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" parent="1" vertex="1">
+          <mxGeometry x="-17" y="586" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="model-7b" value="7b" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" parent="1" vertex="1">
+          <mxGeometry x="93" y="507" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="model-32b" value="32b" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" parent="1" vertex="1">
+          <mxGeometry x="93" y="567" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;" parent="1" source="model-70b" target="ollama-agent" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-4" value="DDRAM 4/5/6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontStyle=1" parent="TeGabMCdm9SQdb1AhYYS-1" vertex="1" connectable="0">
+          <mxGeometry x="-0.3918" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="model-70b" value="70b" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333" parent="1" vertex="1">
+          <mxGeometry x="93" y="626" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;startArrow=classic;startFill=1;dashed=1;" parent="1" source="ollama-agent" target="note-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ollama-agent" value="Ollama Agent" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-7" y="713" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" parent="1" source="note-3" target="nT6M87x5yDTAYBqzXqaO-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;startArrow=classic;startFill=1;" parent="1" source="open-webui" target="note-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-10" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span&gt;API Key : /api/generate&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span&gt;Prompt&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontStyle=0" parent="TeGabMCdm9SQdb1AhYYS-9" vertex="1" connectable="0">
+          <mxGeometry x="-0.0968" y="3" relative="1" as="geometry">
+            <mxPoint x="43" y="-78" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="open-webui" value="Open-webui" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-7" y="791.5" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="private-local" value="AI Private local&#xa;(No Internet)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="257" y="340" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="knime-server" value="KNIME Portal Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="448" y="217" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="local-lan" value="Local Only LAN" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="267" y="460" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;" parent="1" source="local-clients" target="note-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="local-clients" value="Laptops/Desktop PCs" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="267" y="544" width="180" height="40" as="geometry" />
+        </mxCell>
+        <UserObject label="KNIME AI Assistant" link="https://auth.hub.knime.com/auth/" linkTarget="_blank" id="knime-assistant">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" parent="1" vertex="1">
+            <mxGeometry x="542" y="439" width="160" height="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="knime-desktop" value="KNIME Data Analytics&#xa;Platform for Desktop" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="533" y="523" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;" parent="1" source="knime-local" target="note-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-32" value="&lt;font face=&quot;Helvetica&quot;&gt;Visualization + Dashboard&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="TeGabMCdm9SQdb1AhYYS-12" vertex="1" connectable="0">
+          <mxGeometry x="-0.2069" y="-4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="knime-local" value="KNIME AI Assistant&#xa;running local" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="533" y="601" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="conn-public-to-models" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="public-ai" target="ollama-models-container" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-models-to-sizes" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="ollama-models-container" target="model-3-2-1b" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="647" as="sourcePoint" />
+            <mxPoint x="383" y="597" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-3" value="CPU&lt;div&gt;RAM&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontStyle=1" parent="conn-models-to-sizes" vertex="1" connectable="0">
+          <mxGeometry x="-0.0619" y="-4" relative="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-models-to-7b" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="ollama-models-container" target="model-7b" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="647" as="sourcePoint" />
+            <mxPoint x="383" y="597" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-5" value="GPU" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontStyle=1" parent="conn-models-to-7b" vertex="1" connectable="0">
+          <mxGeometry x="-0.0941" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-models-to-agent" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="model-32b" target="model-70b" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="647" as="sourcePoint" />
+            <mxPoint x="383" y="597" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-models-to-webui" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="ollama-agent" target="open-webui" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="647" as="sourcePoint" />
+            <mxPoint x="383" y="597" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TeGabMCdm9SQdb1AhYYS-11" value="Localhost / LAN" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;" parent="conn-models-to-webui" vertex="1" connectable="0">
+          <mxGeometry x="0.3333" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-private-to-local" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;flowAnimation=1;exitPerimeter=0;" parent="1" source="nT6M87x5yDTAYBqzXqaO-28" target="private-local" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-local-to-server" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;flowAnimation=1;" parent="1" source="private-local" target="knime-server" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-server-to-lan" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;flowAnimation=1;" parent="1" source="private-local" target="local-lan" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-lan-to-clients" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;flowAnimation=1;" parent="1" source="local-lan" target="local-clients" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-assistant-to-knime" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;flowAnimation=1;" parent="1" source="ai-assistant" target="knime-assistant" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-knime-to-desktop" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;flowAnimation=1;" parent="1" source="knime-assistant" target="knime-desktop" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-desktop-to-local" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;flowAnimation=1;" parent="1" source="knime-desktop" target="knime-local" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-private-to-assistant" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;dashed=1;flowAnimation=1;startArrow=classic;startFill=1;" parent="1" source="local-clients" target="knime-local" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="402" y="610" />
+              <mxPoint x="472" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn-server-to-knime" value="&lt;font&gt;&lt;span&gt;Upload, Import/Export&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font&gt;&lt;span&gt;Share Projects&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;dashed=1;flowAnimation=1;startArrow=classic;startFill=1;fontStyle=0;fontSize=11;" parent="1" source="knime-server" target="knime-desktop" edge="1">
+          <mxGeometry x="0.0328" y="-1" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="333" y="617" as="sourcePoint" />
+            <mxPoint x="383" y="567" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="473" y="527" />
+              <mxPoint x="473" y="532" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note-1" value="AI Classification Model with Ollama and KNIME AI Assistant Integration" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2" parent="1" vertex="1">
+          <mxGeometry x="186" y="60" width="416" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note-2" value="Local Environment&lt;div&gt;Python, R, Go, C++&lt;/div&gt;" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="290" y="640" width="135" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;startArrow=classic;startFill=1;dashed=1;" parent="1" source="note-4" target="nT6M87x5yDTAYBqzXqaO-30" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="732" y="732" />
+              <mxPoint x="732" y="237" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Power BI Desktop&lt;div&gt;Integration LLM AI Local&lt;/div&gt;" link="https://pbi.cloud.edu.vn" linkTarget="_blank" id="note-4">
+          <mxCell style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1" parent="1" vertex="1">
+            <mxGeometry x="532" y="718" width="180" height="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;flowAnimation=1;" parent="1" source="nT6M87x5yDTAYBqzXqaO-2" target="public-ai" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-150" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-45" value="&lt;font face=&quot;Helvetica&quot;&gt;Tạo mới AI Models&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="nT6M87x5yDTAYBqzXqaO-6" vertex="1" connectable="0">
+          <mxGeometry x="0.1947" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;startArrow=classic;startFill=1;" parent="1" source="nT6M87x5yDTAYBqzXqaO-2" target="note-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;span&gt;&lt;span&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 18px;&quot;&gt;ollama.com&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" link="https://ollama.com/search" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-2">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-248" y="238" width="159" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;" parent="1" source="nT6M87x5yDTAYBqzXqaO-4" target="public-ai" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;span&gt;&lt;span&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 18px;&quot;&gt;n8n.io&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" link="https://n8n.io/" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-4">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-48" y="230" width="104" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;startArrow=classic;startFill=1;" parent="1" source="nT6M87x5yDTAYBqzXqaO-8" target="public-ai" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;span style=&quot;font-size: 18px;&quot;&gt;MCP&lt;/span&gt;" link="https://modelcontextprotocol.io/" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-8">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="90.5" y="230" width="85" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;span&gt;&lt;span&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 18px;&quot;&gt;open-webui&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" link="https://docs.openwebui.com/" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-12">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-395" y="240" width="159" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.55;entryY=0.95;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;entryPerimeter=0;startArrow=classic;startFill=1;" parent="1" source="open-webui" target="note-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-7" y="812" as="sourcePoint" />
+            <mxPoint x="-321" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note-3" value="With Internet&lt;div&gt;for Web Search&lt;/div&gt;&lt;div&gt;or Update version&lt;/div&gt;" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="-270" y="427" width="120" height="60" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;span style=&quot;font-size: 18px;&quot;&gt;OpenAI&lt;/span&gt;" link="https://openai.com/" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-17">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-798" y="226" width="100" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;span style=&quot;font-size: 18px;&quot;&gt;poe.com&lt;/span&gt;" link="https://poe.com" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-18">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-788" y="157" width="100" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;" parent="1" source="nT6M87x5yDTAYBqzXqaO-19" target="public-ai" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-46" value="&lt;font face=&quot;Helvetica&quot;&gt;Tạo mới Data Sets&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="nT6M87x5yDTAYBqzXqaO-20" vertex="1" connectable="0">
+          <mxGeometry x="-0.0028" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Hugging Face&amp;nbsp;" link="https://huggingface.co/" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-19">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=1" parent="1" vertex="1">
+            <mxGeometry x="-158" y="178" width="159" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;span style=&quot;font-size: 18px;&quot;&gt;DeepSeek&lt;/span&gt;" link="https://www.deepseek.com/en" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-23">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-633" y="148" width="135" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;span style=&quot;font-size: 18px;&quot;&gt;Copilot&lt;/span&gt;" link="https://copilot.microsoft.com" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-27">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="-648" y="227" width="135" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-28" value="&lt;span style=&quot;font-family: Helvetica; font-size: 18px; font-weight: 700;&quot;&gt;Private AI&lt;/span&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="1" vertex="1">
+          <mxGeometry x="290" y="216" width="125" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-30" value="Power BI Report Server" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="572" y="217" width="110" height="40" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;span style=&quot;font-size: 18px;&quot;&gt;KNIME HUB&lt;/span&gt;" link="https://modelcontextprotocol.io/" linkTarget="_blank" id="nT6M87x5yDTAYBqzXqaO-33">
+          <mxCell style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontSize=12;fontStyle=0" parent="1" vertex="1">
+            <mxGeometry x="22" y="156" width="150" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.625;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;exitX=1;exitY=0.5;exitDx=0;exitDy=0;flowAnimation=1;startArrow=classic;startFill=1;" parent="1" source="knime-assistant" target="nT6M87x5yDTAYBqzXqaO-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="762" y="452" />
+              <mxPoint x="762" y="100" />
+              <mxPoint x="116" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-37" value="SSO&lt;div&gt;Cấp Token&lt;/div&gt;&lt;div&gt;Authenticate&lt;/div&gt;&lt;div&gt;SAML&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;fontStyle=1" parent="nT6M87x5yDTAYBqzXqaO-36" vertex="1" connectable="0">
+          <mxGeometry x="-0.6821" y="-4" relative="1" as="geometry">
+            <mxPoint x="16" y="-63" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-38" value="Cần Internet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;" parent="nT6M87x5yDTAYBqzXqaO-36" vertex="1" connectable="0">
+          <mxGeometry x="-0.794" y="-1" relative="1" as="geometry">
+            <mxPoint x="9" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.875;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;startArrow=classic;startFill=1;flowAnimation=1;" parent="1" source="knime-server" target="nT6M87x5yDTAYBqzXqaO-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="498" y="186" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-41" value="&lt;font face=&quot;Helvetica&quot;&gt;Active/Check License&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;" parent="nT6M87x5yDTAYBqzXqaO-39" vertex="1" connectable="0">
+          <mxGeometry x="0.5329" y="-1" relative="1" as="geometry">
+            <mxPoint x="81" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-54" value="Workstation PC (GPU support ML/DL)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="269.5" y="780" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;flowAnimation=1;startArrow=classic;startFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="ollama-models-container" target="nT6M87x5yDTAYBqzXqaO-54" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="102" y="909" as="sourcePoint" />
+            <mxPoint x="287" y="780" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="222" y="452" />
+              <mxPoint x="222" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-56" value="&lt;font face=&quot;Helvetica&quot;&gt;&lt;span&gt;API Key : /api/generate&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;Helvetica&quot;&gt;&lt;span&gt;Prompt&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontStyle=0" parent="nT6M87x5yDTAYBqzXqaO-55" vertex="1" connectable="0">
+          <mxGeometry x="-0.0968" y="3" relative="1" as="geometry">
+            <mxPoint x="43" y="-78" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nT6M87x5yDTAYBqzXqaO-57" value="LLM Training&lt;div&gt;Sửa/ Nâng cấp&lt;/div&gt;&lt;div&gt;Ollama Model&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Helvetica;" parent="nT6M87x5yDTAYBqzXqaO-55" vertex="1" connectable="0">
+          <mxGeometry x="-0.0832" y="-3" relative="1" as="geometry">
+            <mxPoint x="3" y="117" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
