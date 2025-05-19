@@ -1,6 +1,6 @@
 # Model YOLO của Ul
 
->> Hãy vẽ sơ đồ Software Architecture solution overview về Camere IP kết nối với PC có cài phần mềm Zoneminder, Shinobi để quản lý video trên linux ubuntu rồi cấu hình các tính năng và các loại Camera ip khác nhau (Ezviz 360, HKvision, Avision ... ) rồi xửu lý Object Dection + Object Counter + Object Tracking Line khi các Object Data Set di chuyển, rồi tự động chia nhỏ các file video mp4 theo phút/giờ / Frameset < 30 và lưu vào QNAS / Synology storage theo files/folders mp4 rồi có thể đồng bộ sang hệ thống lưu trữ Storage khác qua VPN network để PC Agent AI có thể chạy pyhton pycharm+pyspark và có cv2+ FFmpeg + OpenCV.
+>> Hãy vẽ sơ đồ Software Architecture solution overview về Camere IP kết nối với PC có cài phần mềm Zoneminder, Shinobi để quản lý video trên linux ubuntu rồi cấu hình các tính năng và các loại Camera ip khác nhau (Ezviz 360, HKvision, Avision ... ) rồi xử lý Object Detection + Object Counter + Object Tracking Line khi các Object Data Set di chuyển, rồi tự động chia nhỏ các file video mp4 theo phút/giờ / Frameset < 30 và lưu vào QNAS / Synology storage theo files/folders mp4 rồi có thể đồng bộ sang hệ thống lưu trữ Storage khác qua VPN network để PC Agent AI có thể chạy pyhton pycharm+pyspark và có cv2+ FFmpeg + OpenCV.
 
 >>https://poe.com/Drawio
 
