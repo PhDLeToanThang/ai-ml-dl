@@ -4,7 +4,6 @@
 
 >>https://poe.com/Drawio
 
-
 ### This draw.io diagram includes:
 
 This DrawIO XML diagram represents a software architecture solution for IP cameras connecting to a PC with Zoneminder and Shinobi on Ubuntu Linux. The diagram includes:
@@ -12,7 +11,6 @@ This DrawIO XML diagram represents a software architecture solution for IP camer
 1. IP Cameras section (Ezviz 360, Hikvision, Avision...)
 
 2. Ubuntu Linux Server in Pi5 with:
-
 - Video Management Software (Zoneminder, Shinobi)
 - Video Processing Pipeline (FFmpeg, OpenCV, cv2)
 - AI capabilities (Object Detection, Counting, Tracking)
@@ -60,11 +58,10 @@ Nếu muốn chỉnh sửa trực tiếp trên GitHub, hãy đổi định dạn
 
 Bạn có thể xuất hình ảnh từ Draw.io dưới dạng .png hoặc .svg rồi chèn vào README bằng Markdown:
 
-markdown
-![Diagram](https://raw.githubusercontent.com/PhDLeToanThang/ai-ml-dl/refs/heads/main/models/Models_AI-Private_KNIME-AI-Assistant.drawio.svg)
+![Diagram CameraIP_Object-Detection_Object-Conter_Object-TrackingLine](https://github.com/user-attachments/assets/2172d05e-466d-4857-847d-798e068b3645)
+
 3️⃣ Sử dụng Draw.io trực tiếp trên GitHub
 
 Draw.io GitHub Plugin cho phép mở và chỉnh sửa .drawio ngay trong trình duyệt.
 
 Khi mở .drawio trên GitHub, bạn có thể chọn Edit using Draw.io để chỉnh sửa trực tiếp.
-
