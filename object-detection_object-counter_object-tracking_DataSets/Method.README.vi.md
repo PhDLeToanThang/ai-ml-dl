@@ -1,6 +1,7 @@
 # Model YOLO của Ul
 
 >> Vẽ sơ đồ 2 phương án giúp tôi theo nội dung sau:
+
 Phương án 1 (A):
 1. Thuê dịch vụ Camera IP loại có thể ghi hình trên Cloud Storage.
 2. Thuê dịch vụ lưu trữ Video MP4 trên Cloud Storage theo dung lượng Web HTTPS (Minio / S3 storage).
@@ -41,6 +42,7 @@ Phương án 2 (B):
 bạn có thể đưa tệp Draw.io (.xml) lên GitHub và vẫn hiển thị hình ảnh trực tiếp bằng cách sử dụng Draw.io GitHub Integration hoặc Markdown hỗ trợ Draw.io.
 
 Cách tải lên tệp Draw.io (.xml) lên GitHub
+
 1️⃣ Tải lên tệp .drawio hoặc .xml
 
 Bạn có thể tải lên tệp .xml trên GitHub như một tệp thông thường.
@@ -51,7 +53,7 @@ Nếu muốn chỉnh sửa trực tiếp trên GitHub, hãy đổi định dạn
 
 Bạn có thể xuất hình ảnh từ Draw.io dưới dạng .png hoặc .svg rồi chèn vào README bằng Markdown:
 
-![Diagram CameraIP_Object-Detection_Object-Conter_Object-TrackingLine](https://github.com/user-attachments/assets/2172d05e-466d-4857-847d-798e068b3645)
+![Diagram Method_Object-Conter_Object-TrackingLine](https://raw.githubusercontent.com/PhDLeToanThang/ai-ml-dl/refs/heads/main/object-detection_object-counter_object-tracking_DataSets/MethodAB_CameraIP_Object-Detection_Object-Conter_Object-TrackingLine.drawio.svg)
 
 3️⃣ Sử dụng Draw.io trực tiếp trên GitHub
 
