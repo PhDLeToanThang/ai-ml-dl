@@ -5,6 +5,7 @@
 Có thể chia 1 card NVIDIA A30 24GB GPU thành 4 phần tài nguyên để sử dụng cho 4 VMs trên vSphere 7.x / 8.x, nhưng cần chọn đúng chế độ vGPU hoặc MIG và cài đặt driver NVIDIA vGPU phù hợp2.
 
 🔹 Các chế độ GPU có thể sử dụng:
+
 ✅ NVIDIA vGPU (Virtual GPU):
 
 - Chia sẻ GPU theo cách động, giúp nhiều VMs sử dụng GPU cùng lúc.
@@ -95,23 +96,31 @@ Việc triển khai NVIDIA vGPU và MIG (Multi-Instance GPU) trên VMware vSpher
 
 ✅ VMware Bitfusion không bắt buộc, nhưng hữu ích nếu muốn GPU-as-a-Service.
 
-VMware vSphere 7 with NVIDIA Multi-Instance GPUs (MIG) for Machine Learning Applications:
+Tham khảo blogs:
+
+- VMware vSphere 7 with NVIDIA Multi-Instance GPUs (MIG) for Machine Learning Applications:
 https://blogs.vmware.com/vsphere/2020/09/vmware-vsphere-7-u1-with-nvidia-multi-instance-gpus-mig-for-machine-learning-applications.html
 
-vSphere 7 with Multi-Instance GPUs (MIG) on the NVIDIA A100 for Machine Learning Applications – Part 1: Introduction
+- vSphere 7 with Multi-Instance GPUs (MIG) on the NVIDIA A100 for Machine Learning Applications – Part 1: Introduction
 https://blogs.vmware.com/apps/2020/09/vsphere-7-0-u1-with-multi-instance-gpus-mig-on-the-nvidia-a100-for-machine-learning-applications-part-1-introduction.html
 
-Using GPUs with Virtual Machines on vSphere – Part 2: VMDirectPath I/O
+- Using GPUs with Virtual Machines on vSphere – Part 2: VMDirectPath I/O
 https://blogs.vmware.com/apps/2018/09/using-gpus-with-virtual-machines-on-vsphere-part-2-vmdirectpath-i-o.html
 
-vSphere 7 with Multi-Instance GPUs (MIG) on the NVIDIA A100 for Machine Learning Applications – Part 2 : Profiles and Setup
+- vSphere 7 with Multi-Instance GPUs (MIG) on the NVIDIA A100 for Machine Learning Applications – Part 2 : Profiles and Setup
 https://blogs.vmware.com/apps/2020/09/vsphere-7-0-u1-with-multi-instance-gpus-mig-on-the-nvidia-a100-for-machine-learning-applications-part-1-introduction.html
 
-Using GPUs with Virtual Machines on vSphere – Part 3: Installing the NVIDIA Virtual GPU Technology
+- Using GPUs with Virtual Machines on vSphere – Part 3: Installing the NVIDIA Virtual GPU Technology
 https://blogs.vmware.com/apps/2018/09/using-gpus-with-virtual-machines-on-vsphere-part-3-installing-the-nvidia-grid-technology.html
 
-Using GPUs with Virtual Machines on vSphere – Part 4: Working with Bitfusion
+- Using GPUs with Virtual Machines on vSphere – Part 4: Working with Bitfusion
 https://blogs.vmware.com/apps/2018/10/using-gpus-with-virtual-machines-on-vsphere-part-4-working-with-bitfusion-flexdirect.html
 
-Outline Architecture for MIG showing multiple GPU Instances on one physical GPU device Source: The NVIDIA MIG User Guide
+- Outline Architecture for MIG showing multiple GPU Instances on one physical GPU device Source: The NVIDIA MIG User Guide
 https://docs.nvidia.com/datacenter/tesla/mig-user-guide/
+
+ví dụ: Download NVIDIA Driver softwarre from NVIDIA:
+![image](https://github.com/user-attachments/assets/03b0cc2f-19fd-478c-a1c0-db73aea17892)
+
+hoặc hướng dẫn cài VIB cho vGPU trên vSphere:
+https://docs.nvidia.com/vgpu/deployment/vmware/latest/manager.html
