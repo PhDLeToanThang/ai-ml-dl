@@ -224,13 +224,13 @@ Tuy nhiên, nếu bạn muốn triển khai **SSO và MFA** trong **mạng LAN n
 ## **Giải thích 2: SAS có bộ transparent AI kết nối tới AI Cloud, KNIME K-AI kết nối tới KNIME HUB**
 có thực là triển khai được với 1 hệ thống mạng nội trong LAN và không có bất cứ kết nối ra ngoài internet?
 
-### **1. Cấu hình Keycloak với KNIME để đăng nhập Local**
-Bạn có thể **cấu hình Keycloak** làm **SSO** cho **KNIME Data Analytics Platform** bằng cách:
-- **Thiết lập Keycloak trên localhost** và tạo **realm** riêng cho KNIME.
+### **1. Cấu hình iAM Security Platform với KNIME để đăng nhập Local**
+Bạn có thể **cấu hình iAM Security Platform** làm **SSO** cho **KNIME Data Analytics Platform** bằng cách:
+- **Thiết lập iAM Security Platform trên localhost** và tạo **realm** riêng cho KNIME.
 - **Cấu hình KNIME Preferences** để sử dụng **SAML2** thay vì đăng nhập vào **KNIME Hub Business**.
-- **Tạo token local** từ Keycloak để xác thực truy cập **K-AI** mà không cần kết nối internet.
+- **Tạo token local** từ iAM Security Platform để xác thực truy cập **K-AI** mà không cần kết nối internet.
 
-Theo tài liệu về **Keycloak Token Exchange**, bạn có thể sử dụng **Keycloak như một Security Token Service (STS) cho SAML2** for SAML2 #24156](https://github.com/keycloak/keycloak/discussions/24156). Điều này cho phép bạn **chuyển đổi token** giữa các ứng dụng nội bộ mà không cần kết nối ra ngoài.
+Theo tài liệu về **iAM Security Platform Token Exchange**, bạn có thể sử dụng **iAM Security Platform như một Security Token Service (STS) cho SAML2** for SAML2 #24156](https://github.com/keycloak/keycloak/discussions/24156). Điều này cho phép bạn **chuyển đổi token** giữa các ứng dụng nội bộ mà không cần kết nối ra ngoài.
 
 ---
 ### **2. SAS Transparent AI có thể hoạt động offline không?**
@@ -239,4 +239,4 @@ SAS có các công cụ **Fairness & Bias Assessment** và **Bias Mitigation**, 
 - **Fairness & Bias Assessment** cần **SAS Viya**, không thể chạy hoàn toàn offline.
 - **Bias Mitigation** có thể được thực hiện bằng **Python hoặc SAS scripts**, nhưng vẫn cần **SAS Viya** để xử lý dữ liệu.
 
-Do đó, nếu bạn muốn **cấu hình SAS giống như KNIME với Keycloak**, bạn sẽ gặp hạn chế vì **SAS AI chủ yếu dựa trên cloud**. Nếu cần một giải pháp **AI LocalPrivate**, bạn có thể xem xét **KNIME K-AI** hoặc **các mô hình AI chạy trên Python**.
+Do đó, nếu bạn muốn **cấu hình SAS giống như KNIME với iAM Security Platform**, bạn sẽ gặp hạn chế vì **SAS AI chủ yếu dựa trên cloud**. Nếu cần một giải pháp **AI LocalPrivate**, bạn có thể xem xét **KNIME K-AI** hoặc **các mô hình AI chạy trên Python**.
