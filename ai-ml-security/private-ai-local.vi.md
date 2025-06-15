@@ -1,7 +1,7 @@
 # Phần. 1: Khái niệm về AI-ML-DL:
 >> Giúp tôi giới thiệu, Khái niệm, chi tiết so sánh mục đích, mục tiêu, chức năng, lợi thế, nhược điểm và ứng dụng của các mô hình AI: RAG, MCP,n8n, KNIME K-AI, FineTune cho LLM Local, Ollama 3.2:1b local, ollama Agent, Python 3.11 Jupyter notebook với LLM, LangChain LLM local ?
 >>
-# A.1: 
+
 Dưới đây là phần giới thiệu và so sánh chi tiết các mô hình và công cụ AI mà bạn đã liệt kê, bao gồm khái niệm, mục đích, chức năng, lợi thế, nhược điểm và ứng dụng:
 
 ---
