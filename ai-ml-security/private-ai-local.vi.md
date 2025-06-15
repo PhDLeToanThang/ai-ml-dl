@@ -150,13 +150,13 @@ Dưới đây là các **gợi ý ứng dụng cụ thể** cho từng mô hình
 
 ### ✅ Ứng dụng:
 - **RAG + LangChain**: Truy xuất chính sách, quy định kiểm toán nội bộ để hỗ trợ đánh giá tuân thủ.
-- **FineTune LLM Local**: Tùy chỉnh mô hình để hiểu quy trình kiểm toán nội bộ đặc thù của EVN/PVN.
+- **FineTune LLM Local**: Tùy chỉnh mô hình để hiểu quy trình kiểm toán nội bộ đặc thù của từng Doanh nghiệp.
 - **Python + Jupyter**: Phân tích nhật ký hệ thống, log bảo mật, phát hiện bất thường.
 - **KNIME K-AI**: Tự động hóa kiểm tra dữ liệu, phát hiện sai lệch trong báo cáo tài chính.
 
 ---
 
-## ⚡ **2. Quản trị rủi ro trong Tập đoàn Năng lượng (EVN, PVN)**
+## ⚡ **2. Quản trị rủi ro trong Tập đoàn Doanh nghiệp**
 
 ### ✅ Ứng dụng:
 - **MCP + LangChain**: Xây dựng pipeline đánh giá rủi ro từ nhiều nguồn dữ liệu (vận hành, tài chính, pháp lý).
@@ -215,7 +215,7 @@ Quy trình gồm 4 bước:
 
 ![image](https://github.com/user-attachments/assets/199a2118-2f19-4486-8930-338bf353b969)
 
-## xây dựng mã Python mẫu cho từng bước trong workflow này không? Hoặc bạn muốn tích hợp vào hệ thống cụ thể như Power BI, SharePoint, hay hệ thống nội bộ của EVN/PVN?
+## xây dựng mã Python mẫu cho từng bước trong workflow này không? Hoặc bạn muốn tích hợp vào hệ thống cụ thể như Power BI, SharePoint, hay hệ thống nội bộ của Doanh nghiệp?
 
 ![image](https://github.com/user-attachments/assets/fb06a6cf-04ea-4eb8-9948-29ca8f8d8e4c)
 
