@@ -436,10 +436,6 @@ flowchart LR
 
 ![image](https://github.com/user-attachments/assets/506eef8b-aea6-407c-8f6f-f5d358d911d1)
 
-Dưới đây là sơ đồ kiến trúc triển khai hệ thống **AI nội bộ trên Windows 11 Pro hoặc Ubuntu Linux**, sử dụng các thành phần như **MCP, Ollama, LLM Local, LangChain, Agent, KNIME, Jupyter**, và các nguồn dữ liệu đa dạng:
-
-![Kiến trúc triển khai hệ thống AI nội bộ](blob:https://copilot.cloud.microsoft/befd5387-b3fa-4cbc-a3db-a8ddd7226e4f)
-
 ---
 
 ### 🧠 **Giải thích các tầng trong kiến trúc**
