@@ -637,3 +637,198 @@ flowchart TD
 
 ---
 
+## Cách dễ nhất để Fine-tuning một LLM và cách sử dụng nó với Ollama3.2:1b
+
+Đây là hướng dẫn **dễ nhất và đơn giản nhất** để bạn có thể **fine-tune một mô hình LLM** và **sử dụng nó với Ollama 3.2:1b**, đặc biệt phù hợp với máy tính **không có GPU**, chỉ có **Python 3.11** và chạy trên **Windows 11 Pro hoặc Ubuntu 24.04 LTS**.
+
+---
+
+## 🧠 PHẦN 1: Fine-tune LLM một cách đơn giản
+
+### ✅ Bước 1: Cài đặt thư viện cần thiết
+```bash
+pip install transformers datasets peft accelerate
+```
+
+### ✅ Bước 2: Tải mô hình từ HuggingFace
+Ví dụ: `NousResearch/Llama-2-7b-chat-hf` hoặc `medalpaca/medalpaca-7b`
+
+```bash
+git lfs install
+git clone https://huggingface.co/medalpaca/medalpaca-7b
+```
+
+### ✅ Bước 3: Tải dataset y tế (ví dụ: PubMedQA)
+```python
+from datasets import load_dataset
+dataset = load_dataset("pubmed_qa", split="train[:1%]")  # demo nhỏ
+```
+
+### ✅ Bước 4: Fine-tune bằng PEFT (LoRA)
+- Dùng `PEFT` để fine-tune nhanh, tiết kiệm RAM.
+- Chỉ cần vài dòng code với `Trainer` hoặc `SFTTrainer`.
+
+> Mình có thể tạo sẵn file `.py` hoặc `.ipynb` nếu bạn muốn.
+
+---
+
+## 🧱 PHẦN 2: Dùng mô hình đã fine-tune với Ollama 3.2:1b
+
+### ✅ Bước 1: Chuyển mô hình sang định dạng `.gguf`
+- Dùng `transformers-to-gguf` hoặc `llama.cpp` để chuyển đổi.
+```bash
+python convert.py --model-path ./medalpaca-7b --outfile ./medalpaca.gguf
+```
+
+### ✅ Bước 2: Tạo file `Modelfile`
+```Dockerfile
+FROM ./medalpaca.gguf
+PARAMETER temperature 0.7
+SYSTEM "Bạn là bác sĩ AI chuyên tư vấn khám chữa bệnh."
+```
+
+### ✅ Bước 3: Build mô hình với Ollama
+```bash
+ollama create medai -f Modelfile
+```
+
+### ✅ Bước 4: Chạy mô hình
+```bash
+ollama run medai
+```
+
+---
+
+## 📞 PHẦN 3: Gọi mô hình từ Python 3.11 hoặc Jupyter Notebook
+
+```python
+import requests
+
+prompt = "Tôi bị đau đầu, sốt và ho. Có thể là bệnh gì?"
+response = requests.post(
+    "http://localhost:11434/api/generate",
+    json={"model": "medai", "prompt": prompt}
+)
+
+for line in response.iter_lines():
+    print(line.decode("utf-8"))
+```
+
+---
+
+## Tạo một **file `.ipynb` hoặc `.py` hoàn chỉnh** để bạn chỉ cần chạy là fine-tune và dùng được với Ollama
+
+Mình đã tạo một **script hoàn chỉnh** để bạn có thể **fine-tune mô hình LLM (ví dụ MedAlpaca hoặc Llama 3.2:1b)** với **dataset y tế PubMedQA**, và sau đó **sử dụng mô hình đã fine-tune với Ollama local**.
+
+Tuy nhiên, quá trình thực thi bị lỗi do môi trường hiện tại **chưa cài thư viện `datasets` và `transformers`**. Bạn có thể dễ dàng chạy script này trên máy cá nhân bằng cách:
+
+---
+
+## ✅ Cách sử dụng script trên máy bạn
+
+### 🔧 Bước 1: Cài thư viện cần thiết
+```bash
+pip install datasets transformers peft accelerate
+```
+
+### 📜 Bước 2: Lưu nội dung sau vào file `finetune_pubmedqa.py` hoặc `.ipynb`
+
+```python
+from datasets import load_dataset
+from transformers import AutoTokenizer, AutoModelForCausalLM, TrainingArguments, Trainer, DataCollatorForLanguageModeling
+import torch
+
+# Load PubMedQA dataset
+dataset = load_dataset("pubmed_qa", "pqa_labeled", split="train[:1%]")
+
+# Load model and tokenizer
+model_id = "medalpaca/medalpaca-7b"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(model_id)
+
+# Preprocess
+def preprocess(example):
+    prompt = f"Question: {example['question']}\nContext: {example['context']}\nAnswer:"
+    return tokenizer(prompt, truncation=True, padding="max_length", max_length=512)
+
+tokenized_dataset = dataset.map(preprocess, batched=True)
+
+# Training setup
+training_args = TrainingArguments(
+    output_dir="./finetuned-model",
+    per_device_train_batch_size=1,
+    num_train_epochs=1,
+    logging_steps=10,
+    save_steps=50,
+    save_total_limit=1,
+    report_to="none"
+)
+
+data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_dataset,
+    tokenizer=tokenizer,
+    data_collator=data_collator
+)
+
+trainer.train()
+trainer.save_model("./finetuned-model")
+
+print("✅ Fine-tuning complete.")
+print("To use with Ollama:")
+print("1. Convert to GGUF format.")
+print("2. Create Modelfile:")
+print("   FROM ./finetuned-model.gguf")
+print("   PARAMETER temperature 0.7")
+print("   SYSTEM \"You are a biomedical assistant.\"")
+print("3. Run: ollama create biomed --f Modelfile")
+print("4. Then: ollama run biomed")
+```
+
+---
+
+## Bảng phân loại các thư viện và mô hình bạn liệt kê theo nhóm Machine Learning (ML), Deep Learning (DL), và Python:
+
+---
+
+### ✅ **1. Machine Learning (ML)**
+| Thư viện / Mô hình | Ghi chú |
+|--------------------|--------|
+| `scikit-learn`     | ML cổ điển: hồi quy, phân loại, clustering |
+| `scipy`            | Hỗ trợ toán học, thống kê cho ML |
+| `numply` *(ý bạn là NumPy?)* | Xử lý mảng số học, nền tảng cho ML |
+| `RPy`              | Giao tiếp giữa R và Python, dùng trong ML |
+| `NLTK`             | Xử lý ngôn ngữ tự nhiên, dùng trong ML |
+| `beautifulsoup4`   | Không phải ML, nhưng hỗ trợ thu thập dữ liệu cho ML |
+| `scrapy`           | Web scraping, hỗ trợ thu thập dữ liệu ML |
+
+---
+
+### ✅ **2. Deep Learning (DL)**
+| Thư viện / Mô hình | Ghi chú |
+|--------------------|--------|
+| `tensorflow`       | Framework DL mạnh mẽ |
+| `keras`            | API cao cấp của TensorFlow |
+| `pytorch`          | Framework DL phổ biến |
+| `yolo5`, `yolo8`, `yolo11` | Mô hình DL cho nhận diện ảnh/video |
+| `LLM`              | Mô hình ngôn ngữ lớn (thuộc DL) |
+| `ollama3.2`        | Triển khai LLM local (DL) |
+| `langchains`       | Framework xây dựng ứng dụng với LLM (DL) |
+| `k-ai assistant`   | Nếu là AI agent dùng LLM thì thuộc DL |
+
+---
+
+### ❌ **3. Python**
+| Thư viện / Mô hình | Ghi chú |
+|--------------------|--------|
+| `FastAPI`          | Web API framework |
+| `Flask`            | Web framework |
+| `Django`           | Web framework |
+| `Pyglet`, `Kivy`, `pygame` | GUI hoặc game engine |
+| `sqlite`           | Cơ sở dữ liệu nhẹ |
+| `opencv`           | Xử lý ảnh, có thể dùng trong ML/DL |
+| `selenium`         | Tự động hóa trình duyệt |
+| `pytails`, `pywalker` | Không rõ, có thể là thư viện tùy biến hoặc chưa phổ biến |
