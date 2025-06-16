@@ -639,7 +639,7 @@ flowchart TD
 
 ## Cách dễ nhất để Fine-tuning một LLM và cách sử dụng nó với Ollama3.2:1b
 
-Đây là hướng dẫn **dễ nhất và đơn giản nhất** để bạn có thể **fine-tune một mô hình LLM** và **sử dụng nó với Ollama 3.2:1b**, đặc biệt phù hợp với máy tính **không có GPU**, chỉ có **Python 3.11** và chạy trên **Windows 11 Pro hoặc Ubuntu 24.04 LTS**.
+Đây là hướng dẫn **dễ nhất và đơn giản nhất** để **fine-tune một mô hình LLM** và **sử dụng nó với Ollama 3.2:1b**, đặc biệt phù hợp với máy tính **không có GPU**, chỉ có **Python 3.11** và chạy trên **Windows 11 Pro hoặc Ubuntu 24.04 LTS**.
 
 ---
 
@@ -790,7 +790,7 @@ print("4. Then: ollama run biomed")
 
 ---
 
-## Bảng phân loại các thư viện và mô hình bạn liệt kê theo nhóm Machine Learning (ML), Deep Learning (DL), và Python:
+## Bảng phân loại các thư viện và mô hình theo nhóm Machine Learning (ML), Deep Learning (DL), và Python:
 
 ---
 
@@ -799,7 +799,7 @@ print("4. Then: ollama run biomed")
 |--------------------|--------|
 | `scikit-learn`     | ML cổ điển: hồi quy, phân loại, clustering |
 | `scipy`            | Hỗ trợ toán học, thống kê cho ML |
-| `numply` *(ý bạn là NumPy?)* | Xử lý mảng số học, nền tảng cho ML |
+| `NumPy`            | Xử lý mảng số học, nền tảng cho ML |
 | `RPy`              | Giao tiếp giữa R và Python, dùng trong ML |
 | `NLTK`             | Xử lý ngôn ngữ tự nhiên, dùng trong ML |
 | `beautifulsoup4`   | Không phải ML, nhưng hỗ trợ thu thập dữ liệu cho ML |
@@ -831,4 +831,4 @@ print("4. Then: ollama run biomed")
 | `sqlite`           | Cơ sở dữ liệu nhẹ |
 | `opencv`           | Xử lý ảnh, có thể dùng trong ML/DL |
 | `selenium`         | Tự động hóa trình duyệt |
-| `pytails`, `pywalker` | Không rõ, có thể là thư viện tùy biến hoặc chưa phổ biến |
+| `pytails`, `pywalker` | thư viện tùy biến thống kê, phân tích dữ liệu |
