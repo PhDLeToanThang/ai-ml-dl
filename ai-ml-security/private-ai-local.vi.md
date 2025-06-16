@@ -550,7 +550,7 @@ Các tầng gồm:
 
 ---
 
-# Phần 5. Chuyển đổi Mô hình từ AI Public sang Private AI Local (Mô hình Tái sinh):
+# Phần 6. Chuyển đổi Mô hình từ AI Public sang Private AI Local (Mô hình Tái sinh):
 
 >> Đối với các AI Models, AI Datasets, API AI vừa rất hay, chức năng hiệu quả, đạt được các mục tiêu, mục đích
 như nhóm AI Opensource public: Copilot microsoft, Openrouter, huggingface, yolo, Kaggle, Ollama, llm langchain, thì để áp dụng chúng cho các nhóm private AI local như: LLM Local, Ollama local, AI Agent local, jupyter python 3.11 notebook trên windows 11 pro, linux ubuntu 24.04 LTS server có thể download tải xuống local, setup cấu hình chạy tối ưu CPU hoặc GPU, và Fine tune làm machine learning huấn luyện sửa lại các Models, datasets tốt hơn cho AI Models như llama3.2:1b tùy biến phục vụ cho lĩnh vực Vi sinh, y tế, lâm sàng xác định bệnh học tư vấn khám chữa bệnh.... hãy xác định cách thức cụ thể giúp tôi từ các AI Models, Datasets, API AI thuộc nhóm AI Opensource public có thể chuyển thành nhóm private AI local như nêu ở trên ?
