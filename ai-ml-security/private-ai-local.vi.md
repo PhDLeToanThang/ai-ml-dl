@@ -866,6 +866,35 @@ print("4. Then: ollama run biomed")
   - Fintech, ví điện tử
   - Xuất nhập khẩu, Hải quan, Thuế vụ
 
+📄 **Tải / xem bảng tổng hợp thư viện AI Python 3.11:**
+
+(https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FPhDLeToanThang%2Fai-ml-dl%2Frefs%2Fheads%2Fmain%2Fai-ml-security%2Ftong_hop_thu_vien_ai_python311.xlsx&wdOrigin=BROWSELINK)
 
 ---
 
+## Sơ đồ luồng quy trình logic CNTT áp dụng cho bài toán Tin-Y-Sinh: Khám lâm sàng - Không xét nghiệm
+
+![image](https://raw.githubusercontent.com/PhDLeToanThang/ai-ml-dl/refs/heads/main/ai-ml-security/S%C6%A1%20%C4%91%E1%BB%93%20Ki%E1%BA%BFn%20tr%C3%BAc%20H%E1%BB%87%20th%E1%BB%91ng%20Tin-Y-Sinh.svg)
+
+Bản thảo hình ảnh 3D không thật rõ nét, để nhằm hình dung một phần giải pháp:
+
+![image](https://github.com/user-attachments/assets/96852309-e27a-4689-aaae-7f1ca1ca1115)
+
+## Tóm tắt mô hình kịch bản sau:
+1. Phần mềm Resonance Magnetic Analyzer điều khiển PC và kết nối các thiết bị không xét nghiệm:
+   
+1.1. QMRI (mức vitamin, kim loại vết, tế bào HMB, lượng đường trong máu, QR10 và 49 số liệu sức khỏe).
+
+1.2. OpenCTI scanner (xác định các chỉ số Thể soang-rỗng, Điện não đồ, Điện rung tim, SpO2, Xác định Zona Virus đậu mùa trong bám dính đầu hệ thần kinh vận động, Xác định Sơ đồ huyệt theo Hệ phẫu thuật từng Người khám.
+
+1.3. DigiMicro - Kính hiển vi (Tích hợp AI Yolo11: tự động xác định Virus, Khuẩn, Tế bào, Gen-ADN-Axit-amin, đếm tự động siêu nhanh, gán nhãn, phân tích chỉ số).
+
+1.4. Xuất các báo cáo chỉ số sức khỏe.
+
+1.5. Xuất sang tệp ZIP (số liệu báo cáo sau đo) cho từng Người khám. 
+
+2. Một tập lệnh Python trong Jupyter xử lý tệp ZIP.
+3. Tích hợp các thư viện Python phù hợp và Trợ lý AI LLM cục bộ để phân tích thống kê và diễn giải dữ liệu.
+4. Dữ liệu được xử lý bằng Nền tảng KNIME để phân tích nâng cao.
+5. Báo cáo cuối cùng được xuất sang Power BI.
+6. Hệ thống được nhúng vào Jupyter Hub và Portal BI Medicine (Cổng thông tin cho dữ liệu Y sinh).
