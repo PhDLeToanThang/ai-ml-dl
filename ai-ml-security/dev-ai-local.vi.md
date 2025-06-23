@@ -662,3 +662,88 @@ curl http://localhost:4000/completions \
 >>> Bạn muốn mình tạo file cấu hình `config.yaml` mẫu cho LiteLLM hoặc hướng dẫn cách chia sẻ mô hình qua LAN cho nhiều user không?
 
 ---
+
+>>> Sau khi download được models của huggingface xuống offline và đã dùng python 3.11 với các thư viên và code transform để chạy, tôi thấy thay đổi tham số để tăng tốc độ hồi đáp nhưng không ổn định, Nếu tôi cài thêm FastAPI trên python 3.11 hoặc một số models, thư viện để tăng tốc độ hồi đáp, tối ưu nhiều prompt cùng lúc... thì có cách thực hiện chi tiết hiệu quả như vậy?
+
+Để tăng **tốc độ hồi đáp**, **xử lý nhiều prompt cùng lúc**, và tối ưu hóa mô hình Hugging Face chạy offline trên **Windows 11 Pro với Python 3.11**, bạn có thể triển khai theo hướng sau:
+
+---
+
+## ✅ **1. Cài đặt FastAPI để tạo server AI nhanh và linh hoạt**
+
+### 🔧 Cài đặt:
+```bash
+pip install fastapi uvicorn transformers torch
+```
+
+### 🧠 Tạo server FastAPI xử lý nhiều yêu cầu:
+```python
+from fastapi import FastAPI, Request
+from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
+import torch
+
+app = FastAPI()
+
+# Tải mô hình từ thư mục local
+model_path = "./BioMedModel"
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch.float32)
+model.to("cpu")
+
+pipe = pipeline("text-generation", model=model, tokenizer=tokenizer, device=-1)
+
+@app.post("/generate")
+async def generate(request: Request):
+    data = await request.json()
+    prompt = data.get("prompt", "")
+    max_tokens = data.get("max_tokens", 256)
+
+    result = pipe(prompt, max_new_tokens=max_tokens, do_sample=True, temperature=0.6, top_p=0.9)
+    return {"response": result[0]["generated_text"]}
+```
+
+### 🚀 Chạy server:
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+---
+
+## ✅ **2. Tối ưu hóa tốc độ hồi đáp**
+
+### 🔧 Gợi ý cấu hình:
+- Dùng `torch_dtype=torch.float32` để tránh lỗi trên CPU.
+- Giữ `max_new_tokens` ở mức 256–512 để đảm bảo phản hồi đầy đủ.
+- Tắt `do_sample=False` nếu không cần sáng tạo → tăng tốc.
+- Dùng `batch_size` nếu xử lý nhiều prompt cùng lúc (cần viết thêm logic).
+
+---
+
+## ✅ **3. Xử lý nhiều yêu cầu đồng thời**
+
+FastAPI hỗ trợ **async** nên có thể xử lý nhiều yêu cầu cùng lúc. Để tối ưu hơn:
+- Dùng `gunicorn` hoặc `uvicorn` với nhiều worker:
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000 --workers 4
+```
+
+- Hoặc dùng `ThreadPoolExecutor` để xử lý song song nếu cần.
+
+---
+
+## ✅ **4. Gợi ý thêm để tăng tốc**
+
+| Giải pháp | Mô tả | Hiệu quả |
+|-----------|------|----------|
+| **Model nhỏ hơn** | Dùng mô hình <2B như TinyLlama, Phi-2 | Tăng tốc đáng kể |
+| **Quantization** | Dùng mô hình đã nén (GGUF, INT4) | Giảm RAM, tăng tốc |
+| **LiteLLM proxy** | Tạo API chuẩn OpenAI cho mô hình local | Dễ tích hợp, nhanh |
+| **LangChain + FastAPI** | Tạo agent AI có logic | Mạnh mẽ, mở rộng tốt |
+
+---
+
+Bạn có muốn mình tạo một file `.py` hoàn chỉnh để bạn chạy FastAPI server ngay không? Hoặc bạn muốn mình hướng dẫn cách dùng LiteLLM để proxy mô hình Hugging Face qua API chuẩn OpenAI?
+
+---
+
+>>> Sau khi đã download được models của huggingface xuống offline và dùng hàm python 3.11 với code dùng models đó của huggingface làm thế nào cũng dùng được models đó trên ollama CLI ?
