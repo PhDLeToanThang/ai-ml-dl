@@ -742,8 +742,112 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --workers 4
 
 ---
 
-Bạn có muốn mình tạo một file `.py` hoàn chỉnh để bạn chạy FastAPI server ngay không? Hoặc bạn muốn mình hướng dẫn cách dùng LiteLLM để proxy mô hình Hugging Face qua API chuẩn OpenAI?
+>>> Hướng dẫn cách cài, cấu hình và dùng LiteLLM để làm gateway proxy mô hình Hugging Face, open-webui qua API chuẩn Ollama agent
+
+Dưới đây là hướng dẫn chi tiết cách **cài đặt, cấu hình và sử dụng LiteLLM** để làm **gateway proxy cho mô hình Hugging Face và tích hợp với Open-WebUI/Ollama Agent** thông qua API chuẩn OpenAI:
+
+---
+
+## ✅ **1. LiteLLM là gì?**
+
+**LiteLLM** là một **proxy server mã nguồn mở** cho phép bạn gọi hơn 100 mô hình LLM (OpenAI, Hugging Face, Ollama...) bằng **định dạng API chuẩn OpenAI** (`/v1/chat/completions`, `/v1/completions`) giúp dễ dàng tích hợp với các công cụ như **Open-WebUI**, **LangChain**, **Ollama Agent**, v.v [1](https://docs.litellm.ai/docs/simple_proxy) [2](https://apidog.com/vi/blog/how-to-use-litellm-vi/).
+
+---
+
+## ✅ **2. Cài đặt LiteLLM trên Windows 11 Pro**
+
+### 🔧 Yêu cầu:
+- Python 3.8+
+- pip
+- Ollama (nếu dùng mô hình local)
+
+### 🔧 Cài đặt:
+```bash
+pip install litellm openai
+```
+
+---
+
+## ✅ **3. Cấu hình LiteLLM để dùng mô hình Hugging Face hoặc Ollama**
+
+### 📁 Tạo file `config.yaml`:
+
+```yaml
+model_list:
+  - model_name: "biomed-llm"
+    litellm_provider: "huggingface"
+    model_info:
+      model: "./BioMedModel"  # đường dẫn local tới mô hình Hugging Face
+
+  - model_name: "mistral-local"
+    litellm_provider: "ollama"
+    model_info:
+      model: "mistral"  # tên mô hình đã pull bằng Ollama
+```
+
+> Bạn có thể thêm nhiều mô hình vào danh sách này.
+
+---
+
+## ✅ **4. Chạy LiteLLM Proxy Server**
+
+```bash
+litellm --config config.yaml --port 4000
+```
+
+- Server sẽ chạy tại `http://localhost:4000`
+- Hỗ trợ các endpoint như:
+  - `/v1/chat/completions`
+  - `/v1/completions`
+
+---
+
+## ✅ **5. Gửi yêu cầu API theo chuẩn OpenAI**
+
+```bash
+curl http://localhost:4000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "biomed-llm",
+    "messages": [
+      {"role": "system", "content": "Bạn là bác sĩ chuyên khoa thần kinh."},
+      {"role": "user", "content": "Tôi bị đau rát chân phải, có phải zona thần kinh không?"}
+    ],
+    "temperature": 0.7,
+    "max_tokens": 256
+  }'
+```
+
+---
+
+## ✅ **6. Tích hợp với Open-WebUI hoặc Ollama Agent**
+
+### 🔗 Với **Open-WebUI**:
+- Vào phần **Settings > Model Provider**
+- Chọn **Custom API**
+- Nhập endpoint: `http://localhost:4000/v1/chat/completions`
+- Nhập tên mô hình: `"biomed-llm"`
+
+### 🔗 Với **Ollama Agent hoặc LangChain**:
+- Dùng `OpenAI()` hoặc `ChatOpenAI()` với `base_url="http://localhost:4000"` và `api_key="not-needed"`
+
+---
+
+## ✅ **7. Tính năng nâng cao của LiteLLM**
+
+| Tính năng | Mô tả |
+|----------|-------|
+| ✅ Streaming | Hỗ trợ phản hồi dạng stream |
+| ✅ Rate limit | Giới hạn theo user/key |
+| ✅ Logging | Ghi log và theo dõi chi phí |
+| ✅ Load balancing | Chọn mô hình tốt nhất tự động |
+| ✅ Fallback | Dự phòng khi mô hình lỗi |
+
+---
+
+Bạn có muốn mình tạo sẵn file `config.yaml` và script mẫu để bạn chạy LiteLLM proxy ngay không? Hoặc bạn muốn mình hướng dẫn cách thêm authentication hoặc chia mô hình theo user/group?
 
 ---
 
 >>> Sau khi đã download được models của huggingface xuống offline và dùng hàm python 3.11 với code dùng models đó của huggingface làm thế nào cũng dùng được models đó trên ollama CLI ?
+
