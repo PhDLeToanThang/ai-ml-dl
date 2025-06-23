@@ -455,11 +455,210 @@ Dưới đây là phân tích và so sánh chi tiết giữa **OpenRouter**, **L
 
 ---
 
-Nếu bạn muốn triển khai hệ thống AI nội bộ (không internet), thì **LiteLLM** kết hợp với **Ollama Agent** và **OpenManus** là lựa chọn tối ưu. Bạn có muốn mình hướng dẫn cách cấu hình LiteLLM trên mạng LAN hoặc localhost không?
+>>> Nếu bạn muốn triển khai hệ thống AI nội bộ (không internet), thì **LiteLLM** kết hợp với **Ollama Agent** và **OpenManus** là lựa chọn tối ưu. Bạn có muốn mình hướng dẫn cách cấu hình LiteLLM trên mạng LAN hoặc localhost không?
 
 ---
 
-Bạn muốn mình tạo sơ đồ kiến trúc tích hợp các công cụ này với Ollama Agent không? Hoặc bạn muốn mình hướng dẫn cách triển khai cụ thể một trong các nền tảng như Open-WebUI hoặc Jupyter?
+>>> Bạn muốn mình tạo sơ đồ kiến trúc tích hợp các công cụ này với Ollama Agent không? Hoặc bạn muốn mình hướng dẫn cách triển khai cụ thể một trong các nền tảng như Open-WebUI hoặc Jupyter?
 
 ---
 
+# Phần. 3: Các vướng mắc cần xử lý trong Tái sinh sử dụng AI Models - Datasets:
+
+>>> Hiện thời trên windows 11 pro tôi chỉ có Ollama Agent và Python 3.11 có thể dùng lệnh pull, push hoặc pip install để download được các Model của Ollama, hiện tại tôi cần thêm cách để download clone các Models của huggingface.co về windows 11 pro và chạy trong mạng local hoặc LAN thì làm các bước cụ thể như thế nào dễ và hiệu quả?
+
+Để tải và chạy các mô hình từ **Hugging Face** trên **Windows 11 Pro** trong môi trường **local hoặc LAN**, bạn có thể làm theo các bước sau. Mình sẽ chia thành 3 phần chính:
+
+---
+
+## ✅ **1. Cài đặt môi trường cần thiết**
+
+Bạn đã có:
+- ✅ Python 3.11
+- ✅ Ollama Agent
+
+Cần thêm:
+- **Git**: để clone repo từ Hugging Face.
+- **Transformers** và **datasets** từ Hugging Face.
+
+### 👉 Cài đặt:
+```bash
+pip install transformers datasets accelerate
+```
+
+Nếu bạn chưa có Git:
+- Tải từ: https://git-scm.com/download/win
+
+---
+
+## ✅ **2. Tải mô hình từ Hugging Face về máy (offline)**
+
+### Cách 1: Dùng `transformers` để tải và cache mô hình
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model_id = "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"  # ví dụ
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(model_id)
+```
+
+Sau khi chạy, mô hình sẽ được lưu trong thư mục:
+```
+C:\Users\<Tên người dùng>\.cache\huggingface\transformers
+```
+
+Bạn có thể **copy thư mục này** sang máy khác trong mạng LAN để dùng offline.
+
+---
+
+### Cách 2: Clone thủ công từ Hugging Face
+
+```bash
+git lfs install
+git clone https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF
+```
+
+> Lưu ý: Một số mô hình lớn cần `git-lfs` để tải file `.bin` hoặc `.gguf`.
+
+---
+
+## ✅ **3. Chạy mô hình trong mạng LAN hoặc Localhost**
+
+### Cách 1: Dùng `transformers` để chạy mô hình local
+```python
+from transformers import pipeline
+
+pipe = pipeline("text-generation", model="./Mistral-7B-Instruct-v0.1-GGUF")
+print(pipe("Việt Nam là quốc gia", max_new_tokens=50))
+```
+
+### Cách 2: Dùng `text-generation-webui` hoặc `llama.cpp` để chạy mô hình `.gguf`
+- Tải text-generation-webui
+- Copy mô hình `.gguf` vào thư mục `models/`
+- Chạy bằng lệnh:
+```bash
+python server.py --model Mistral-7B-Instruct-v0.1-GGUF
+```
+
+---
+
+## ✅ **4. Chia sẻ mô hình qua LAN**
+
+- Dùng Flask hoặc FastAPI để tạo API nội bộ.
+- Hoặc dùng `text-generation-webui` hoặc `LiteLLM` để expose API trên mạng LAN.
+
+Ví dụ với Flask:
+```python
+from flask import Flask, request, jsonify
+from transformers import pipeline
+
+app = Flask(__name__)
+pipe = pipeline("text-generation", model="./model")
+
+@app.route("/generate", methods=["POST"])
+def generate():
+    prompt = request.json["prompt"]
+    result = pipe(prompt, max_new_tokens=100)
+    return jsonify(result)
+
+app.run(host="0.0.0.0", port=5000)
+```
+
+---
+
+## ✅ **5. Gợi ý thêm**
+
+- Dùng **LiteLLM** để tạo proxy API chuẩn OpenAI cho mô hình local.
+- Dùng **LangChain** để kết nối mô hình với tài liệu (`RAG`).
+- Dùng **n8n** hoặc **Open-WebUI** để tạo giao diện người dùng nội bộ.
+
+---
+
+>>> Giúp tôi tạo một script Python mẫu để chạy mô hình Hugging Face offline và chia sẻ qua LAN không? và hướng dẫn cách dùng LiteLLM để tạo API proxy cho mô hình local?
+
+Mình vừa tạo một **script Python mẫu** để chạy mô hình Hugging Face offline và chia sẻ qua mạng LAN bằng Flask. Tuy nhiên, môi trường hiện tại chưa cài đặt thư viện `transformers`, nên script không thể chạy được. Bạn có thể cài đặt thư viện này trên máy Windows 11 Pro của bạn bằng lệnh sau:
+
+```bash
+pip install transformers flask torch
+```
+
+---
+
+## ✅ **Script mẫu: API sinh văn bản từ mô hình Hugging Face offline**
+
+```python
+from flask import Flask, request, jsonify
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import torch
+
+app = Flask(__name__)
+
+# Đường dẫn tới mô hình đã tải về từ Hugging Face
+LOCAL_MODEL_PATH = "./local_model"  # Thay bằng đường dẫn thực tế
+
+# Tải tokenizer và mô hình
+tokenizer = AutoTokenizer.from_pretrained(LOCAL_MODEL_PATH)
+model = AutoModelForCausalLM.from_pretrained(LOCAL_MODEL_PATH)
+
+# Tạo pipeline sinh văn bản
+generator = pipeline("text-generation", model=model, tokenizer=tokenizer, device=0 if torch.cuda.is_available() else -1)
+
+@app.route("/generate", methods=["POST"])
+def generate_text():
+    data = request.get_json()
+    prompt = data.get("prompt", "")
+    max_tokens = data.get("max_tokens", 100)
+
+    result = generator(prompt, max_new_tokens=max_tokens)
+    return jsonify(result)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+```
+
+### 📌 Cách sử dụng:
+- Chạy script bằng lệnh: `python app.py`
+- Gửi yêu cầu từ máy khác trong mạng LAN:
+```bash
+curl -X POST http://<IP_MÁY_CHẠY_SCRIPT>:5000/generate -H "Content-Type: application/json" -d '{"prompt": "Việt Nam là quốc gia", "max_tokens": 50}'
+```
+
+---
+
+## 🔁 **Hướng dẫn dùng LiteLLM để tạo API proxy cho mô hình local**
+
+### ✅ Bước 1: Cài đặt LiteLLM
+```bash
+pip install liteLLM
+```
+
+### ✅ Bước 2: Tạo file cấu hình `config.yaml`
+```yaml
+model_list:
+  - model_name: "local-llm"
+    litellm_provider: "ollama"
+    model_info:
+      model: "mistral"  # hoặc mô hình bạn đã pull bằng Ollama
+```
+
+### ✅ Bước 3: Chạy LiteLLM server
+```bash
+litellm --config config.yaml --port 4000
+```
+
+### ✅ Bước 4: Gửi yêu cầu giống như OpenAI API
+```bash
+curl http://localhost:4000/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "local-llm",
+    "prompt": "Việt Nam là quốc gia",
+    "max_tokens": 50
+  }'
+```
+
+---
+
+>>> Bạn muốn mình tạo file cấu hình `config.yaml` mẫu cho LiteLLM hoặc hướng dẫn cách chia sẻ mô hình qua LAN cho nhiều user không?
+
+---
