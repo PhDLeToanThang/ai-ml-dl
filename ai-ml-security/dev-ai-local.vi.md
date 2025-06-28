@@ -845,8 +845,65 @@ curl http://localhost:4000/v1/chat/completions \
 
 ---
 
-Bạn có muốn mình tạo sẵn file `config.yaml` và script mẫu để bạn chạy LiteLLM proxy ngay không? Hoặc bạn muốn mình hướng dẫn cách thêm authentication hoặc chia mô hình theo user/group?
+>>> Bạn có muốn mình tạo sẵn file `config.yaml` và script mẫu để bạn chạy LiteLLM proxy ngay không? Hoặc bạn muốn mình hướng dẫn cách thêm authentication hoặc chia mô hình theo user/group?
 
+>>> Tôi đã sửa file config.yaml :
+proxy_port: 4000
+models:
+  - model_name: ollama3.2:1b
+    litellm_params:
+      model: llama3.2:1b
+      api_base: http://127.0.0.1:11434
+thì khi dùng lệnh: (open-webui) C:\Python311>litellm --config c:\Python311\open-webui\config.yaml --port 4000  đã chạy chuẩn, nhưng tôi muốn cấu hình thêm file config.yaml nội dung trỏ tới model BioMedModel của huggingface tôi đã clone về thư mục ./BioMedModel 
+
+Việc cấu hình thêm model từ Hugging Face như BioMedModel vào LiteLLM cần đảm bảo rằng:
+
+1. **Model đã được triển khai như một API endpoint** (ví dụ: thông qua `text-generation-webui`, `vLLM`, hoặc `FastAPI`).
+2. **LiteLLM hỗ trợ loại model đó** thông qua `custom_llm_provider` hoặc `litellm_params`.
+
+Nếu đã clone BioMedModel về thư mục `./BioMedModel`, thì cần xác định:
+
+- Model đó có thể chạy như một server API không?
+- Nếu có, địa chỉ endpoint là gì (ví dụ: `http://127.0.0.1:port`)?
+
+---
+
+### Giả sử đã triển khai BioMedModel như một API tại `http://127.0.0.1:12345`, thì có thể thêm vào `config.yaml` như sau:
+
+```yaml
+proxy_port: 4000
+
+models:
+  - model_name: ollama3.2:1b
+    litellm_params:
+      model: llama3.2:1b
+      api_base: http://127.0.0.1:11434
+
+  - model_name: biomed
+    litellm_params:
+      model: biomed
+      api_base: http://127.0.0.1:12345
+```
+
+---
+
+### Nếu BioMedModel chưa được triển khai như một API
+
+Bạn có thể dùng một trong các cách sau để triển khai:
+- Dùng chạy model đó bằng Python trực tiếp , tôi đã dùng from huggingface_hub import snapshot_download
+model_id = "ContactDoctor/Bio-Medical-Llama-3-2-1B-CoT-012025"
+local_dir = "./BioMedModel"
+Tôi cần triển khai thành API 
+
+- Dùng `text-generation-webui` để chạy model Hugging Face như một server.
+- Dùng `vLLM` hoặc `FastAPI` để tạo một endpoint đơn giản từ mô hình Hugging Face.
+
+1. BioMedModel là mô hình nào trên Hugging Face? (ví dụ: `microsoft/BioGPT`, `cambridgeltl/BioMedLM`, v.v.)
+2. Bạn muốn chạy model đó bằng Python trực tiếp hay thông qua một framework như `text-generation-webui`?
+
+---
+
+Anh muốn em hỗ trợ phần nào tiếp theo: cấu hình LiteLLM, triển khai API cho BioMedModel, hay kiểm tra lại file `config.yaml`?
 ---
 
 >>> Sau khi đã download được models của huggingface xuống offline và dùng hàm python 3.11 với code dùng models đó của huggingface làm thế nào cũng dùng được models đó trên ollama CLI ?
