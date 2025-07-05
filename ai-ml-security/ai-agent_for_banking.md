@@ -45,3 +45,5 @@ Nếu bạn đang xây dựng các dự án riêng lẻ mà không có tài sả
 ## 𝗧ất cả những diễn biến này dẫn đến điều gì?
 
 Những ngân hàng chiến thắng sẽ không phải là những ngân hàng có nhiều dự án thử nghiệm nhất. Mà là những ngân hàng công nghiệp hóa được agent, điều phối và quy trình tái cấu trúc — với sự phối hợp toàn diện từ đầu đến cuối.
+
+![image](https://github.com/PhDLeToanThang/ai-ml-dl/blob/main/ai-ml-security/AI-Bank_of_The_Future.png?raw=true)
