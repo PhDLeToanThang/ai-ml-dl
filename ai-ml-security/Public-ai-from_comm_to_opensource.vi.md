@@ -189,3 +189,171 @@ Thị trường AI tạo sinh đang phát triển nhanh chóng, với sự cạn
 *   **Meta Llama 3** và **Mistral AI** đang dẫn đầu phong trào mã nguồn mở, cung cấp các lựa chọn mạnh mẽ và linh hoạt cho các nhà phát triển.
 
 Việc lựa chọn mô hình AI phụ thuộc vào nhu cầu cụ thể của bạn: mục đích sử dụng, ngân sách, yêu cầu về an toàn, khả năng tích hợp, và liệu bạn có muốn một giải pháp mã nguồn mở hay thương mại. Xu hướng chung là các mô hình ngày càng mạnh mẽ hơn, hiệu quả hơn và tích hợp sâu hơn vào các ứng dụng thực tế.
+
+---
+
+# Phần 2. Các Models AI Assistant:
+
+>>>  So sánh thêm với Copilot Microsoft, Copilot studio microsoft, Copilot Github, huggingface, kaggle, yolo viết chi tiết về những điểm mạnh, điểm yếu, các tính năng hoặc modules, dataset mạnh mẽ ở đặc điểm ứng dụng gì?
+
+Tìm hiểu sâu hơn về các công cụ và nền tảng AI khác nhau. Nhóm công cụ bạn đề cập là một sự kết hợp thú vị giữa các ứng dụng AI đầu cuối (Copilot), các nền tảng phát triển/cộng đồng AI (Hugging Face, Kaggle), và một mô hình thị giác máy tính chuyên biệt (YOLO). Chúng ta sẽ cùng phân tích chi tiết từng loại nhé.
+
+---
+
+### VI. Các Dòng AI & Nền Tảng Khác Mạnh Mẽ
+
+#### 1. Microsoft Copilot (Tổng thể)
+
+Microsoft đã định vị "Copilot" như một trợ lý AI tổng thể, tích hợp xuyên suốt các sản phẩm và dịch vụ của họ.
+
+*   **Giới thiệu:** Là một trợ lý AI thông minh, được tích hợp sâu vào hệ sinh thái Microsoft, từ Windows, Microsoft 365 (Word, Excel, PowerPoint, Outlook, Teams) đến trình duyệt Edge và công cụ tìm kiếm Bing. Nó được xây dựng trên các mô hình LLM tiên tiến của OpenAI (như GPT-4) và các mô hình riêng của Microsoft, cùng với công nghệ tìm kiếm Bing.
+*   **Điểm mạnh:**
+    *   **Tích hợp sâu:** Khả năng truy cập và làm việc trực tiếp với dữ liệu cá nhân của người dùng trong Microsoft 365 (email, tài liệu, lịch, cuộc họp) và ngữ cảnh hệ điều hành (Windows), mang lại trải nghiệm cá nhân hóa và năng suất cao.
+    *   **Nâng cao năng suất:** Giúp tóm tắt tài liệu, viết email, tạo slide thuyết trình, phân tích dữ liệu trong Excel, soạn thảo văn bản, và nhiều tác vụ khác.
+    *   **An toàn và bảo mật cấp doanh nghiệp:** Đối với phiên bản Copilot cho Microsoft 365, dữ liệu của doanh nghiệp được xử lý trong ranh giới bảo mật của chính doanh nghiệp, không được sử dụng để đào tạo mô hình chung.
+    *   **Đa năng:** Kết hợp khả năng của LLM với khả năng tìm kiếm web thời gian thực.
+*   **Điểm yếu:**
+    *   **Phụ thuộc hệ sinh thái Microsoft:** Hiệu quả nhất khi bạn đã sử dụng các sản phẩm của Microsoft.
+    *   **Chi phí:** Phiên bản Copilot cho Microsoft 365 có chi phí đăng ký bổ sung đáng kể cho doanh nghiệp.
+    *   **Quy trình làm việc:** Đôi khi vẫn cần sự can thiệp của người dùng để tinh chỉnh kết quả.
+*   **Tính năng/Modules chính:**
+    *   **Copilot trong Windows:** Trợ lý hệ điều hành, giúp thay đổi cài đặt, tóm tắt nội dung trên màn hình, khởi chạy ứng dụng.
+    *   **Copilot trong Microsoft 365 Apps:**
+        *   **Word:** Soạn thảo, tóm tắt, viết lại, chỉnh sửa văn bản.
+        *   **Excel:** Phân tích dữ liệu, tạo biểu đồ, công thức từ ngôn ngữ tự nhiên.
+        *   **PowerPoint:** Tạo slide từ văn bản, tóm tắt bản trình bày, thiết kế bố cục.
+        *   **Outlook:** Soạn email, tóm tắt chuỗi email, quản lý hộp thư.
+        *   **Teams:** Tóm tắt cuộc họp, tạo ghi chú, đề xuất hành động.
+    *   **Copilot trong Edge/Bing Chat:** Trợ lý duyệt web và tìm kiếm, tóm tắt trang web, sáng tạo nội dung từ web.
+*   **Ứng dụng mạnh mẽ:** Nâng cao năng suất cá nhân và doanh nghiệp, tự động hóa các tác vụ lặp lại, tối ưu hóa quy trình làm việc.
+*   **Dataset mạnh mẽ:** Dữ liệu riêng của người dùng/doanh nghiệp trong Microsoft 365 + dữ liệu web công cộng qua Bing.
+
+#### 2. Microsoft Copilot Studio
+
+*   **Giới thiệu:** Là một nền tảng phát triển low-code/no-code cho phép các doanh nghiệp và "citizen developers" (nhà phát triển không chuyên) xây dựng, tùy chỉnh và triển khai các Copilot/chatbot AI của riêng họ. Nó cho phép tích hợp các mô hình của Microsoft (bao gồm GPT-4) với dữ liệu và quy trình nghiệp vụ nội bộ của công ty.
+*   **Điểm mạnh:**
+    *   **Low-code/No-code:** Giúp các nhà phát triển không chuyên cũng có thể xây dựng các bot AI phức tạp mà không cần viết mã nhiều.
+    *   **Tích hợp mạnh mẽ:** Liên kết liền mạch với Power Platform (Power Automate, Power Apps), Azure AI Services và hàng trăm connector tới các ứng dụng kinh doanh khác.
+    *   **Tùy biến cao:** Cho phép doanh nghiệp tạo các Copilot được đào tạo trên dữ liệu và kiến thức nội bộ của họ, phù hợp với các trường hợp sử dụng cụ thể.
+    *   **Khả năng mở rộng:** Có thể mở rộng bằng cách sử dụng Azure Functions hoặc các dịch vụ Azure AI khác.
+*   **Điểm yếu:**
+    *   **Độ phức tạp:** Mặc dù low-code, việc xây dựng các Copilot thực sự mạnh mẽ và tích hợp sâu vẫn đòi hỏi sự hiểu biết về logic và cấu trúc.
+    *   **Chi phí:** Có thể tốn kém cho các triển khai quy mô lớn hoặc yêu cầu sử dụng nhiều tài nguyên.
+    *   **Phụ thuộc vào Microsoft Ecosystem:** Khó di chuyển sang các nền tảng khác.
+*   **Tính năng/Modules chính:**
+    *   **Topic creation:** Thiết kế các luồng hội thoại theo chủ đề.
+    *   **Generative Answers (RAG):** Tích hợp với các nguồn dữ liệu bên ngoài (website, SharePoint, tệp) để tự động trả lời câu hỏi bằng cách sử dụng RAG (Retrieval Augmented Generation).
+    *   **Plugins & Actions:** Mở rộng khả năng của Copilot bằng cách tích hợp các API bên ngoài, Power Automate flows.
+    *   **Analytics & Monitoring:** Công cụ để theo dõi hiệu suất và cải thiện Copilot.
+*   **Ứng dụng mạnh mẽ:** Trợ lý ảo cho bộ phận hỗ trợ khách hàng (Customer Service), chatbot IT/HR nội bộ, tự động hóa quy trình nghiệp vụ, tạo bot cho các trang web và ứng dụng kinh doanh cụ thể.
+*   **Dataset mạnh mẽ:** Dữ liệu nội bộ của doanh nghiệp (cơ sở kiến thức, tài liệu nội bộ, SharePoint), các nguồn dữ liệu web công cộng được chỉ định.
+
+#### 3. GitHub Copilot
+
+*   **Giới thiệu:** Một "trợ lý lập trình AI" được phát triển bởi GitHub và OpenAI, sử dụng mô hình OpenAI Codex (một biến thể của GPT được huấn luyện trên mã nguồn). Nó cung cấp các gợi ý mã, tự động hoàn thành, và thậm chí tạo ra toàn bộ hàm hoặc đoạn mã dựa trên ngữ cảnh và bình luận của nhà phát triển.
+*   **Điểm mạnh:**
+    *   **Nâng cao năng suất lập trình:** Tăng tốc đáng kể quá trình viết code, giúp lập trình viên tập trung vào logic phức tạp thay vì cú pháp hoặc boilerplate code.
+    *   **Hỗ trợ đa ngôn ngữ:** Hỗ trợ nhiều ngôn ngữ lập trình phổ biến (Python, JavaScript, TypeScript, Go, Ruby, Java, v.v.).
+    *   **Tự động hoàn thành thông minh:** Gợi ý mã dựa trên ngữ cảnh của toàn bộ tệp, các tệp liên quan trong dự án, và các comment.
+    *   **Hỗ trợ học tập:** Giúp lập trình viên làm quen với cú pháp mới, framework mới.
+*   **Điểm yếu:**
+    *   **Chất lượng code:** Đôi khi có thể gợi ý mã không tối ưu, có lỗi, hoặc thậm chí có lỗ hổng bảo mật. Cần sự kiểm tra và tinh chỉnh của lập trình viên.
+    *   **Quyền riêng tư và bản quyền:** Mặc dù GitHub đã có các biện pháp, vẫn có những lo ngại về việc mã được tạo ra có thể trùng lặp với mã nguồn mở hiện có và các vấn đề bản quyền.
+    *   **Tính lệ thuộc:** Lập trình viên có thể trở nên quá phụ thuộc vào Copilot, làm giảm khả năng tư duy độc lập.
+    *   **Chi phí:** Là dịch vụ trả phí (đối với cá nhân và doanh nghiệp).
+*   **Tính năng/Modules chính:**
+    *   **Code Completion:** Gợi ý mã theo dòng hoặc toàn bộ khối lệnh.
+    *   **Function Generation:** Tạo ra toàn bộ hàm dựa trên tên hàm hoặc comment mô tả.
+    *   **Test Generation:** Giúp tạo các trường hợp kiểm thử tự động.
+    *   **Code Explanation:** Giải thích mã (có thể thông qua tính năng chat).
+    *   **Integrates with IDEs:** Hoạt động như một plugin trong VS Code, IntelliJ IDEA, Visual Studio, Neovim.
+*   **Ứng dụng mạnh mẽ:** Lập trình phần mềm, phát triển web, phát triển ứng dụng di động, tự động hóa các tác vụ lập trình lặp lại, học ngôn ngữ lập trình mới.
+*   **Dataset mạnh mẽ:** Dữ liệu mã nguồn công khai khổng lồ từ GitHub (mã, tài liệu, diễn đàn).
+
+#### 4. Hugging Face
+
+*   **Giới thiệu:** Được mệnh danh là "GitHub cho Machine Learning", Hugging Face là một nền tảng và cộng đồng mở hàng đầu cho Trí tuệ Nhân tạo, đặc biệt trong lĩnh vực Xử lý Ngôn ngữ Tự nhiên (NLP). Nó cung cấp một kho lưu trữ khổng lồ các mô hình (Models Hub), tập dữ liệu (Datasets Hub), và các công cụ để xây dựng, đào tạo và triển khai các ứng dụng ML.
+*   **Điểm mạnh:**
+    *   **Mã nguồn mở và Cộng đồng mạnh:** Hàng nghìn mô hình và dataset được chia sẻ bởi cộng đồng, thúc đẩy sự hợp tác và đổi mới.
+    *   **Đa dạng mô hình:** Từ LLM (như Llama, Mistral, Falcon) đến các mô hình Thị giác máy tính (Vision), Xử lý giọng nói (Audio), và Đa phương thức.
+    *   **Công cụ và Thư viện mạnh mẽ:** Thư viện `Transformers` là xương sống, giúp dễ dàng tải, sử dụng và fine-tune các mô hình state-of-the-art.
+    *   **Spaces:** Cho phép dễ dàng demo và chia sẻ các ứng dụng AI dưới dạng web demo.
+    *   **Miễn phí và linh hoạt:** Phần lớn các tài nguyên là miễn phí, cho phép người dùng tự do khám phá và thử nghiệm.
+*   **Điểm yếu:**
+    *   **Yêu cầu kiến thức ML:** Để tận dụng tối đa, người dùng cần có kiến thức về Machine Learning và lập trình Python.
+    *   **Khó khăn trong triển khai:** Việc triển khai các mô hình lớn trong môi trường sản phẩm có thể vẫn phức tạp và tốn kém tài nguyên.
+    *   **Chất lượng không đồng đều:** Vì là mã nguồn mở và cộng đồng đóng góp, chất lượng của các mô hình và dataset có thể khác nhau.
+*   **Tính năng/Modules chính:**
+    *   **Models Hub:** Kho lưu trữ trung tâm của hàng trăm nghìn mô hình AI được đào tạo trước, bao gồm LLM, mô hình thị giác, âm thanh.
+    *   **Datasets Hub:** Kho lưu trữ hàng chục nghìn tập dữ liệu công khai, dễ dàng truy cập và sử dụng cho việc đào tạo mô hình.
+    *   **Spaces:** Nền tảng để tạo và lưu trữ các ứng dụng web demo tương tác của mô hình AI.
+    *   **Thư viện `Transformers`:** Thư viện Python chính cho phép sử dụng, đào tạo và fine-tune các mô hình Transformer.
+    *   **Thư viện `Accelerate`, `Diffusers`, `PEFT`, `TRL`:** Các thư viện bổ sung cho đào tạo hiệu quả, tạo hình ảnh, fine-tuning với ít dữ liệu hơn, và Reinforcement Learning from Human Feedback.
+*   **Ứng dụng mạnh mẽ:** Nghiên cứu và phát triển AI, fine-tuning các mô hình ngôn ngữ lớn cho tác vụ cụ thể, xây dựng các ứng dụng NLP, thị giác máy tính, âm thanh, học máy có giám sát và không giám sát.
+*   **Dataset mạnh mẽ:** Hàng nghìn dataset công khai cho NLP (GLUE, SQuAD), Thị giác (ImageNet, CIFAR), Âm thanh (LibriSpeech), và nhiều lĩnh vực khác.
+
+#### 5. Kaggle
+
+*   **Giới thiệu:** Nền tảng và cộng đồng lớn nhất thế giới dành cho các nhà khoa học dữ liệu và kỹ sư học máy. Kaggle nổi tiếng với việc tổ chức các cuộc thi khoa học dữ liệu, cung cấp các dataset chất lượng cao, môi trường tính toán miễn phí (Kernels/Notebooks), và một không gian để học hỏi và chia sẻ kiến thức.
+*   **Điểm mạnh:**
+    *   **Học tập thực tế:** Các cuộc thi cung cấp cơ hội giải quyết các vấn đề dữ liệu thực tế, giúp xây dựng kỹ năng và portfolio.
+    *   **Dataset chất lượng cao:** Hàng nghìn dataset đã được làm sạch và chuẩn hóa, sẵn sàng cho việc phân tích và xây dựng mô hình.
+    *   **Môi trường tính toán trên đám mây miễn phí:** Cung cấp CPU, GPU, TPU miễn phí thông qua Kaggle Notebooks (Kernels).
+    *   **Cộng đồng hỗ trợ:** Một cộng đồng lớn, tích cực, nơi bạn có thể đặt câu hỏi, chia sẻ kiến thức và học hỏi từ những người giỏi nhất.
+    *   **Cơ hội nghề nghiệp:** Nhiều công ty sử dụng Kaggle để tìm kiếm nhân tài.
+*   **Điểm yếu:**
+    *   **Tính cạnh tranh cao:** Các cuộc thi có thể rất cạnh tranh, đòi hỏi nhiều thời gian và nỗ lực để đạt thứ hạng cao.
+    *   **Có thể quá tập trung vào leaderboard:** Đôi khi, các giải pháp tối ưu cho cuộc thi không phải lúc nào cũng là giải pháp tốt nhất trong thế giới thực.
+    *   **Dữ liệu không phải lúc nào cũng "messy" như thực tế:** Các dataset trên Kaggle thường đã được chuẩn bị khá kỹ, trong khi dữ liệu thực tế thường lộn xộn hơn nhiều.
+*   **Tính năng/Modules chính:**
+    *   **Competitions:** Các cuộc thi giải quyết vấn đề bằng dữ liệu, với giải thưởng tiền mặt và danh tiếng.
+    *   **Datasets:** Kho lưu trữ hàng nghìn dataset, từ dữ liệu tài chính, y tế, đến hình ảnh, văn bản.
+    *   **Notebooks (Kernels):** Môi trường phát triển dựa trên đám mây (Jupyter Notebooks) với các thư viện ML được cài đặt sẵn và quyền truy cập GPU/TPU.
+    *   **Discussions:** Diễn đàn cộng đồng để trao đổi kiến thức, chiến lược.
+    *   **Courses/Learn:** Các khóa học ngắn hạn về khoa học dữ liệu và học máy.
+*   **Ứng dụng mạnh mẽ:** Học và thực hành khoa học dữ liệu, phát triển kỹ năng học máy, xây dựng portfolio, tìm kiếm dataset, cộng tác với các nhà khoa học dữ liệu khác, giải quyết các vấn đề kinh doanh thông qua các cuộc thi (cho các công ty).
+*   **Dataset mạnh mẽ:** Đa dạng và phong phú, bao gồm các dataset nổi tiếng như Titanic, MNIST, ImageNet (một phần), và nhiều dataset tùy chỉnh từ các công ty.
+
+#### 6. YOLO (You Only Look Once)
+
+*   **Giới thiệu:** YOLO là một họ các kiến trúc mạng nơ-ron chuyên biệt cho **nhận diện đối tượng (object detection)** trong thời gian thực. Thay vì chia tác vụ thành hai bước (tìm kiếm vùng chứa đối tượng và sau đó phân loại), YOLO xử lý toàn bộ hình ảnh trong một lần duy nhất để dự đoán cả vị trí (bounding boxes) và loại đối tượng. Điều này làm cho nó cực kỳ nhanh.
+*   **Điểm mạnh:**
+    *   **Tốc độ cực cao (Real-time):** Là một trong những mô hình nhanh nhất để phát hiện đối tượng, lý tưởng cho các ứng dụng yêu cầu xử lý video trực tiếp.
+    *   **Độ chính xác tốt:** Mặc dù ban đầu có thể hơi kém chính xác hơn các mô hình hai giai đoạn, các phiên bản YOLO gần đây (như YOLOv5, YOLOv7, YOLOv8, YOLOv9, YOLOv10) đã thu hẹp đáng kể khoảng cách này và thường đạt được sự cân bằng tốt giữa tốc độ và độ chính xác.
+    *   **Dễ sử dụng và triển khai:** Có nhiều triển khai mã nguồn mở và thư viện hỗ trợ (như Ultralytics YOLOv8), giúp việc đào tạo và triển khai trở nên dễ dàng hơn.
+    *   **Phát hiện một lần:** Khả năng xử lý toàn bộ hình ảnh giúp mô hình học được ngữ cảnh toàn cục, giảm thiểu sai sót nền (false positives).
+*   **Điểm yếu:**
+    *   **Phát hiện đối tượng nhỏ/tụ tập:** Có thể gặp khó khăn hơn trong việc phát hiện các đối tượng rất nhỏ hoặc khi có quá nhiều đối tượng chồng chéo/tụ tập trong một khu vực nhỏ (do mỗi grid cell chỉ dự đoán một vài bounding box).
+    *   **Định vị bounding box:** Đôi khi các bounding box có thể không chính xác bằng các mô hình hai giai đoạn.
+    *   **Ít ổn định hơn với hình ảnh lạ:** Có thể không hoạt động tốt với các đối tượng có tỷ lệ khung hình hoặc cấu hình bất thường chưa thấy trong dữ liệu huấn luyện.
+*   **Tính năng/Modules chính:**
+    *   **Backbone Network:** Phần mạng nơ-ron chính (thường là kiến trúc dựa trên CNN như Darknet, ResNet, CSPNet) để trích xuất các đặc trưng.
+    *   **Neck:** Phần mạng kết nối backbone với phần đầu ra, giúp tăng cường đặc trưng (FPN, PAN).
+    *   **Head:** Phần cuối cùng chịu trách nhiệm dự đoán các bounding box, điểm tự tin đối tượng, và phân loại lớp.
+    *   **Anchor Boxes:** Các hộp cố định được xác định trước để giúp mô hình dự đoán các đối tượng có kích thước và tỷ lệ khác nhau.
+    *   **Non-Maximum Suppression (NMS):** Kỹ thuật hậu xử lý để loại bỏ các bounding box trùng lặp.
+*   **Ứng dụng mạnh mẽ:**
+    *   **Xe tự lái/ADAS:** Phát hiện người đi bộ, xe cộ, biển báo giao thông.
+    *   **Giám sát an ninh:** Phát hiện hành vi bất thường, xâm nhập.
+    *   **Kiểm soát chất lượng trong sản xuất:** Phát hiện lỗi sản phẩm, kiểm đếm vật thể.
+    *   **Nông nghiệp:** Phát hiện sâu bệnh, đếm cây trồng, theo dõi sức khỏe vật nuôi.
+    *   **Thể thao:** Theo dõi cầu thủ, bóng, phân tích chiến thuật.
+    *   **Bán lẻ:** Phân tích hành vi khách hàng, quản lý hàng tồn kho.
+*   **Dataset mạnh mẽ:** COCO (Common Objects in Context), PASCAL VOC, Open Images, Waymo Open Dataset, và các dataset tùy chỉnh được tạo ra cho các ứng dụng chuyên biệt.
+
+---
+
+### VII. Tóm Lược và So Sánh Tổng Quan
+
+| Tiêu chí       | Microsoft Copilot (General)                               | Microsoft Copilot Studio                                   | GitHub Copilot                                       | Hugging Face                                          | Kaggle                                               | YOLO (Object Detection)                               |
+| :------------- | :-------------------------------------------------------- | :--------------------------------------------------------- | :--------------------------------------------------- | :---------------------------------------------------- | :--------------------------------------------------- | :---------------------------------------------------- |
+| **Loại hình**  | Trợ lý AI tích hợp                                        | Nền tảng Low-code AI                                       | Trợ lý lập trình AI                                  | Nền tảng/Cộng đồng ML                                 | Nền tảng/Cộng đồng Khoa học Dữ liệu                 | Kiến trúc/Mô hình thị giác máy tính                  |
+| **Mục đích**   | Nâng cao năng suất người dùng cuối, tự động hóa tác vụ.    | Xây dựng và tùy chỉnh Copilot/chatbot cho doanh nghiệp.    | Tăng tốc độ và hiệu quả lập trình.                   | Chia sẻ, sử dụng, phát triển mô hình ML/AI mở.       | Học, thực hành, cạnh tranh giải quyết vấn đề dữ liệu. | Phát hiện đối tượng thời gian thực trong ảnh/video.    |
+| **Ưu điểm**    | Tích hợp sâu MSFT, bảo mật doanh nghiệp, năng suất cao.    | Low-code, tùy biến, tích hợp Power Platform/Azure AI.      | Tăng năng suất code, hỗ trợ đa ngôn ngữ.             | Mã nguồn mở, cộng đồng lớn, đa dạng mô hình/dataset. | Học qua thực tế, dataset chất lượng, cộng đồng.       | Tốc độ siêu nhanh, độ chính xác tốt, dễ triển khai.    |
+| **Nhược điểm** | Phụ thuộc MSFT, chi phí, đôi khi cần chỉnh sửa kết quả.    | Ít linh hoạt cho AI phức tạp, chi phí, phụ thuộc MSFT.     | Chất lượng code có thể không tối ưu, vấn đề bản quyền. | Yêu cầu kiến thức ML, triển khai phức tạp.           | Tính cạnh tranh cao, dữ liệu ít "messy" hơn thực tế.  | Kém chính xác hơn với đối tượng nhỏ/tụ tập, định vị BB. |
+| **Tính năng**   | Chat, tóm tắt, tạo nội dung, phân tích dữ liệu trong M365. | Thiết kế Topic, Generative Answers (RAG), Plugins.         | Gợi ý code, hoàn thành hàm, tạo test, giải thích code. | Models/Datasets Hub, Spaces, thư viện Transformers.   | Cuộc thi, Dataset, Notebooks, thảo luận, khóa học.    | Bounding Box, phân loại, Backbone, Neck, Head, NMS.    |
+| **Ứng dụng**   | Văn phòng, email, trình duyệt, HĐH.                        | Chatbot CS, HR, IT; tự động hóa workflow doanh nghiệp.    | Lập trình phần mềm, phát triển web/ứng dụng.         | Nghiên cứu AI, Fine-tuning LLM, xây dựng ứng dụng AI. | Phát triển kỹ năng DS/ML, giải quyết bài toán thực.  | Xe tự lái, giám sát, kiểm soát chất lượng, thể thao.  |
+| **Dataset**    | Dữ liệu M365 cá nhân/doanh nghiệp + Web.                 | Dữ liệu nội bộ doanh nghiệp, web.                         | Mã nguồn công khai từ GitHub.                       | Hàng nghìn dataset công khai cho mọi lĩnh vực ML.    | Hàng nghìn dataset đã qua xử lý cho cuộc thi.        | COCO, PASCAL VOC, Open Images, dataset tùy chỉnh.      |
+
+---
+
