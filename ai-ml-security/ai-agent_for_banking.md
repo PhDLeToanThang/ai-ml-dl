@@ -616,7 +616,7 @@ tuy nhiên, bên cạnh đó chưa có các phân tích  đánh giá cụ thể 
 
 Trọng tâm của bài toán: tích hợp AI trong doanh nghiệp, đặc biệt là các khía cạnh về **bảo mật (AI Private/Local), chi phí, bản quyền, và hỗ trợ**.
 
-*** McKinsey và Gartner IT thường tập trung vào tầm nhìn chiến lược và vị trí thị trường của các nền tảng tổng thể, nhưng họ ít khi đi sâu vào bảng so sánh chi tiết về chi phí tích hợp các mô hình AI cụ thể (đặc biệt là các mô hình Private/Local), bản quyền hoặc chi phí đào tạo để hỗ trợ các công nghệ mã nguồn mở. Những thông tin này thường nằm trong các báo cáo chuyên sâu, yêu cầu đăng ký trả phí, hoặc là kiến thức chuyên môn từ kinh nghiệm triển khai thực tế.***
+>>> **McKinsey và Gartner IT thường tập trung vào tầm nhìn chiến lược và vị trí thị trường của các nền tảng tổng thể**, nhưng họ ít khi đi sâu vào bảng so sánh chi tiết về chi phí tích hợp các mô hình AI cụ thể (đặc biệt là các mô hình Private/Local), bản quyền hoặc chi phí đào tạo để hỗ trợ các công nghệ mã nguồn mở. Những thông tin này thường nằm trong các báo cáo chuyên sâu, yêu cầu đăng ký trả phí, hoặc là kiến thức chuyên môn từ kinh nghiệm triển khai thực tế.
 
 Chúng tôi sẽ lập một bảng so sánh tập trung vào các yêu cầu như: tổng hợp từ kiến thức ngành, các thông tin công khai về sản phẩm, và mô hình chi phí phổ biến, đồng thời lồng ghép góc nhìn chiến lược mà McKinsey và Gartner thường đề cập.
 
