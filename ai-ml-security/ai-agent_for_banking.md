@@ -602,15 +602,13 @@ McKinsey thường tập trung vào các xu hướng và giá trị kinh doanh m
 
 Để có cái nhìn chi tiết và cụ thể nhất, bạn nên tìm kiếm các báo cáo **Gartner Magic Quadrant for Data Science and Machine Learning Platforms** và **Gartner Magic Quadrant for Analytics and Business Intelligence Platforms** mới nhất. Chúng sẽ cung cấp các biểu đồ trực quan và phân tích sâu về từng nhà cung cấp, giúp bạn đưa ra quyết định phù hợp với nhu cầu và ngữ cảnh cụ thể của tổ chức.
 
- [Gartner Magic Quadrant for Data Science and Machine Learning Platforms - Gartner](https://www.gartner.com/en/documents/4984534)
- [Gartner Magic Quadrant for Analytics and Business Intelligence Platforms - Gartner](https://www.gartner.com/en/documents/4984534)
 *(Lưu ý: Liên kết Gartner cung cấp thông tin chung về báo cáo. Để truy cập báo cáo đầy đủ thường cần đăng ký.)*
 
-**Nhận xét tổng kết:**
+**Nhận xét cơ bản:**
 - McKinsey kêu gọi tái tưởng tượng hoàn toàn trải nghiệm thông minh, cá nhân hóa trên mọi kênh.
 - McKinsey và Gartner IT cùng quan điểm về việc nếu tiêu chuẩn AI Security phục vụ tùy đối tượng người dùng và lĩnh vực ngành nghề, Nếu là Ngân hàng Tài chính thì AI Security sẽ nên là AI Private Local vì cơ chế An ninh An Toàn nói chung "CyberSucrity" sẽ liên tục bị nâng cao, thít chặt hơn.
 - McKinsey và Gartner IT đều có các đánh giá nhận xét vị trí vai trò của các phần mềm trong phân khúc Data Analytics Platform nêu trên, 
-tuy nhiên, bên cạnh đó chưa có các phân tích  đánh giá cụ thể liên quan tới các hệ thống tích hợp AI trợ lý "AI Asisstant" và "AI Models" với "AI Private Local" với "chính xác chi phí và Bản quyền" hoặc coi là tương đương "Open source community - miễn phí bản quyền" và quan hệ với khả năng Hỗ trợ support "Subscription support có phí với tương đương là Chi phí Đào tạo các công nghệ Open source miễn phí đạt hiệu quả cao hơn/ thấp hơn" ...
+tuy nhiên, bên cạnh đó chưa có các phân tích  đánh giá cụ thể liên quan tới các hệ thống tích hợp AI trợ lý "AI Asisstant" và "AI Models" với "AI Private Local" với "chính sách chi phí và Bản quyền" hoặc coi là tương đương "Open source community - miễn phí bản quyền" và quan hệ với khả năng Hỗ trợ support "Subscription support có phí với tương đương là Chi phí Đào tạo các công nghệ Open source miễn phí đạt hiệu quả cao hơn/ thấp hơn" ...
 
 ---
 
