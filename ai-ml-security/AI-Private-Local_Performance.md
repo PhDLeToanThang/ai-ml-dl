@@ -59,7 +59,7 @@ Xem video (https://youtu.be/JTbtGH3secI) này để bắt đầu sử dụng APL
 
 Trang chủ	
 
-<img width="615" height="354" alt="image" src="https://github.com/user-attachments/assets/06ec4baf-5fdd-4f66-9dc3-d43b55f9ac57" />
+<img width="593" height="486" alt="image" src="https://github.com/user-attachments/assets/9234554a-ff5e-40b6-82eb-60a4f19b5af5" />
 
 Tạo Mô hình APL mới:	
 
