@@ -405,3 +405,7 @@ Với cấu hình Laptop HPE 360 Core i3 - 8GB RAM - Intel HD Graphics 620, bạ
     *   **Tốc độ:** Phản hồi sẽ mất vài chục giây đến vài phút tùy độ phức tạp của câu hỏi và độ dài ngữ cảnh.
 
 Việc chạy các mô hình 7B trở lên như Llama 2/3 7B, Mistral 7B, Qwen 7B, DeepSeek 7B trên cấu hình này là cực kỳ khó khăn, gần như không thể có trải nghiệm chấp nhận được, và rất dễ gặp lỗi "Out Of Memory" (OOM) hoặc tốc độ xử lý quá chậm. OpenAI models không phải là lựa chọn vì chúng yêu cầu kết nối internet và API.
+
+_**Minh họa**: Tôi dùng LM Studio 0.3.24 và tìm chọn các Model Search phù hợp với lĩnh vực cần và với phần Lượng tử "Qx_K_S" phù hợp với cấu hình thiết bị_
+
+<img width="1268" height="656" alt="image" src="https://github.com/user-attachments/assets/81aece85-99f8-4a53-a231-3838f92655f2" />
