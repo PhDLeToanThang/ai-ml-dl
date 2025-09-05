@@ -411,6 +411,11 @@ _**Minh họa**: Tôi dùng LM Studio 0.3.24 và tìm chọn các Model Search p
 
 <img width="1268" height="656" alt="image" src="https://github.com/user-attachments/assets/81aece85-99f8-4a53-a231-3838f92655f2" />
 
+_Những Models không thể phù hợp sẽ cần phải đánh dấu và xóa_
+
+<img width="1026" height="562" alt="image" src="https://github.com/user-attachments/assets/74a2e904-a29e-4eff-82fd-1a6f9060daf1" />
+
+
 ---
 
 # Phần 4. Mô hình AI Private Local - Server:
