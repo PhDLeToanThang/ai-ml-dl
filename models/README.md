@@ -415,6 +415,7 @@ _Những Models không thể phù hợp sẽ cần phải đánh dấu và xóa_
 
 <img width="1026" height="562" alt="image" src="https://github.com/user-attachments/assets/74a2e904-a29e-4eff-82fd-1a6f9060daf1" />
 
+<img width="931" height="65" alt="image" src="https://github.com/user-attachments/assets/caee7fdd-4eb9-4414-8aff-66da44ea2e21" />
 
 ---
 
