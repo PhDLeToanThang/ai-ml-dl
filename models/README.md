@@ -561,4 +561,4 @@ Vì vậy, các con số "ms" sẽ mang tính chất ước lượng rất rộn
 ---
 
 Tham khảo: 
-<a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FPhDLeToanThang%2Fai-ml-dl%2Frefs%2Fheads%2Fmain%2Fmodels%2FB%25E1%25BA%25A3ng%2520So%2520S%25C3%25A1nh%2520Chi%2520Ti%25E1%25BA%25BFt%2520C%25C3%25A1c%2520C%25C3%25B4ng%2520C%25E1%25BB%25A5-M%25C3%25B4%2520H%25C3%25ACnh%2520AI-Private-Local.docx&wdOrigin=BROWSELINK" target="_blank">Bảng So Sánh Chi Tiết Các Công Cụ/Mô Hình AI</a>
+<a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FPhDLeToanThang%2Fai-ml-dl%2Frefs%2Fheads%2Fmain%2Fmodels%2FB%25E1%25BA%25A3ng%2520So%2520S%25C3%25A1nh%2520Chi%2520Ti%25E1%25BA%25BFt%2520C%25C3%25A1c%2520C%25C3%25B4ng%2520C%25E1%25BB%25A5-M%25C3%25B4%2520H%25C3%25ACnh%2520AI-Private-Local.docx&wdOrigin=BROWSELINK" target="_new">Bảng So Sánh Chi Tiết Các Công Cụ/Mô Hình AI</a>
