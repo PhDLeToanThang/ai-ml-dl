@@ -987,7 +987,7 @@ Mặc dù bạn đã mở, hãy kiểm tra lại một lần nữa cho chắc ch
 **[Phần 1: MCP là gì](#phần-1)** |
 **[Phần 2: Kiến trúc giải pháp](#phần-2)** |
 **[Phần 3: Tải, cài, cấu hình MCP Server](#phần-3)** |
-**[Phần 4:](#Phần-4)** |
+**[Phần 4: Tải, cài, cấu hình phần mềm MCP client](#Phần-4)** |
 **[Phần 5:](#phần-5)** |
 **[Phần 6:](#phần-6)** |
 **[Phần 7:](#phần-7)**
