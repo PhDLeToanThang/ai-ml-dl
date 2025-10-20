@@ -645,8 +645,38 @@ Chương này sẽ hướng dẫn bạn:
 3.  Cung cấp **phương pháp thay thế** đơn giản hơn (sử dụng API tương thích OpenAI) nếu MCP không phải là yêu cầu bắt buộc, vì nó được hỗ trợ tốt hơn trong Python hiện tại.
 
 ---
+### Giai đoạn 1: Cài đặt các "Động cơ AI" (Local LLM Servers)
 
-### **Phần 1: Cấu hình LM Studio làm MCP Server (Trên máy chủ 192.168.1.39)**
+#### Bước 1: Cài đặt Ollama (Khuyến nghị)
+*   **Hành động:**
+    1.  Truy cập [https://ollama.com/download](https://ollama.com/download) và tải về Ollama for Windows.
+    2.  Chạy file cài đặt. Ollama sẽ chạy ngầm trong system tray.
+*   **Kiểm tra và Tải Model:**
+    1.  Mở Command Prompt.
+    2.  Tải một model để bắt đầu (ví dụ: Llama 3 8B):
+        ```bash
+        ollama pull llama3:8b
+        ```
+    3.  Chạy thử model trong terminal:
+        ```bash
+        ollama run llama3:8b
+        ```
+    4.  Bạn có thể trò chuyện với model. Gõ `/bye` để thoát.
+*   **Lưu ý quan trọng:** Ollama tự động cung cấp một API server tại `http://localhost:11434`. Đây là địa chỉ mà `litellm` và các script Python của bạn sẽ gọi đến.
+
+#### Bước 2: Cài đặt LM Studio (Lựa chọn thay thế Claude desktop, có giao diện)
+*   **Hành động:**
+    1.  Truy cập [https://lmstudio.ai/](https://lmstudio.ai/) và tải về phiên bản cho Windows.
+    2.  Chạy file cài đặt.
+*   **Kiểm tra và Tải Model:**
+    1.  Mở LM Studio.
+    2.  Trong tab `Home` (biểu tượng nhà), tìm kiếm một model (ví dụ: `Llama 3 8B Instruct`).
+    3.  Nhấn `Download`.
+    4.  Sau khi tải xong, qua tab `Chat` (biểu tượng trò chuyện), chọn model vừa tải ở góc trên bên trái.
+    5.  Bên trái, trong phần `Server`, nhấn `Start Server`. LM Studio sẽ khởi động một API server, thường tại `http://localhost:1234`.
+*   **Lý do:** LM Studio có giao diện đồ họa đẹp, dễ dàng để tìm kiếm, tải và tinh chỉnh các tham số của model.
+
+### **Giai đoạn 2: Cấu hình LM Studio làm MCP Server (Trên máy chủ 192.168.1.39)**
 
 MCP là một giao thức mới cho phép các ứng dụng AI kết nối với các nguồn dữ liệu và công cụ một cách chuẩn hóa. LM Studio đã tích hợp sẵn khả năng trở thành MCP Server.
 
@@ -969,6 +999,205 @@ Mặc dù bạn đã mở, hãy kiểm tra lại một lần nữa cho chắc ch
 
 ### Tải, cài, cấu hình phần mềm MCP client
 
+>>> Bây giờ hãy phân tích từng bước trình tự cài đặt, cấu hình đầy đủ các thành phần có nêu trong hệ thống sau:
+python 3.11, jupyter notebook, jupyterlab, marimo, selenium, streamlit, dbweaver, k-nime data analysis, power bi desktop rs và các thư viện liên quan tới 4 kịch bản ở trên
+
+
+
+Chắc chắn rồi! Đây là hướng dẫn chi tiết, từng bước một để cài đặt và cấu hình toàn bộ hệ sinh thái mà bạn đã mô tả. Chúng ta sẽ đi theo một trình tự logic, từ nền tảng cơ bản đến các công cụ chuyên dụng, để đảm bảo mọi thứ hoạt động trơn tru.
+
+### Triết lý cài đặt:
+
+1.  **Phân tách:** Sử dụng môi trường ảo Python (`venv`) để cô lập các thư viện của dự án này, tránh xung đột với các dự án khác trên máy của bạn.
+2.  **Kiểm tra sau khi cài đặt:** Với mỗi thành phần, chúng ta sẽ thực hiện một thao tác "Hello World" để xác nhận nó đã hoạt động đúng.
+3.  **Tập trung vào dòng lệnh:** Các công cụ mạnh mẽ nhất (Python, Ollama) sẽ được cài đặt và quản lý qua dòng lệnh (Command Prompt/PowerShell) để dễ dàng tự động hóa.
+
+---
+
+### Giai đoạn 0: Chuẩn bị và Nền tảng
+
+#### Bước 0.1: Kiểm tra và Cập nhật Hệ điều hành
+*   **Hành động:** Đảm bảo Windows 10/11 của bạn đã được cập nhật lên phiên bản mới nhất.
+*   **Lý do:** Nhiều thư viện Python và công cụ hiện đại yêu cầu các thành phần hệ thống mới nhất để hoạt động ổn định.
+
+#### Bước 0.2: Cài đặt Git for Windows
+*   **Hành động:** Truy cập [https://git-scm.com/download/win](https://git-scm.com/download/win) và tải về trình cài đặt. Chạy file `.exe` và giữ nguyên các cài đặt mặc định.
+*   **Lý do:** Git là tiêu chuẩn để quản lý mã nguồn, clone các dự án từ GitHub và là công cụ không thể thiếu cho bất kỳ nhà phát triển nào.
+
+---
+
+### Giai đoạn 1: Nền tảng Lập trình Python 3.11
+
+#### Bước 1.1: Cài đặt Python 3.11
+*   **Hành động:**
+    1.  Truy cập [https://www.python.org/downloads/release/python-3119/](https://www.python.org/downloads/release/python-3119/) (hoặc phiên bản 3.11 mới nhất).
+    2.  Tải file **Windows installer (64-bit)**.
+    3.  Chạy file cài đặt. **QUAN TRỌNG:** Trên màn hình đầu tiên, tích vào ô **`Add python.exe to PATH`**.
+    4.  Chọn `Install Now` và hoàn tất cài đặt.
+*   **Kiểm tra:** Mở Command Prompt (cmd) hoặc PowerShell và gõ:
+    ```bash
+    python --version
+    pip --version
+    ```
+    Bạn nên thấy phiên bản Python 3.11.x và pip tương ứng.
+
+#### Bước 1.2: Tạo và Kích hoạt Môi trường ảo (Virtual Environment)
+*   **Hành động:**
+    1.  Tạo một thư mục cho dự án của bạn, ví dụ: `C:\AI_Workstation`.
+    2.  Mở Command Prompt, di chuyển đến thư mục vừa tạo:
+        ```bash
+        cd C:\AI_Workstation
+        ```
+    3.  Tạo môi trường ảo tên `ai_env`:
+        ```bash
+        python -m venv ai_env
+        ```
+    4.  Kích hoạt môi trường ảo:
+        ```bash
+        ai_env\Scripts\activate
+        ```
+    *   Bạn sẽ thấy `(ai_env)` xuất hiện ở đầu dòng lệnh. Từ giờ trở đi, mọi thư viện Python sẽ được cài đặt vào môi trường này.
+*   **Lý do:** Giữ cho các thư viện cho dự án AI này gọn gàng và không ảnh hưởng đến hệ thống Python toàn cục.
+
+---
+
+### Giai đoạn 2: Cài đặt các Thư viện và Công cụ Python
+
+#### Bước 2.1: Cài đặt các Workbench (Jupyter, Marimo)
+*   **Hành động:** Trong Command Prompt (với `ai_env` đã kích hoạt), chạy lệnh sau:
+    ```bash
+    pip install jupyter jupyterlab marimo
+    ```
+*   **Kiểm tra:**
+    *   **JupyterLab:** Gõ `jupyter lab`. Một tab trình duyệt sẽ mở ra tại `http://localhost:8888`. Tắt nó đi bằng `Ctrl+C`.
+    *   **Marimo:** Gõ `marimo edit`. Một tab trình duyệt khác sẽ mở ra tại `http://localhost:2718`. Tắt nó đi bằng `Ctrl+C`.
+
+#### Bước 2.2: Cài đặt các Thư viện cho 4 Kịch bản
+*   **Hành động:** Chạy một lệnh `pip` duy nhất để cài đặt tất cả các thư viện cần thiết:
+    ```bash
+    pip install pandas openpyxl "matplotlib>=3.7.0" plotly selenium streamlit litellm openai-whisper pysrt python-pptx
+    ```
+*   **Lý do từng thư viện:**
+    *   `pandas`, `openpyxl`: Đọc/ghi file Excel, CSV.
+    *   `matplotlib`, `plotly`: Vẽ biểu đồ.
+    *   `selenium`: Tự động hóa trình duyệt.
+    *   `streamlit`: Xây dựng ứng dụng web nhanh.
+    *   `litellm`: Gọi API của nhiều model AI (Ollama, Claude, Gemini...) một cách thống nhất.
+    *   `openai-whisper`: Chuyển audio thành text.
+    *   `pysrt`: Xử lý file phụ đề `.srt`.
+    *   `python-pptx`: Tạo và chỉnh sửa file PowerPoint.
+
+#### Bước 2.3: Cài đặt FFmpeg (Bắt buộc cho Whisper và xử lý video)
+*   **Hành động:**
+    1.  Truy cập [https://www.gyan.dev/ffmpeg/builds/](https://www.gyan.dev/ffmpeg/builds/).
+    2.  Tải về phiên bản `ffmpeg-release-full.7z` mới nhất.
+    3.  Giải nén file `.7z` vào một thư mục cố định, ví dụ: `C:\ffmpeg`.
+    4.  Thêm đường dẫn đến thư mục `bin` vào biến môi trường `PATH` của Windows:
+        *   Nhấn `Win + R`, gõ `sysdm.cpl`.
+        *   Chọn tab `Advanced` -> `Environment Variables...`.
+        *   Trong phần `System variables`, tìm và chọn `Path`, rồi nhấn `Edit...`.
+        *   Nhấn `New` và thêm đường dẫn `C:\ffmpeg\bin`.
+        *   Nhấn `OK` trên tất cả các cửa sổ.
+*   **Kiểm tra:** Mở một Command Prompt **mới** và gõ:
+    ```bash
+    ffmpeg -version
+    ```
+    Bạn sẽ thấy thông tin phiên bản FFmpeg.
+
+---
+
+### Giai đoạn 4: Cài đặt các Công cụ Độc lập (Standalone Tools)
+
+#### Bước 4.1: Cài đặt DBeaver
+*   **Hành động:**
+    1.  Truy cập [https://dbeaver.io/download/](https://dbeaver.io/download/).
+    2.  Tải về "Community Edition" cho Windows.
+    3.  Chạy file cài đặt và làm theo hướng dẫn.
+*   **Kiểm tra:** Mở DBeaver. Sử dụng nó để tạo kết nối đến MS-SQL Server 2017 và MySQL của bạn để xác nhận nó hoạt động.
+
+#### Bước 4.2: Cài đặt KNIME Analytics Platform
+*   **Hành động:**
+    1.  Truy cập [https://www.knime.com/downloads](https://www.knime.com/downloads).
+    2.  Tải về phiên bản cho Windows.
+    3.  Giải nén và chạy `knime.exe`.
+*   **Kiểm tra:** Mở KNIME. Giao diện kéo-thả sẽ hiện ra. Bạn có thể thử kéo một node `File Reader` để đọc file Excel để làm quen.
+
+#### Bước 4.3: Cài đặt Power BI Desktop RS
+*   **Hành động:**
+    1.  Tìm kiếm "Power BI Report Server" trên trang Microsoft hoặc truy cập trực tiếp trang download của nó.
+    2.  Tải về **Power BI Desktop** được thiết kế cho Report Server.
+    3.  Chạy file cài đặt.
+*   **Kiểm tra:** Mở Power BI Desktop. Thử `Get Data` từ một file Excel để tạo một báo cáo đơn giản.
+
+---
+
+### Giai đoạn 5: Tích hợp và Kiểm tra cuối cùng
+
+Bây giờ, hãy tạo một file Marimo duy nhất để kiểm tra xem tất cả các thành phần có "nhìn thấy" nhau hay không.
+
+1.  Mở Command Prompt, kích hoạt môi trường ảo: `ai_env\Scripts\activate`.
+2.  Khởi động Marimo: `marimo edit`.
+3.  Trong trình duyệt, tạo một notebook mới và dán đoạn code sau:
+
+```python
+import marimo as mo
+import pandas as pd
+from litellm import completion
+import selenium.webdriver
+
+# --- KIỂM TRA CÁC THƯ VIỆN CƠ BẢN ---
+mo.md("### ✅ Kiểm tra các thư viện Python")
+mo.md(f"Pandas version: {pd.__version__}")
+
+# --- KIỂM TRA KẾT NỐI ĐẾN LOCAL LLM (OLLABA) ---
+mo.md("### ✅ Kiểm tra kết nối đến Ollama")
+try:
+    response = completion(
+        model="ollama/llama3:8b",  # Đảm bảo bạn đã pull model này
+        messages=[{"role": "user", "content": "Hãy chào tôi bằng một câu duy nhất"}],
+        api_base="http://localhost:11434" # Địa chỉ API của Ollama
+    )
+    mo.callout(f"Phản hồi từ Ollama: {response.choices[0].message.content}", kind="success")
+except Exception as e:
+    mo.callout(f"Lỗi kết nối đến Ollama: {e}", kind="danger")
+
+# --- KIỂM TRA SELENIUM ---
+mo.md("### ✅ Kiểm tra Selenium WebDriver")
+try:
+    # Yêu cầu: Bạn phải tải chromedriver.exe tương ứng với phiên bản Chrome của mình
+    # và đặt nó trong cùng thư mục hoặc trong PATH
+    driver = selenium.webdriver.Chrome()
+    driver.get("https://www.google.com")
+    mo.callout(f"Đã mở Chrome và truy cập Google. Tiêu đề trang: {driver.title}", kind="success")
+    driver.quit()
+except Exception as e:
+    mo.callout(f"Lỗi Selenium: {e}. Hãy đảm bảo bạn đã cài đặt chromedriver đúng phiên bản.", kind="danger")
+
+# --- KIỂM TRA ĐỌC FILE EXCEL ---
+mo.md("### ✅ Kiểm tra đọc file Excel")
+# Tạo một file Excel mẫu để test
+sample_df = pd.DataFrame({'Col1': [1, 2], 'Col2': ['A', 'B']})
+sample_excel_path = "test_data.xlsx"
+sample_df.to_excel(sample_excel_path, index=False)
+
+# Đọc lại file bằng pandas
+df_read = pd.read_excel(sample_excel_path)
+mo.ui.table(df_read)
+
+```
+
+4.  Chạy từng cell trong Marimo. Nếu mọi thứ đều hiển thị tick xanh ✅, xin chúc mừng! Trạm làm việc AI của bạn đã sẵn sàng.
+
+### Tổng kết và Lời khuyên
+
+*   **Trạm làm việc của bạn bây giờ gồm:**
+    *   **Bộ não điều khiển:** Marimo Notebook (tương tác, lập trình) và Claude Desktop (khi bạn tích hợp MCP).
+    *   **Bộ não xử lý:** Ollama/LM Studio (Local LLM).
+    *   **Thư viện công cụ:** Các thư viện Python đã cài đặt.
+    *   **Công cụ chuyên dụng:** DBeaver (DB), KNIME (Visual Workflow), Power BI (Dashboarding).
+*   **Luồng công việc điển hình:** Bạn sẽ bắt đầu trong Marimo để khám phá dữ liệu, xây dựng các prototype cho 4 kịch bản. Khi cần một dashboard chuyên nghiệp, bạn sẽ xuất dữ liệu đã xử lý sang Power BI. Khi cần một workflow trực quan, bạn có thể xây dựng nó trong KNIME.
+
+Bạn đã xây dựng một hệ sinh thái cực kỳ mạnh mẽ và linh hoạt. Bây giờ, bạn có thể bắt đầu triển khai chi tiết 4 kịch ban đã đề ra trong file Marimo của mình. Chúc bạn thành công
 
 ---
 
