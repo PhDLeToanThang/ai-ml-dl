@@ -631,6 +631,250 @@ Bằng cách này, bạn không chỉ tạo ra 4 công cụ riêng lẻ mà bạ
 >>> Các phương pháp cấu hình LM Studio thành máy chủ MCP Server
 Tôi muốn cấu hình LM Studio chạy trên windows 10 pro làm MCP server và 1 máy pc windows khác gọi được bằng cách dùng python 3.11 với web jupyter notebook , jupyter lab và marimo có cách gọi API của LM Studio (địa chỉ ngầm định, ipv4: 192.168.1.39)?
 
+Chi tiết từng bước để bạn có thể cấu hình LM Studio trên máy Windows 10 Pro thành một máy chủ MCP Server, và cách để một máy Windows khác gọi API từ nó bằng Python 3.11 trong các môi trường Jupyter Notebook, Jupyter Lab và Marimo.
+
+---
+
+### **Cấu hình LM Studio thành MCP Server và Kết nối từ Python Client**
+
+#### **Mục tiêu**
+
+Chương này sẽ hướng dẫn bạn:
+1.  **Cấu hình LM Studio** trên máy chủ (Server) có địa chỉ IP `192.168.1.39` để hoạt động như một máy chủ MCP (Model Context Protocol).
+2.  **Kết nối và gọi API** từ máy khách (Client) sử dụng Python 3.11 trong Jupyter Notebook, Jupyter Lab và Marimo.
+3.  Cung cấp **phương pháp thay thế** đơn giản hơn (sử dụng API tương thích OpenAI) nếu MCP không phải là yêu cầu bắt buộc, vì nó được hỗ trợ tốt hơn trong Python hiện tại.
+
+---
+
+### **Phần 1: Cấu hình LM Studio làm MCP Server (Trên máy chủ 192.168.1.39)**
+
+MCP là một giao thức mới cho phép các ứng dụng AI kết nối với các nguồn dữ liệu và công cụ một cách chuẩn hóa. LM Studio đã tích hợp sẵn khả năng trở thành MCP Server.
+
+#### **Bước 1: Chuẩn bị LM Studio và Mô hình**
+
+1.  Đảm bảo bạn đã cài đặt phiên bản LM Studio mới nhất trên máy Windows 10 Pro của mình.
+2.  Tải và chọn một mô hình ngôn ngữ lớn (LLM) bất kỳ mà bạn muốn sử dụng (ví dụ: Llama 3, Mistral, v.v.). Mô hình này cần được tải vào bộ nhớ (loaded) trước khi bắt đầu.
+
+#### **Bước 2: Kích hoạt và Cấu hình MCP Server**
+
+1.  Mở LM Studio.
+2.  Ở thanh menu bên trái, tìm và nhấp vào biểu tượng **MCP Server** (biểu tượng thường có dạng các khối lắp ráp hoặc mạng lưới).
+3.  Trong giao diện MCP Server, bạn sẽ thấy các tùy chọn cấu hình. Hãy thực hiện các thiết lập sau:
+
+    *   **Enable MCP Server**: Bật công tắc để kích hoạt máy chủ.
+    *   **Host/IP Binding**: Đây là bước **quan trọng nhất**. Để máy tính khác trong mạng LAN có thể truy cập, bạn không thể để giá trị mặc định là `localhost` hoặc `127.0.0.1`. Bạn cần thay đổi nó thành:
+        *   `0.0.0.0`: Đây là lựa chọn tốt nhất. Nó cho phép LM Studio lắng nghe trên tất cả các giao diện mạng có sẵn, bao gồm cả địa chỉ IP `192.168.1.39` của bạn.
+        *   Hoặc bạn có thể nhập trực tiếp địa chỉ IP của máy: `192.168.1.39`.
+    *   **Port**: Cổng mặc định cho MCP Server trong LM Studio thường là `3000`. Bạn có thể giữ nguyên hoặc thay đổi nếu cổng này đã bị chiếm. Hãy ghi nhớ cổng bạn đã chọn.
+    *   **Authentication (API Key)**: LM Studio có thể yêu cầu một API Key để xác thực. Hãy tạo một key (ví dụ: `my-secret-mcp-key`) và ghi nó lại. Nếu không có tùy chọn này, bạn có thể bỏ qua bước này.
+
+4.  Sau khi cấu hình xong, nhấn nút **Start Server** hoặc **Save**. LM Studio sẽ khởi động máy chủ MCP.
+
+#### **Bước 3: Cấu hình Tường lửa Windows (Firewall)**
+
+Để cho phép các máy tính khác kết nối vào máy chủ LM Studio, bạn cần tạo một quy tắc trong Tường lửa Windows Defender.
+
+1.  Mở **Windows Defender Firewall with Advanced Security**.
+    *   Nhấn `Windows + R`, gõ `wf.msc` và nhấn Enter.
+2.  Trong cửa sổ mới, ở cột bên trái, nhấp chuột phải vào **Inbound Rules** và chọn **New Rule...**.
+3.  Trong **Rule Type**, chọn **Port** và nhấn **Next**.
+4.  Trong **Protocol and Ports**:
+    *   Chọn **TCP**.
+    *   Chọn **Specific local ports** và nhập cổng bạn đã cấu hình trong LM Studio (ví dụ: `3000`).
+    *   Nhấn **Next**.
+5.  Trong **Action**, chọn **Allow the connection** và nhấn **Next**.
+6.  Trong **Profile**, đánh dấu vào tất cả các ô (Domain, Private, Public) để đảm bảo kết nối từ trong mạng LAN của bạn được cho phép. Nhấn **Next**.
+7.  Trong **Name**, đặt một tên dễ nhận biết cho quy tắc, ví dụ: `LM Studio MCP Server`. Nhấn **Finish**.
+
+Bây giờ, máy chủ LM Studio của bạn đã sẵn sàng để nhận kết nối từ các máy khác qua địa chỉ `192.168.1.39:3000`.
+
+---
+
+### **Phần 2: Kết nối từ Máy khách (Client) bằng Python**
+
+Trên máy Windows khác, bạn sẽ sử dụng Python để gọi API.
+
+#### **Lưu ý quan trọng về MCP và Python**
+
+Tính đến thời điểm hiện tại, hệ sinh thái MCP vẫn còn khá mới và các thư viện client chính thức cho Python chưa phổ biến và ổn định như cho JavaScript/TypeScript. Việc gọi API MCP trực tiếp từ Python có thể phức tạp, đòi hỏi bạn phải xử lý các giao thức底层 (như WebSockets) và cấu trúc JSON-RPC của MCP.
+
+**Vì vậy, tôi sẽ trình bày 2 phương pháp:**
+*   **Phương pháp 1 (Theo yêu cầu):** Gọi API MCP. Phức tạp hơn, phù hợp nếu bạn muốn xây dựng một ứng dụng tích hợp sâu với MCP.
+*   **Phương pháp 2 (Khuyến nghị):** Gọi API Tương thích OpenAI. Rất đơn giản, được hỗ trợ rộng rãi bởi thư viện `openai` của Python, và hoàn toàn đáp ứng nhu cầu "gọi API" của bạn.
+
+---
+
+#### **Phương pháp 1: Gọi API MCP bằng Python (Phức tạp)**
+
+Để làm điều này, bạn cần một thư viện client MCP cho Python. Một lựa chọn có thể là `mcp-client-python` (cần kiểm tra sự ổn định) hoặc tự xây dựng kết nối bằng `websockets`.
+
+Ví dụ sử dụng thư viện `websockets` (giả sử MCP sử dụng WebSocket):
+
+**Bước 1: Cài đặt thư viện**
+Trong Jupyter Notebook hoặc Jupyter Lab, chạy cell sau:
+```python
+!pip install websockets asyncio
+```
+
+**Bước 2: Viết code Python để kết nối**
+```python
+import asyncio
+import websockets
+import json
+
+# --- Cấu hình ---
+MCP_SERVER_URL = "ws://192.168.1.39:3000"  # Địa chỉ máy chủ MCP của bạn
+API_KEY = "my-secret-mcp-key" # API Key nếu bạn đã đặt
+
+async def call_mcp_server():
+    """
+    Kết nối và gửi một yêu cầu đến MCP Server.
+    Lưu ý: Cấu trúc yêu cầu (request) này có thể thay đổi tùy thuộc vào
+    đặc tả chính thức của MCP và cách LM Studio triển khai nó.
+    Đây là một ví dụ mang tính tham khảo.
+    """
+    try:
+        # Tạo header xác thực nếu cần
+        headers = {}
+        if API_KEY:
+            headers["Authorization"] = f"Bearer {API_KEY}"
+            
+        async with websockets.connect(MCP_SERVER_URL, extra_headers=headers) as websocket:
+            print("Đã kết nối thành công đến MCP Server!")
+            
+            # Ví dụ: Lấy danh sách các công cụ (tools) có sẵn
+            request = {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools/list",
+                "params": {}
+            }
+            
+            await websocket.send(json.dumps(request))
+            print(f"Đã gửi yêu cầu: {request}")
+            
+            response = await websocket.recv()
+            print(f"Nhận được phản hồi: {response}")
+            
+            # Bạn có thể phân tích phản hồi JSON ở đây
+            response_data = json.loads(response)
+            # ... xử lý response_data ...
+
+    except Exception as e:
+        print(f"Đã xảy ra lỗi: {e}")
+
+# Chạy hàm bất đồng bộ
+await call_mcp_server()
+```
+
+**Nhược điểm của phương pháp này:** Bạn phải tự xây dựng các yêu cầu JSON-RPC theo đúng đặc tả của MCP, điều này có thể khó khăn và dễ lỗi.
+
+---
+
+#### **Phương pháp 2: Gọi API Tương thích OpenAI (Đơn giản và Khuyến nghị)**
+
+Đây là cách phổ biến và dễ dàng nhất để tương tác với mô hình trên LM Studio từ Python. Hầu hết các ứng dụng và thư viện AI đều hỗ trợ API chuẩn của OpenAI.
+
+#### **Bước 1: Cấu hình LM Studio để bật OpenAI Server**
+
+1.  Trở lại LM Studio trên máy chủ `192.168.1.39`.
+2.  Ở thanh menu bên trái, nhấp vào biểu tượng **💬 Server** (biểu tượng chat).
+3.  Trong giao diện **Server**, thực hiện các thiết lập sau:
+    *   **Server Start**: Bật công tắc để khởi động server.
+    *   **Host Binding**: Tương tự như MCP, **bắt buộc** phải đổi thành `0.0.0.0` để các máy khác trong mạng LAN có thể truy cập.
+    *   **Port**: Cổng mặc định thường là `1234`. Hãy ghi nhớ lại cổng này.
+4.  Máy chủ OpenAI-compatible của bạn giờ đã chạy tại `http://192.168.1.39:1234`.
+
+#### **Bước 2: Cài đặt thư viện `openai` trên máy khách**
+
+Trong Jupyter Notebook, Jupyter Lab hoặc Marimo, chạy cell sau:
+```python
+!pip install openai
+```
+
+#### **Bước 3: Viết code Python để gọi API**
+
+Đoạn code này sẽ hoạt động giống hệt như khi bạn gọi API của OpenAI, nhưng `base_url` sẽ trỏ về máy chủ LM Studio của bạn.
+
+```python
+from openai import OpenAI
+
+# Thay <IP_CỦA_MÁY_CHỦ> bằng địa chỉ IP thực tế của máy chạy LM Studio
+# Hoặc dùng domain đã cấu hình: ai.private.local
+client = OpenAI(
+    base_url="http://192.168.1.39:1234/v1",
+    api_key="lm-studio"  # API key có thể là bất kỳ chuỗi nào
+)
+
+# Ví dụ chat với context dài
+conversation_history = [
+    {"role": "system", "content": "Bạn là một trợ lý AI Private Local và MCP server local an toàn hữu ích, trả lời bằng tiếng Việt."},
+    {"role": "user", "content": """
+Tôi đang dùng Python 3.11, jupyter notebook, jupyterlab, marimo, selenium và ms-sql 2017, ms-sql analysis server 2017, mysql, excel, csv, powerbi desktop rs, k-nime analysis data, dbweaver e-r-d designer. Trong các vấn đề kịch bản phối hợp với Call models Ai local như LM Studio, Ollama Agent. Hãy phân tích và chi tiết các bước triển khai để kiểm tra chứng minh tính thực tế cho 4 kịch bản ứng dụng yêu cầu sau:
+1. Tổng hợp cuộc họp từ file ghi âm, chuyển ngữ thành văn bản...
+2. Tổng hợp phân tích so sách đánh giá báo cáo
+3. Ra lệnh làm slide tự động từ nhiều báo cáo khác nhau...
+4. Xây dựng hệ thống phân tích, hiển thị dữ liệu từ file dữ liệu excel, csv.
+"""},
+    {"role": "assistant", "content": "Tập trung vào python 3.11, jupyter notebook, jupyter lab, marimo"},
+    {"role": "user", "content": """
+Giả sử trước đây tôi vẫn dùng duy nhất python 3.11 trên jupyter lab và cài thêm các thư viện hoặc models AI như Whisper để load phần tách audio, mp4, srt/ttv dùng phền mềm Subtitl edit để translate english, vietnamese ... burn merge lại về 1 file mp4 có đủ phụ đề (single hoặc double languages).
+Hãy phân tích và chi tiết các bước để tôi có thể làm toàn bộ 4 kịch bản trên bằng python 3.11 py trên marimo?
+Sau cùng là viết code python thành 4 môdule/cell/thủ tục để có thể chạy riêng hoặc gọi hàm trên marimo?
+    """}
+]
+
+print("Đang gửi yêu cầu đến LM Studio...")
+
+completion = client.chat.completions.create(
+    model="qwen3-8b-sonnet-4-gpt-5-distill",  # Tên model không quan trọng khi dùng local server
+    messages=conversation_history,
+    temperature=0.7,
+    # Để xử lý context dài, bạn có thể tăng max_tokens
+    max_tokens=4096,
+)
+
+# In ra câu trả lời
+response_content = completion.choices[0].message.content
+print("Trả lời từ AI:")
+print(response_content)
+
+# Bạn có thể thêm câu trả lời vào lịch sử để tiếp tục cuộc hội thoại
+conversation_history.append({"role": "assistant", "content": response_content})
+
+```
+
+**Ưu điểm của phương pháp này:**
+*   Đơn giản, dễ hiểu.
+*   Sử dụng thư viện `openai` rất phổ biến và ổn định.
+*   Tương thích với hầu hết các framework và ứng dụng AI hiện có.
+*   Hoàn hảo cho việc sử dụng trong Jupyter Notebook, Jupyter Lab, Marimo để thử nghiệm và phát triển.
+
+---
+
+### **Phần 3: Kiểm tra và Gỡ lỗi**
+
+Nếu bạn không thể kết nối được, hãy kiểm tra các điểm sau:
+
+1.  **Kiểm tra kết nối mạng**: Từ máy khách, mở Command Prompt và gõ `ping 192.168.1.39`. Nếu bạn nhận được phản hồi, kết nối mạng cơ bản là ổn.
+2.  **Kiểm tra Tường lửa**: Đảm bảo bạn đã tạo quy tắc Inbound Rule cho đúng cổng (TCP `3000` cho MCP hoặc `1234` cho OpenAI API) trên máy chủ.
+3.  **Kiểm tra Server đang chạy**: Đảm bảo nút "Start Server" trong LM Studio đã được bật và đang ở trạng thái hoạt động.
+4.  **Kiểm tra IP và Port**: Gõ nhầm địa chỉ IP hoặc số cổng là lỗi phổ biến nhất. Hãy kiểm tra lại kỹ.
+5.  **Sử dụng công cụ kiểm tra**: Trên máy khách, bạn có thể dùng `curl` để kiểm tra kết nối mà không cần Python.
+    *   **Để kiểm tra OpenAI API:**
+        ```bash
+        curl http://192.168.1.39:1234/v1/models
+        ```
+        Lệnh này nên trả về một danh sách các mô hình dưới dạng JSON. Nếu có lỗi, nó sẽ cho bạn biết vấn đề là gì (ví dụ: `Connection refused`).
+
+### **Kết luận**
+
+Bạn đã được hướng dẫn hai cách để kết nối từ một máy Python client đến máy chủ LM Studio.
+
+*   **MCP Server** là một lựa chọn hướng tới tương lai, chuẩn hóa việc tích hợp AI với các công cụ và dữ liệu, nhưng hiện tại có thể còn phức tạp khi sử dụng với Python.
+*   **API Tương thích OpenAI** là giải pháp **thực tế, đơn giản và mạnh mẽ** cho hầu hết các trường hợp sử dụng hiện tại, đặc biệt là khi bạn chỉ muốn "gọi API" để nhận phản hồi từ mô hình trong môi trường Jupyter.
+
+Đối với nhu cầu của bạn, tôi **khuyến nghị mạnh mẽ** sử dụng **Phương pháp 2 (API OpenAI)** để tiết kiệm thời gian và có trải nghiệm mượt mà hơn.
 
 ---
 
