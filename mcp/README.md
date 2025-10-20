@@ -97,7 +97,7 @@ Mô hình bạn đề xuất **HOÀN TOÀN ĐÚNG ĐẮN và CỰC KỲ MẠNH M
 ### Tải, cài đặt, cấu hình phần mềm phục vụ MCP Server:
 
 >>> Các phương pháp cấu hình LM Studio thành máy chủ MCP Server
-Tôi muốn cấu hình LM Studio chạy trên windows 10 pro làm MCp server và 1 máy pc windows khác gọi được bằng cách dùng python 3.11 với web jupyter notebook , jupyter lab và marimo có cách gọi API của LM Studio (địa chỉ ngầm định, ipv4: 192.168.1.39 )?
+Tôi muốn cấu hình LM Studio chạy trên windows 10 pro làm MCP server và 1 máy pc windows khác gọi được bằng cách dùng python 3.11 với web jupyter notebook , jupyter lab và marimo có cách gọi API của LM Studio (địa chỉ ngầm định, ipv4: 192.168.1.39)?
 
 ### Check prerequisites
 
