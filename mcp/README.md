@@ -884,11 +884,11 @@ Bạn đã được hướng dẫn hai cách để kết nối từ một máy P
 
 ## Phần 5
 
-
-### A note about platform support
+---
 
 ## Phần 6
 
+---
 
 ## Phần 7
 
