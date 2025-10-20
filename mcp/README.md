@@ -1,7 +1,7 @@
 **[Phần 1: MCP là gì](#phần-1)** |
 **[Phần 2: Kiến trúc giải pháp](#phần-2)** |
 **[Phần 3: Tải, cài, cấu hình MCP Server](#phần-3)** |
-**[Phần 4:](#Phần-4)** |
+**[Phần 4: Tải, cài, cấu hình phần mềm MCP client](#Phần-4)** |
 **[Phần 5:](#phần-5)** |
 **[Phần 6:](#phần-6)** |
 **[Phần 7:](#phần-7)**
@@ -876,9 +876,99 @@ Bạn đã được hướng dẫn hai cách để kết nối từ một máy P
 
 Đối với nhu cầu của bạn, tôi **khuyến nghị mạnh mẽ** sử dụng **Phương pháp 2 (API OpenAI)** để tiết kiệm thời gian và có trải nghiệm mượt mà hơn.
 
+### Cấu hình cho phép mạng nội bộ truy cập MCP Server qua web:
+
+Việc `telnet` thành công trên chính máy chủ nhưng thất bại từ máy khác là một dấu hiệu kinh điển cho thấy ứng dụng (LM Studio) chỉ đang "lắng nghe" (listening) trên địa chỉ loopback (`127.0.0.1` hoặc `localhost`) thay vì lắng nghe trên tất cả các giao diện mạng (`0.0.0.0`).
+
+Hãy cùng kiểm tra lại phần cấu hình của LM Studio một cách chi tiết.
+
+### **Phần 1: Kiểm tra lại Cấu hình "Host Binding" trong LM Studio**
+
+Đây là bước quan trọng nhất. Rất có thể bạn đã thay đổi nhưng chưa lưu, hoặc có một tùy chọn nào đó đang ghi đè lên cài đặt này.
+
+1.  Mở LM Studio trên máy chủ `192.168.1.39`.
+2.  Trên thanh menu bên trái, chọn biểu tượng **Server** (biểu tượng hình bong bóng chat 💬).
+3.  Tìm đến mục **Host Binding** hoặc **Server Host**.
+4.  **Hành động cần làm:**
+    *   Xóa toàn bộ nội dung trong ô này (dù nó đang là `localhost`, `127.0.0.1` hay bất cứ thứ gì khác).
+    *   Gõ tay vào giá trị: `0.0.0.0`
+    *   **Quan trọng:** Sau khi gõ xong, hãy tìm nút **Save** hoặc **Apply** (nếu có) để lưu lại cấu hình.
+    *   **Quan trọng hơn:** Hãy **tắt và bật lại** công tắc **Server Start** để khởi động lại máy chủ với cấu hình mới. Đây là bước mà nhiều người hay bỏ qua.
+
+### **Phần 2: Công cụ "Vàng" để xác nhận - Sử dụng `netstat`**
+
+Để chắc chắn 100% rằng LM Studio đang lắng nghe đúng cách, hãy sử dụng lệnh `netstat` ngay trên máy chủ.
+
+1.  Mở **Command Prompt** (cmd) hoặc **PowerShell** trên máy chủ `192.168.1.39` **với quyền Administrator**.
+2.  Gõ lệnh sau và nhấn Enter:
+
+    ```bash
+    netstat -an | findstr "1234"
+    ```
+
+3.  **Phân tích kết quả:**
+
+    *   **KẾT QUẢ SAI (Vấn đề của bạn):**
+        ```
+        TCP    127.0.0.1:1234       0.0.0.0:0              LISTENING
+        TCP    [::1]:1234           0.0.0.0:0              LISTENING
+        ```
+        Dòng `TCP 127.0.0.1:1234` cho thấy LM Studio chỉ chấp nhận kết nối từ chính nó. Đây là nguyên nhân gốc rễ.
+
+    *   **KẾT QUẢ ĐÚNG (Sau khi đã cấu hình lại):**
+        ```
+        TCP    0.0.0.0:1234         0.0.0.0:0              LISTENING
+        ```
+        Dòng `TCP 0.0.0.0:1234` cho thấy LM Studio đang lắng nghe trên tất cả các địa chỉ IP của máy, bao gồm cả `192.168.1.39`. Đây là kết quả chúng ta cần.
+
+        *Hoặc bạn cũng có thể thấy kết quả này, cũng là đúng:*
+        ```
+        TCP    192.168.1.39:1234    0.0.0.0:0              LISTENING
+        ```
+
+Hãy chạy lệnh `netstat` này **trước và sau** khi bạn thay đổi cấu hình Host Binding để thấy rõ sự khác biệt.
+
+### **Phần 3: Các nguyên nhân khác có thể xảy ra (Nếu cách trên không giải quyết được)**
+
+Nếu sau khi đã cấu hình `Host Binding` thành `0.0.0.0` và `netstat` đã cho kết quả đúng mà máy client vẫn không `telnet` được, hãy kiểm tra các khả năng sau:
+
+#### **1. Phần mềm diệt virus hoặc Firewall của bên thứ ba**
+
+Rất nhiều phần mềm diệt virus (Bitdefender, Kaspersky, Norton, v.v.) có tường lửa riêng, đôi khi nó "mạnh" hơn cả Windows Firewall và có thể chặn kết nối mà bạn không hề hay biết.
+
+*   **Cách kiểm tra:** Tạm thời vô hiệu hóa hoàn toàn phần mềm diệt virus hoặc tường lửa của bên thứ ba trên máy chủ, sau đó thử `telnet` lại từ máy client. Nếu thành công, bạn đã tìm ra thủ phạm. Bạn cần vào cấu hình của phần mềm đó để tạo một ngoại lệ (exception) cho cổng `1234` hoặc cho ứng dụng `LM Studio.exe`.
+
+#### **2. Chạy LM Studio với quyền Administrator**
+
+Đôi khi, các ứng dụng cần quyền quản trị cao để có thể "bind" vào một địa chỉ IP và cổng.
+
+*   **Cách làm:** Nhấp chuột phải vào biểu tượng LM Studio và chọn **"Run as administrator"**. Sau đó bật lại server và thử kết nối.
+
+#### **3. Kiểm tra lại chi tiết quy tắc Windows Firewall**
+
+Mặc dù bạn đã mở, hãy kiểm tra lại một lần nữa cho chắc chắn.
+*   Vào `wf.msc` -> `Inbound Rules`.
+*   Tìm quy tắc bạn đã tạo (`LM Studio Server`).
+*   Nhấp chuột phải -> `Properties`.
+*   Trong tab `General`, đảm bảo `Action` là `Allow the connection`.
+*   Trong tab `Scope`, đảm bảo `Remote IP address` được đặt là `Any IP address`.
+*   Trong tab `Advanced`, đảm bảo tất cả các `Profiles` (Domain, Private, Public) đều được tích chọn.
+
+### **Tóm tắt các bước cần làm ngay bây giờ:**
+
+1.  Vào LM Studio -> Tab **Server**.
+2.  Đặt **Host Binding** thành `0.0.0.0`.
+3.  **Tắt và bật lại** công tắc **Server Start**.
+4.  Mở CMD (Admin) trên máy chủ, gõ `netstat -an | findstr "1234"`.
+5.  Xác nhận kết quả là `TCP 0.0.0.0:1234 ... LISTENING`.
+6.  Từ máy client, thử `telnet 192.168.1.39 1234` lại.
+
 ---
 
 ## Phần 4
+
+### Tải, cài, cấu hình phần mềm MCP client
+
 
 ---
 
