@@ -1203,13 +1203,19 @@ Bạn đã xây dựng một hệ sinh thái cực kỳ mạnh mẽ và linh ho�
 
 ## Phần 5
 
+### Tích hợp RAG và MCP Server Long Context
+
 ---
 
 ## Phần 6
 
+### Thiết kế Web API bằng AI K-AI,Mario, RAG
+
 ---
 
 ## Phần 7
+
+### Troubleshooting Debug Testing Check list
 
 ---
 
