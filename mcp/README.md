@@ -2,9 +2,9 @@
 **[Phần 2: Kiến trúc giải pháp](#phần-2)** |
 **[Phần 3: Tải, cài, cấu hình MCP Server](#phần-3)** |
 **[Phần 4: Tải, cài, cấu hình phần mềm MCP client](#Phần-4)** |
-**[Phần 5:](#phần-5)** |
-**[Phần 6:](#phần-6)** |
-**[Phần 7:](#phần-7)**
+**[Phần 5: Tích hợp RAG và MCP Server Long Context](#phần-5)** |
+**[Phần 6: Thiết kế Web API bằng AI K-AI,Mario, RAG](#phần-6)** |
+**[Phần 7: Troubleshooting Debug Testing Check list:](#phần-7)**
 
 ---
 
@@ -1217,6 +1217,6 @@ Bạn đã xây dựng một hệ sinh thái cực kỳ mạnh mẽ và linh ho�
 **[Phần 2: Kiến trúc giải pháp](#phần-2)** |
 **[Phần 3: Tải, cài, cấu hình MCP Server](#phần-3)** |
 **[Phần 4: Tải, cài, cấu hình phần mềm MCP client](#Phần-4)** |
-**[Phần 5:](#phần-5)** |
-**[Phần 6:](#phần-6)** |
-**[Phần 7:](#phần-7)**
+**[Phần 5: Tích hợp RAG và MCP Server Long Context](#phần-5)** |
+**[Phần 6: Thiết kế Web API bằng AI K-AI,Mario, RAG](#phần-6)** |
+**[Phần 7: Troubleshooting Debug Testing Check list:](#phần-7)**
