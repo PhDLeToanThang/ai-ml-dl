@@ -68,7 +68,7 @@ class MarkovLotteryPredictor:
             min_val, max_val = self.constraints[col_name]
             all_states = dict(self.state_counts[col_name])
             if all_states:
-                return max(all_states, key=all_states.get)
+                return int(max(all_states, key=all_states.get))
             return (min_val + max_val) // 2
         
         # Get probabilities for next state
@@ -76,8 +76,8 @@ class MarkovLotteryPredictor:
         
         # Return state with highest probability
         if next_probs:
-            return max(next_probs, key=next_probs.get)
-        return current_value
+            return int(max(next_probs, key=next_probs.get))
+        return int(current_value)
     
     def predict_draw(self, idx):
         """Predict complete draw at index idx"""
@@ -143,14 +143,17 @@ class MarkovLotteryPredictor:
             min_val, max_val = self.constraints[col]
             values = self.df[col].values
             
+            most_common = None
+            if self.state_counts[col]:
+                most_common = int(max(self.state_counts[col], key=self.state_counts[col].get))
+            
             stats[col] = {
                 'mean': float(np.mean(values)),
                 'std': float(np.std(values)),
                 'min': float(np.min(values)),
                 'max': float(np.max(values)),
-                'unique_values': len(np.unique(values)),
-                'most_common': int(max(self.state_counts[col], key=self.state_counts[col].get))
-                if self.state_counts[col] else None
+                'unique_values': int(len(np.unique(values))),
+                'most_common': most_common
             }
         return stats
     
@@ -224,19 +227,19 @@ def main():
     # Save results to JSON
     output_data = {
         'timestamp': datetime.now().isoformat(),
-        'total_records': len(predictor.df),
+        'total_records': int(len(predictor.df)),
         'next_prediction': next_pred,
         'backtest_results': {
-            'total_tests': results['total_tests'],
-            'exact_matches': results['exact_matches'],
-            'partial_matches': {str(k): v for k, v in results['partial_matches'].items()},
+            'total_tests': int(results['total_tests']),
+            'exact_matches': int(results['exact_matches']),
+            'partial_matches': {str(k): int(v) for k, v in results['partial_matches'].items()},
             'position_accuracy': {
                 col: {
-                    'correct': results['accuracy_by_position'][col]['correct'],
-                    'total': results['accuracy_by_position'][col]['total'],
-                    'percentage': (results['accuracy_by_position'][col]['correct'] / 
+                    'correct': int(results['accuracy_by_position'][col]['correct']),
+                    'total': int(results['accuracy_by_position'][col]['total']),
+                    'percentage': float(results['accuracy_by_position'][col]['correct'] / 
                                  results['accuracy_by_position'][col]['total'] * 100)
-                    if results['accuracy_by_position'][col]['total'] > 0 else 0
+                    if results['accuracy_by_position'][col]['total'] > 0 else 0.0
                 }
                 for col in predictor.columns
             }
