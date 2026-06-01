@@ -687,20 +687,20 @@ Get-RsRestReport -ReportServerUri "http://pbireport01/reports"
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                   Open Design App                        │
+│                   Open Design App                       │
 │                                                         │
-│  ┌──────────┐  ┌──────────────┐  ┌───────────────────┐ │
-│  │ Web UI   │  │ Local Daemon  │  │ Agent Runtime     │ │
-│  │ (React)  │  │ (Node.js)    │  │ (16 CLI agents)   │ │
-│  └────┬─────┘  └──────┬───────┘  │ Claude, Codex,    │ │
-│       │               │          │ OpenCode, ...     │ │
-│       │   REST API    │          │ (auto-detect PATH)│ │
-│       │   :3080       │          └───────────────────┘ │
-│       │               │                                │
-│  ┌────▼───────────────▼──────────────────────────────┐ │
-│  │  137 Skills · 150 Design Systems                  │ │
-│  │  Prototype · Deck · Image · Video · Audio         │ │
-│  └───────────────────────────────────────────────────┘ │
+│  ┌──────────┐  ┌──────────────┐  ┌───────────────────┐  │
+│  │ Web UI   │  │ Local Daemon │  │ Agent Runtime     │  │
+│  │ (React)  │  │ (Node.js)    │  │ (16 CLI agents)   │  │
+│  └────┬─────┘  └──────┬───────┘  │ Claude, Codex,    │  │
+│       │               │          │ OpenCode, ...     │  │
+│       │   REST API    │          │ (auto-detect PATH)│  │
+│       │   :3080       │          └───────────────────┘  │
+│       │               │                                 │
+│  ┌────▼───────────────▼──────────────────────────────┐  │
+│  │  137 Skills · 150 Design Systems                  │  │
+│  │  Prototype · Deck · Image · Video · Audio         │  │
+│  └───────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────┘
 ```
 
