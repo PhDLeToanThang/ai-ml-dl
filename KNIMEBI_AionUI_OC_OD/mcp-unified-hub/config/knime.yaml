@@ -1,0 +1,6 @@
+executable: "C:\\Program Files\\KNIME\\knime.exe"
+workspace: "C:\\knime-workspace"
+jvm_args:
+  - "-Xmx4096m"
+  - "-XX:+UseG1GC"
+workflow_timeout: 600

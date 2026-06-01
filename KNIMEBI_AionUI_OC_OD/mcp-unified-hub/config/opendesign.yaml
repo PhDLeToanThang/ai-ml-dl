@@ -1,0 +1,4 @@
+daemon_url: "http://localhost:3080"
+api_key: ""
+request_timeout: 300
+default_export_format: "html"

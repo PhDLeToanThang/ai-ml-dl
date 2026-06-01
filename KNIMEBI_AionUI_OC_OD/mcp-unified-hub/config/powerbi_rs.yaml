@@ -1,0 +1,7 @@
+base_url: "http://pbireport01/reports/api/v2.0"
+domain: "YOURDOMAIN"
+username: "svc-report"
+password: ""
+auth: "NTLM"
+verify_ssl: false
+request_timeout: 60
