@@ -26,20 +26,20 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                        AionUI Agent Layer                              │
-│  ┌──────────┐  ┌──────────┐  ┌───────────┐  ┌──────────────────────┐  │
-│  │ Built-in │  │ Opencode │  │ Open      │  │ Other ACP Agents     │  │
-│  │ Agent    │  │          │  │ Design    │  │                      │  │
-│  │          │  │          │  │ (agent)   │  │                      │  │
-│  └──────────┘  └──────────┘  └───────────┘  └──────────────────────┘  │
-│         │             │             │                 │               │
-│         └─────────────┴─────────────┴─────────────────┘               │
-│                              │ MCP Client                             │
-│                     ┌────────▼─────────┐                              │
-│                     │  AionUI MCP Hub   │                             │
-│                     │  (Unified Config) │                             │
-│                     └────────┬─────────┘                              │
-└──────────────────────────────┼────────────────────────────────────────┘
+│                        AionUI Agent Layer                               │
+│   ┌──────────┐  ┌──────────┐  ┌───────────┐  ┌──────────────────────┐   │
+│   │ Built-in │  │ Opencode │  │ Open      │  │ Other ACP Agents     │   │
+│   │ Agent    │  │          │  │ Design    │  │                      │   │
+│   │          │  │          │  │ (agent)   │  │                      │   │
+│   └──────────┘  └──────────┘  └───────────┘  └──────────────────────┘   │
+│         │             │             │                 │                 │
+│         └─────────────┴─────────────┴─────────────────┘                 │
+│                              │ MCP Client                               │
+│                     ┌────────▼─────────┐                                │
+│                     │  AionUI MCP Hub   │                               │
+│                     │  (Unified Config) │                               │
+│                     └────────┬─────────┘                                │
+└──────────────────────────────┼──────────────────────────────────────────┘
                                │
               ┌────────────────┼────────────────┐
               │                │                │
@@ -50,7 +50,7 @@
      └────────┬───────┘ └──────┬───────┘ └──────┬──────────┘
               │                │                │
      ┌────────▼───────┐ ┌──────▼───────┐ ┌──────▼──────────┐
-     │ KNIME Batch    │ │ PBIRS REST   │ │ OD Daemon REST │
+     │ KNIME Batch    │ │ PBIRS REST   │ │ OD Daemon REST  │
      │ Executor CLI   │ │ API v2.0     │ │ API (local)     │
      │ (headless)     │ │ (NTLM auth)  │ │ + Agent CLIs    │
      └────────────────┘ └──────────────┘ └─────────────────┘
@@ -77,10 +77,10 @@
                          │ data
                     ┌────▼─────┐
              ┌──────┤ AionUI   ├──────┐
-             │      │ (orchestr)│      │
+             │      │(orchestr)│      │
              │      └────┬─────┘      │
              │           │            │
-      ┌──────▼───┐ ┌────▼─────┐ ┌────▼────────┐
+      ┌──────▼───┐ ┌─────▼────┐ ┌─────▼───────┐
       │ Open     │ │ Power BI │ │ OfficeCLI   │
       │ Design   │ │ Report   │ │ (docx/pptx) │
       │ (design) │ │ Server   │ │             │
@@ -1035,14 +1035,14 @@ User: "Thiết kế dashboard doanh số cho team Sales"
 Open Design đã hỗ trợ **OpenCode** như một agent engine (16 CLI agents được auto-detect):
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                  Open Design                         │
-│  ┌─────────────────────────────────────────────────┐│
-│  │ Daemon PATH scan → tự động phát hiện OpenCode   ││
-│  │ Agent Runtime → spawns: opencode <prompt>       ││
-│  │ Kết quả: HTML artifact trong project folder      ││
-│  └─────────────────────────────────────────────────┘│
-└──────────────────────┬──────────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│                  Open Design                          │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │ Daemon PATH scan → tự động phát hiện OpenCode   │  │
+│  │ Agent Runtime → spawns: opencode <prompt>       │  │
+│  │ Kết quả: HTML artifact trong project folder     │  │
+│  └─────────────────────────────────────────────────┘  │
+└──────────────────────┬────────────────────────────────┘
                        │ MCP: opendesign_generate_*
          ┌─────────────┴─────────────┐
          │       AionUI Agent        │
@@ -1217,18 +1217,18 @@ opendesign_generate_deck(
 │     knime_execute_workflow("etl-sales", {date: "2026-Q2"})       │
 │     knime_read_output_table("output/sales-summary.csv")          │
 │                                                                  │
-│  2. Open Design thiết kế dashboard                                │
+│  2. Open Design thiết kế dashboard                               │
 │     opendesign_generate_prototype(                               │
 │       skill_id="dashboard", brief="Sales Q2 với KPIs...")        │
 │     opendesign_export_artifact(format="html")                    │
 │                                                                  │
-│  3. Power BI Report Server refresh + upload                       │
+│  3. Power BI Report Server refresh + upload                      │
 │     powerbirs_upload_report(pbix_path="sales.pbix",              │
-│       folder_path="/Bao cao dinh ky")                           │
-│     powerbirs_refresh_dataset(report_id=...)                    │
+│       folder_path="/Bao cao dinh ky")                            │
+│     powerbirs_refresh_dataset(report_id=...)                     │
 │                                                                  │
 │  4. OfficeCLI tạo PPT từ KNIME data (nếu cần)                    │
-│     officecli merge template.pptx result.pptx ...               │
+│     officecli merge template.pptx result.pptx ...                │
 │                                                                  │
 │  5. Gửi báo cáo qua Telegram/Lark                                │
 └──────────────────────────────────────────────────────────────────┘
