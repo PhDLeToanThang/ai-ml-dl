@@ -37,13 +37,16 @@ Hãy phân tích đọc các files Log và để có thể tạo ra hệ thống
 
 
 #### Kịch bản 2.2.: 
+
+##### Tóm tắt Vấn đề:  
+Biết về phần mềm RvTools 4.7.1 là công cụ Export ra Excel files các thông tin căn bản đang vận hành của máy chủ hệ thống, các thông tin dạng nhật ký thường dùng để phân tích, nhưng quá nhiều Sheetname và có nhiều dữ liệu thông tin phát sinh hàng ngày không biết đề xuất dùng chúng cùng lúc và xử lý định dạng Dữ liệu Excel có thể phân tích như thế nào để đạt mục tiêu (ví dụ: làm thế nào có 1 Báo cáo vận hành thống nhất và cập nhật liên tục)?
+
 >>>Tôi có các file excel được export từ phần mềm RvTools 4.7 của DELL, và tài liệu hướng dẫn giới thiệu: https://github.com/PhDLeToanThang/automation/blob/main/rvtools/rvtools4.7.pdf
 - Ngoài ra, mỗi lần chạy RvTools kết nối cụm máy chủ vCenter Appliance 8 hoặc kết nối riêng lẻ từng ESXi host 7.0 /8.0 tôi đều
-export ra các file Excel và lưu vào 1 thư mục dự án các báo cáo này ở thư mục: C:\Thanglt-Document-2026\2026\SHG\OfficeHQ
-các file tôi có thay tên như: SHG_RVTools_export_all_2026-05-02_13.28.30.xlsx, SHG_RVTools_export_all_2026-04-27_00.03.51.xlsx,
-SHG_RVTools_export_all_2026-04-26_20.18.50.xlsx, RVTools_export_all_2026-04-16_21.41.05.xlsx, RVTools_export_all_2026-04-16_16.54.30.xlsx
+export ra các file Excel và lưu vào 1 thư mục dự án các báo cáo này ở thư mục: D:\BaiTap5\Nhom2.2\ATCBI\ATC_RVTools_export_all_2026-06-02_12.47.53.xlsx
+các file tôi có thay tên như: ATC_RVTools_export_all_2026-06-02_12.47.53.xlsx
 Mỗi file excel có tới 27 sheets.
-- Hãy phân tích lại cấu trúc các trường thông tin, kiểu trường phù hợp có trong 27 sheets và nội dung dữ liệu để có thể thiết kế sang 1 dữ liệu sqlite3 db tại máy chạy hosting local, và dùng html5 để thiết kế web form kiểu dạng Full-Stack vừa có front-end cho admin role vừa có backend chứa database, vừa có api web thiết kế UI/UX:
+- Hãy phân tích lại cấu trúc các trường thông tin, kiểu trường phù hợp có trong 27 sheets và nội dung dữ liệu để có thể thiết kế sang 1 dữ liệu sqlite3 db tại máy chạy hosting local, và dùng html,js,css để thiết kế web form kiểu dạng Full-Stack vừa có front-end cho admin role vừa có backend chứa database, vừa có api web thiết kế UI/UX:
 - Tạo 1 tab menu "Input data" kiểu upload các files excel trên theo kiểu quy trình ETL và tự động cho các dữ liệu đó converter vào sqlite3 theo Databases và các tables tương ứng với sheetname có trong excel
 (Lưu ý: tránh bị nhập trùng lại các file excel đã uploaded, bằng cách đánh dấu thêm vào 1 bảng history và sẽ bỏ qua với các files excel đã nhập, thông báo sau khi có kết quả hoàn thành).
 - Tiếp theo, tạo cho tôi 1 tab menu "Process data" hiển thị grid các dữ liệu của 27 sheets cho phép cộng gộp các dòng dữ liệu thêm trường dữ liệu ngày tháng năm, giờ phút giây cập nhật (uploaded), Dòng cuối của grid sẽ có thêm 1 dòng tổng trung bình của các giá trị số nguyên có trong các cột.
