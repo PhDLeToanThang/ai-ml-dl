@@ -8,7 +8,8 @@
 Chủ động lấy được các dữ liệu dạng Văn bản, tài liệu mẫu, Các đoạn Video, audio có nguồn gốc, biết một vài định dạng dữ liệu cụ thể như: Mp3, midi, aud, media track thường dùng để lưu trữ và để nghe/xem lại tư liệu. nhưng nếu phải tổng hợp, phân tích chuyển đổi sang các dạng dữ liệu thông tin phát sinh hàng ngày (ghi âm, ghi hình cuộc họp và phải viết báo cáo tổng hợp hoặc chi tiết thì rất khó hoặc không biết đề xuất dùng chúng cùng lúc và xử lý định dạng Dữ liệu số đó có thể phân tích như thế nào để đạt mục tiêu?
 
 #### Kịch bản 1.1.: 
->>>tôi cần viết đoạn code html5 sao cho dạng URL https://yourdomain.vn/readdocx.html?read=Vị_Trí_Huyệt_Đạo_Trên_Cơ_Thể.docx toàn bộ đoạn code html, js, css giúp mở xem read và modify file Dcox online mà không cần download về máy cá nhân. Lưu ý: đoạn code trên tôi đang chạy thử html5 trên localhost:3003 thì thư mục /files chứa file docx, doc. Ví dụ:http://localhost:3003/readdoc.html?read=Vị_Trí_Huyệt_Đạo_Trên_Cơ_Thể.docx như cách này thì sẽ bị báo lỗi An error occurred: We're sorry, but for some reason we can't open this for you. Learn more. Do vậy, hãy sửa lại code html5 cho phép dùng cả localhost và port khác 80 , 443. và cho thao tác đổi từ Read sang Edit được.
+>>>Tôi có trang youtube.com video : https://youtu.be/nw-7ry_hhio?si=kaog47zEhFxlpFB7
+Tôi thấy có viết tiêu đề: Frontend System Design Essentials: Data-Heavy Frontend Apps, hãy tóm tắt thành mục lục các ý chính và Phân tích chi tiết đầy đủ bằng tiếng Việt nội dung có giải thích các thuật ngữ, các điểm nghẽn (pain point), các vấn đề khó khăn, thách thức và giải pháp giải quyết (đặt biệt là Code HTML front-end, Search, filter, phân tích xác định hành vi và sự cố ) và viết ra file Documents\Tools\BigData_SysLog_README.md.
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
