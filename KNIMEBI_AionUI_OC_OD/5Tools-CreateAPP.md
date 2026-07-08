@@ -18,6 +18,10 @@ Hãy viết cho tôi 1 trang chuẩn html, js, css để có thể mở hoặc t
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
+#### Kịch bản 1.3.:
+>>>Tôi cần viết tool xem soạn sửa preview file markdown .md: "Tôi gặp vấn đề mở file md để mở xem, sửa, thay đổi nội dung, vẽ lại biểu đồ chart, mermaid, graphic ascii của các files md. Trong khi đó hệ thống windows remote không được cho truy cập https://github.com và cũng không có Account github. Hãy viết cho tôi 1 trang chuẩn html, js, css để có thể mở, tạo mới, sửa chữa, preview và các chức năng xử lý files md chạy Localhost hoặc trên web html và lưu tại thư mục dự án Documents\Tools\markdown-local.html"
+
+---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
 ## Kịch bản 2: 🟢 Không cần lập trình — Lời nhắc cho Trình tạo bảng điều khiển:
 ***(No-Code — Prompt to Dashboard Creator)***
