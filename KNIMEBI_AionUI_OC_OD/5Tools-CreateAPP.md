@@ -43,37 +43,32 @@ Hãy phân tích đọc các files Log và để có thể tạo ra hệ thống
 
 #### Kịch bản 2.2.: 
 >>>Tôi có các file excel được export từ phần mềm RvTools 4.7 của DELL, và tài liệu hướng dẫn giới thiệu: https://github.com/PhDLeToanThang/automation/blob/main/rvtools/rvtools4.7.pdf
-- Ngoài ra, mỗi lần chạy RvTools kết nối cụm máy chủ vCenter Appliance 8 hoặc kết nối riêng lẻ từng ESXi host 7.0 /8.0 tôi đều
-export ra các file Excel và lưu vào 1 thư mục dự án các báo cáo này ở thư mục: C:\Thanglt-Document-2026\2026\SHG\OfficeHQ
-các file tôi có thay tên như: SHG_RVTools_export_all_2026-05-02_13.28.30.xlsx, SHG_RVTools_export_all_2026-04-27_00.03.51.xlsx,
-SHG_RVTools_export_all_2026-04-26_20.18.50.xlsx, RVTools_export_all_2026-04-16_21.41.05.xlsx, RVTools_export_all_2026-04-16_16.54.30.xlsx
-Mỗi file excel có tới 27 sheets.
-- Hãy phân tích lại cấu trúc các trường thông tin, kiểu trường phù hợp có trong 27 sheets và nội dung dữ liệu để có thể thiết kế sang 1 dữ liệu sqlite3 db tại máy chạy hosting local, và dùng html5 để thiết kế web form kiểu dạng Full-Stack vừa có front-end cho admin role vừa có backend chứa database, vừa có api web thiết kế UI/UX:
-- Tạo 1 tab menu "Input data" kiểu upload các files excel trên theo kiểu quy trình ETL và tự động cho các dữ liệu đó converter vào sqlite3 theo Databases và các tables tương ứng với sheetname có trong excel
-(Lưu ý: tránh bị nhập trùng lại các file excel đã uploaded, bằng cách đánh dấu thêm vào 1 bảng history và sẽ bỏ qua với các files excel đã nhập, thông báo sau khi có kết quả hoàn thành).
-- Tiếp theo, tạo cho tôi 1 tab menu "Process data" hiển thị grid các dữ liệu của 27 sheets cho phép cộng gộp các dòng dữ liệu thêm trường dữ liệu ngày tháng năm, giờ phút giây cập nhật (uploaded), Dòng cuối của grid sẽ có thêm 1 dòng tổng trung bình của các giá trị số nguyên có trong các cột.
-- Tiếp theo, tạo cho tôi 1 tab menu "Metric Data" là bảng tính toán gồm:
-+ Lấy dữ liệu từ Table: vHost:  CPU Usage %/host (tổng số hosts) , usage vCPU/VMs (tổng số VMs), Average % , VMs per core.  
-    + vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
-+ Lấy dữ liệu từ Table: vHost:  Memory Usage %/host (tổng số hosts) , VM used memory, Average %
-+ vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
-+ Lấy dữ liệu từ Table: vDatastore: Tên từng Name Storage và số VMs, Capacity GB, Provisioned (Số đã cấp) GB, Số đang dùng GB, Free %.
-+ vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
-+ Lấy dữ liệu từ table: vSC_VMK: Tên Port Group, device, Host, ipv4, subnet mark, gateway , mtu
-+ Lấy dữ liệu từ table: vCluster: NumHosts, TotalCpu, NumCpuCores, NumCpuThreads, Effective Cpu, TotalMemory, Effective Memory
-+ vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
-- Tiếp theo, tạo cho tôi 1 tab menu "KPI performance" là bảng tính toán gồm:
-+  Lấy dữ liệu từ Table: vCPU,  tính Use vCpu < 75% (ổn định: chữ to đâm mầu xanh green, 87.5% >= mầu cam > 75%, mầu đỏ <= 93%)
-+ Lấy dữ liệu từ Table: vMemory, tính Use Consumed < 75% (ổn định: chữ to đâm mầu xanh green, 87.5% >= mầu cam > 75%, mầu đỏ <= 93%)
-+ Lấy dữ liệu từ table: vPartition: tính VD và từng vùng vPartition của từng VM với Capacity MiB, Consumed MiB, Free MiB, Free %
-+ vẽ thêm biểu đồ lines các thời điểm upload có thay đổi (ổn định: chữ to đâm mầu xanh green <=80%, 90% >= mầu cam > 80%, mầu đỏ <= 97%)
-- Tiếp theo, tạo cho tôi 1 tab menu "ORKI Risk Compliance" là bảng tính toán gồm:
-    + Lấy dữ liệu từ Table: vHealth.
-+ Lấy dữ liệu từ Table: vCD.
-+ Lấy dữ liệu từ Table: vNetwork.
-+ Lấy dữ liệu từ Table: vTools.
-+ Lấy dữ liệu từ table: vUSB.
-Sau khi tạo code Html5 trên tôi sẽ dùng chạy mô phỏng, sau đó hãy viết thành file SKILL.md các bước của dự án để tôi có thể đưa sang Opencode local để chạy Full-stack next.js, node.js, python 3.11, prisma, sqlite3 db.
+
+Ngoài ra, mỗi lần chạy RvTools kết nối cụm máy chủ vCenter Appliance 8 hoặc kết nối riêng lẻ từng ESXi host 7.0 /8.0 tôi đều export ra các file Excel và lưu vào 1 thư mục dự án các báo cáo này ở thư mục: D:\BaiTap5\Nhom2.2\ATCBI các file tôi có thay tên như: ATC_RVTools_export_all_2026-06-02_12.47.53.xlsx, ATC_RVTools_export_all_2026-07-07_23.38.49.xlsx Mỗi file excel có tới 27 sheets.
+Hãy phân tích lại cấu trúc các trường thông tin, kiểu trường phù hợp có trong 27 sheets và nội dung dữ liệu để có thể thiết kế sang 1 dữ liệu sqlite3 db tại máy chạy hosting local, và dùng html5 để thiết kế web form kiểu dạng Full-Stack vừa có front-end cho admin role vừa có backend chứa database, vừa có api web thiết kế UI/UX:
+Tạo 1 tab menu "Input data" kiểu upload các files excel trên theo kiểu quy trình ETL và tự động cho các dữ liệu đó converter vào sqlite3 theo Databases và các tables tương ứng với sheetname có trong excel (Lưu ý: tránh bị nhập trùng lại các file excel đã uploaded, bằng cách đánh dấu thêm vào 1 bảng history và sẽ bỏ qua với các files excel đã nhập, thông báo sau khi có kết quả hoàn thành).
+Tiếp theo, tạo cho tôi 1 tab menu "Process data" hiển thị grid các dữ liệu của 27 sheets cho phép cộng gộp các dòng dữ liệu thêm trường dữ liệu ngày tháng năm, giờ phút giây cập nhật (uploaded), Dòng cuối của grid sẽ có thêm 1 dòng tổng trung bình của các giá trị số nguyên có trong các cột.
+Tiếp theo, tạo cho tôi 1 tab menu "Metric Data" là bảng tính toán gồm:
+Lấy dữ liệu từ Table: vHost: CPU Usage %/host (tổng số hosts) , usage vCPU/VMs (tổng số VMs), Average % , VMs per core.
+vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
+Lấy dữ liệu từ Table: vHost: Memory Usage %/host (tổng số hosts) , VM used memory, Average %
+vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
+Lấy dữ liệu từ Table: vDatastore: Tên từng Name Storage và số VMs, Capacity GB, Provisioned (Số đã cấp) GB, Số đang dùng GB, Free %.
+vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
+Lấy dữ liệu từ table: vSC_VMK: Tên Port Group, device, Host, ipv4, subnet mark, gateway , mtu
+Lấy dữ liệu từ table: vCluster: NumHosts, TotalCpu, NumCpuCores, NumCpuThreads, Effective Cpu, TotalMemory, Effective Memory
+vẽ thêm biểu đồ lines cấc thời điểm upload có thay đổi.
+Tiếp theo, tạo cho tôi 1 tab menu "KPI performance" là bảng tính toán gồm:
+Lấy dữ liệu từ Table: vCPU, tính Use vCpu < 75% (ổn định: chữ to đâm mầu xanh green, 87.5% >= mầu cam > 75%, mầu đỏ <= 93%)
+Lấy dữ liệu từ Table: vMemory, tính Use Consumed < 75% (ổn định: chữ to đâm mầu xanh green, 87.5% >= mầu cam > 75%, mầu đỏ <= 93%)
+Lấy dữ liệu từ table: vPartition: tính VD và từng vùng vPartition của từng VM với Capacity MiB, Consumed MiB, Free MiB, Free %
+vẽ thêm biểu đồ lines các thời điểm upload có thay đổi (ổn định: chữ to đâm mầu xanh green <=80%, 90% >= mầu cam > 80%, mầu đỏ <= 97%)
+Tiếp theo, tạo cho tôi 1 tab menu "ORKI Risk Compliance" là bảng tính toán gồm:
+Lấy dữ liệu từ Table: vHealth.
+Lấy dữ liệu từ Table: vCD.
+Lấy dữ liệu từ Table: vNetwork.
+Lấy dữ liệu từ Table: vTools.
+Lấy dữ liệu từ table: vUSB. Sau khi tạo code Html5 trên tôi sẽ dùng chạy mô phỏng, sau đó hãy viết thành file SKILL.md các bước của dự án để tôi có thể đưa sang Opencode local để chạy Full-stack next.js, node.js, python 3.11, prisma, sqlite3 db.
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
