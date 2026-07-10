@@ -99,14 +99,16 @@ và không biết đề xuất dùng chúng cùng lúc và xử lý định dạ
 
 **Bước 1: Thay đổi Mindset thêm nhiều Góc nhìn Xử lý Dữ liệu Hiệu quả:**
 
-- Ví dụ tham khảo: Cách Mình Tìm Ra Valuable Insights Khi Làm Phân Tích: https://www.youtube.com/watch?v=4VFIYqZ2OTE&t=55s
+>>>Ví dụ tham khảo: Cách Mình Tìm Ra Valuable Insights Khi Làm Phân Tích: https://www.youtube.com/watch?v=4VFIYqZ2OTE&t=55s
 hãy tổng hợp thành \Documents\Analytics\readme-DataInsight.md? Data Insight là gì? và có giải quyết được việc xác định các thay đổi trong dữ liệu Deduplicate, Cập nhật sâu (deep update), So sánh, Cache khó sau khi đã Upload nhiều dữ liệu vào kho Dữ liệu trên.
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
 **Bước 2: Bổ sung luận điểm và Phương pháp Phân tích Tập trung hơn:**
+
 - Kịch bản tạo Data Insight để hỗ trợ AI tạo Dashboard Version mới:
-- Trường hợp tôi có nhiều files excel được xuất ra từ RvTools 4.7.1 thì khi muốn lập Dashboard và cho uploads nhiều files để phân tích, tổng hợp và tính toán các chỉ số Metric Data, KPI Performance , ORKI RISK, Compliance, non-compliance; có vướng mắc là các bảng excel có hiện tượng Pain point: Deduplicate, Cập nhật sâu (deep update), So sánh, Cache khó các thay đổi hãy tham khảo file: Documents\Tools\BigData_SysLog_README.md cùng với \Documents\Analytics\readme-DataInsight.md để sửa lại AnalyticsLOG-Dashboard-V6.html
+
+>>>Trường hợp tôi có nhiều files excel được xuất ra từ RvTools 4.7.1 thì khi muốn lập Dashboard và cho uploads nhiều files để phân tích, tổng hợp và tính toán các chỉ số Metric Data, KPI Performance , ORKI RISK, Compliance, non-compliance; có vướng mắc là các bảng excel có hiện tượng Pain point: Deduplicate, Cập nhật sâu (deep update), So sánh, Cache khó các thay đổi hãy tham khảo file: Documents\Tools\BigData_SysLog_README.md cùng với \Documents\Analytics\readme-DataInsight.md để sửa lại AnalyticsLOG-Dashboard-V6.html
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
