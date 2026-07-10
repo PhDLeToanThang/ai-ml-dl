@@ -91,6 +91,9 @@ và không biết đề xuất dùng chúng cùng lúc và xử lý định dạ
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
+###### Trường hợp lỗi sự cố 1:
+
+>>>Tôi đã thử mở chạy AnalyticsLOG-Dashboard-V5.html nhưng phần Upload File excel không chạy, không thấy thực hiện được  nút ⚡ Upload & Import và mục Loading DB... cứ quay không cho biết DB đã sẵn sàng?
 
 ###### Giải pháp 2:
 
