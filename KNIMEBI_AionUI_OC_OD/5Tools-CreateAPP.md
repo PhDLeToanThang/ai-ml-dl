@@ -68,7 +68,7 @@ Lấy dữ liệu từ Table: vHealth.
 Lấy dữ liệu từ Table: vCD.
 Lấy dữ liệu từ Table: vNetwork.
 Lấy dữ liệu từ Table: vTools.
-Lấy dữ liệu từ table: vUSB. Sau khi tạo code Html5 trên tôi sẽ dùng chạy mô phỏng, sau đó hãy viết thành file SKILL.md các bước của dự án để tôi có thể đưa sang Opencode local để chạy Full-stack next.js, node.js, python 3.11, prisma, sqlite3 db.
+Lấy dữ liệu từ table: vUSB. Sau khi tạo code Html5 trên tôi sẽ dùng chạy mô phỏng, sau đó hãy viết thành file SKILL.md các bước của dự án để tôi có thể đưa sang Opencode local để chạy Full-stack next.js, node.js, python 3.11, prisma, sqlite3 db. Hãy viết ra file AnalyticsLOG-Dashboard-V4.html lưu tại thư mục \Documents\Tools\BigData.
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
