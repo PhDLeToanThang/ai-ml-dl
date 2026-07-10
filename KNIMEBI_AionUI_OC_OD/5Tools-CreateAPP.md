@@ -43,7 +43,6 @@ Hãy phân tích đọc các files Log và để có thể tạo ra hệ thống
 
 #### Kịch bản 2.2.: 
 >>>Tôi có các file excel được export từ phần mềm RvTools 4.7 của DELL, và tài liệu hướng dẫn giới thiệu: https://github.com/PhDLeToanThang/automation/blob/main/rvtools/rvtools4.7.pdf
-
 Ngoài ra, mỗi lần chạy RvTools kết nối cụm máy chủ vCenter Appliance 8 hoặc kết nối riêng lẻ từng ESXi host 7.0 /8.0 tôi đều export ra các file Excel và lưu vào 1 thư mục dự án các báo cáo này ở thư mục: D:\BaiTap5\Nhom2.2\ATCBI các file tôi có thay tên như: ATC_RVTools_export_all_2026-06-02_12.47.53.xlsx, ATC_RVTools_export_all_2026-07-07_23.38.49.xlsx Mỗi file excel có tới 27 sheets.
 Hãy phân tích lại cấu trúc các trường thông tin, kiểu trường phù hợp có trong 27 sheets và nội dung dữ liệu để có thể thiết kế sang 1 dữ liệu sqlite3 db tại máy chạy hosting local, và dùng html5 để thiết kế web form kiểu dạng Full-Stack vừa có front-end cho admin role vừa có backend chứa database, vừa có api web thiết kế UI/UX:
 Tạo 1 tab menu "Input data" kiểu upload các files excel trên theo kiểu quy trình ETL và tự động cho các dữ liệu đó converter vào sqlite3 theo Databases và các tables tương ứng với sheetname có trong excel (Lưu ý: tránh bị nhập trùng lại các file excel đã uploaded, bằng cách đánh dấu thêm vào 1 bảng history và sẽ bỏ qua với các files excel đã nhập, thông báo sau khi có kết quả hoàn thành).
