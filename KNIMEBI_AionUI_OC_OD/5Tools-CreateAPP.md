@@ -138,4 +138,7 @@ Tôi muốn chủ động lấy được các dữ liệu dạng phân tích tó
 CVE Official Website https://www.cve.org,  https://nvd.nist.gov/ : Cơ sở dữ liệu lỗ hổng, lỗi phần mềm quốc gia của Mỹ. Hãy tìm cho tôi các vá lỗi, các đánh giá điểm số xác định mối nguy hại có thể với hệ thống của tôi.
 Hãy thay toàn bộ lịch về 15:30 PM hàng ngày, hãy thực thi đoạn prompt trên và lưu ra file Documents\itaudit\[ngày hiện thời]_cve.md.
 
----> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
+---> Gợi ý: hãy tạo thư mục dự án trong Documents\itaudit và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
+
+---
+
