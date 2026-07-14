@@ -23,6 +23,9 @@ Hãy viết cho tôi 1 trang chuẩn html, js, css để có thể mở hoặc t
 
 ---> Gợi ý: hãy tạo thư mục dự án trong Documents\Tools và chọn Opencode, chọn Permission Plan Mode để phân tích dữ liệu trước.
 
+#### Kịch bản 1.4.: Debug và nâng cấp thêm tính năng, chức năng: 
+>>>Trong phần tools D:\BaiTap5\Tools\markdown-local.html tôi đã dùng thấy các chức năng sửa, xóa, edit, preview rất tốt, nhưng thiếu chức năng xuất ra file Docx hoặc Google Doc của định dạng .md, .html bạn hãy viết bổ sung tính năng xuất từ .md sang Google docs. hãy viết thành code html file Documents\Tools\markdown-local_v2.html
+
 ---
 
 ## Kịch bản 2: 🟢 Không cần lập trình — Lời nhắc cho Trình tạo bảng điều khiển:
@@ -133,7 +136,7 @@ Tôi muốn chủ động lấy được các dữ liệu dạng phân tích tó
 2. Dữ liệu cần cập nhật liên tục thường xuyên?
 
 ###### Giải pháp:
->>>Tôi đang dùng VMware vSphere 8.0u3f, 9.0, 9.1, 7.0u3, SDDC 5.2 , NSX 4.0, SDDC 9.0, SDDC 9.1, GLPI itsm, GITHUB, GITEA, Keycloak SSO, SIEM ELK, AionUI, OpenCode, Graphify, PowerBI Desktop, KNIME Data Analytic Platform Desktop, PowerBI Report Server, Microsoft MS-SQL Server và MS-SQL Analytics Server, và MS-SQL Report Server, Microsoft Office 2013, 2014, 2016, 2019, 2022, 2025, MSO365, Microsoft windows 10, 11, 12, 2012, 2016, 2019, 2022, 2025, IBM SPSS, Oracle DB RAC RMAN, MS Data Lake, MS SQL DWH, MS SQL Cluster Failover 2017, Apache BizSpark 2, Hadoop2; vậy bạn có thể chỉ dẫn chi tiết cách ứng dụng của các trang : Hệ thống CVE (Common Vulnerabilities and Exposures) do tổ chức phi lợi nhuận MITRE quản lý để định danh mọi lỗi hổng bảo mật trên thế giới. Bạn có thể tra cứu thông tin chi tiết qua hai trang chính thức sau: 
+>>>Tôi đang dùng VMware vSphere 8.0u3f, 9.0, 9.1, 7.0u3, SDDC 5.2 , NSX 4.0, SDDC 9.0, SDDC 9.1, GLPI itsm, GITHUB, GITEA, Keycloak SSO, SIEM ELK, AionUI, OpenCode, Graphify, PowerBI Desktop, KNIME Data Analytic Platform Desktop, PowerBI Report Server, Microsoft MS-SQL Server và MS-SQL Analytics Server, và MS-SQL Report Server, Microsoft Office 2013, 2014, 2016, 2019, 2022, 2025, MSO365, Microsoft windows 10, 11, 12, 2012, 2016, 2019, 2022, 2025, IBM SPSS, Oracle DB RAC RMAN, MS Data Lake, MS SQL DWH, MS SQL Cluster Failover 2017, Apache BizSpark 2, Hadoop2, Hmail Server, Exchange Server 2016/2019/2022/2026, SharePoint Farm 2016/2019/2022; vậy bạn có thể chỉ dẫn chi tiết cách ứng dụng của các trang : Hệ thống CVE (Common Vulnerabilities and Exposures) do tổ chức phi lợi nhuận MITRE quản lý để định danh mọi lỗi hổng bảo mật trên thế giới. Bạn có thể tra cứu thông tin chi tiết qua hai trang chính thức sau: 
 CVE Official Website https://www.cve.org,  https://nvd.nist.gov/ : Cơ sở dữ liệu lỗ hổng, lỗi phần mềm quốc gia của Mỹ. Hãy tìm cho tôi các vá lỗi, các đánh giá điểm số xác định mối nguy hại có thể với hệ thống của tôi.
 Hãy thay toàn bộ lịch về 15:30 PM hàng ngày, hãy thực thi đoạn prompt trên và lưu ra file Documents\itaudit\\[ngày hiện thời]_cve.md.
 
