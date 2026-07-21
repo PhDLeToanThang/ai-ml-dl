@@ -53,5 +53,11 @@ Hãy phân tích chi tiết, đánh giá tính khả thi, không đáp ứng và
 
 ---
 
-# Phần 3. Các tính năng trong Agentic AI và MCP ứng dụng xử lý Dữ liệu:
->>>
+# Phần 3. Các tính năng trong Agentic AI:
+
+
+---
+
+# Phàn 4. MCP ứng dụng trong xử lý Dữ liệu nội bộ:
+
+---
