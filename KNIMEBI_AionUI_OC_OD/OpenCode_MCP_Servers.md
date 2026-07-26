@@ -30,7 +30,7 @@
 - **Giao diện chuẩn** để khám phá và thực thi công cụ
 - **Nhiều loại truyền tải**: stdio (subprocess), SSE (Server-Sent Events), HTTP
 - **Đăng ký công cụ động** tại runtime
-- **Mô hình quyền一致 nhất** cho tất cả công cụ
+- **Mô hình quyền duy nhất** cho tất cả công cụ
 
 ### OpenCode hỗ trợ MCP như thế nào?
 
@@ -49,7 +49,7 @@ OpenCode là một **MCP client đầy đủ**, hỗ trợ:
 
 - **Mở rộng khả năng**: Kết nối GitHub, Sentry, databases, APIs, v.v.
 - **Kết nối bất kỳ dịch vụ nào**: Gmail, Supabase, Jira, Linear, v.v.
-- **Tách biệt trách nhiệm**: Agent专注于 coding, MCP xử lý tích hợp bên ngoài
+- **Tách biệt trách nhiệm*Agent tập trung coding, MCP xử lý tích hợp bên ngoài
 - **Bảo mật**: Permission system kiểm soát quyền truy cập từng công cụ
 
 ---
@@ -86,7 +86,7 @@ OpenCode là một **MCP client đầy đủ**, hỗ trợ:
 
 ```
 ┌──────────┐     ┌───────────┐     ┌──────────────┐     ┌─────────────┐
-│  LLM     │───▶│ Agent     │────▶│ Permission   │────▶│ MCP Client  │
+│  LLM     │───▶│ Agent     │────▶│ Permission   │───▶│ MCP Client  │
 │  quyết   │     │ chọn tool │     │ System       │     │ thực thi    │
 │  định    │     │           │     │ (approve?)   │     │             │
 └──────────┘     └───────────┘     └──────┬───────┘     └──────┬──────┘
