@@ -308,7 +308,7 @@ pip install "graphifyy[all]"       # Tất cả
 | **Phương pháp** | Knowledge Graph (Tree-sitter AST) | Vector Embeddings | SQLite AST | Static Analysis |
 | **Deterministic** | ✅ Có (AST) | ❌ Không (fuzzy matching) | ✅ Có | ✅ Có |
 | **Multi-modal** | ✅ Code + Docs + PDF + Video + Image | ⚠️ Text mainly | ❌ Code only | ❌ Code only |
-| **Token reduction** | tới 71.5x | Không显著 | Không显著 | N/A |
+| **Token reduction** | tới 71.5x | Không có ý nghĩa | Không có ý nghĩa | N/A |
 | **Community detection** | ✅ Leiden algorithm | ❌ Không | ❌ Không | ❌ Không |
 | **God nodes** | ✅ Có | ❌ Không | ❌ Không | Partial |
 | **Local-first** | ✅ Pass 1+2 local | ❌ Cần cloud embedding | ✅ Local | ✅ Local |
@@ -390,7 +390,7 @@ graphify cursor install
 - Cursor tự động load rules trong mọi conversation
 - Không có PreToolUse hook — dùng rules file
 
-### 8.5. Tối ưu cho大型 Codebase (>10,000 files)
+### 8.5. Tối ưu cho lượng file lớn Codebase (>10,000 files)
 
 ```bash
 # Bước 1: Tạo .graphifyignore loại trừ generated files
