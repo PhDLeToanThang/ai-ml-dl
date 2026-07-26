@@ -34,12 +34,12 @@ Ai360Hub là ứng dụng desktop Việt Nam, tập trung vào dịch phụ đ�
 ### 2.1 Quy trình sử dụng VoicePro AI
 
 **Bước 1: Cài đặt**
-`ash
+```bash
 git clone https://github.com/chorylee/voice-pro
 cd voice-pro
 pip install -r requirements.txt
 python app.py
-`
+```
 
 **Bước 2: Xử lý video**
 1. Tab YouTube Download → Nhập URL → Tải video
@@ -154,7 +154,7 @@ python app.py
 
 ### 8.1 Quy trình tổng quát
 
-`
+```ascii
 +-----------------------------------------------------+
 |                    NGUỒN ĐẦU VÀO                     |
 |  +----------+  +----------+  +----------+  +------+  |
@@ -231,11 +231,11 @@ python app.py
 |  |  • Tùy chon: Subtitle burn-in hoac soft sub   |  |
 |  +-----------------------------------------------+  |
 +-----------------------------------------------------+
-`
+```
 
 ### 8.2 Quy trình cụ thể Ai360Hub (Dịch SRT bằng LLM)
 
-`
+```ascii
 +-----------------------------------------------------+
 |                  FILE SRT NGUỒN                     |
 |  subtitle_vi.srt                                    |
@@ -290,7 +290,7 @@ python app.py
 |  • Giữ nguyen so thu tu                             |
 |  • Chi thay doi noi dung van ban                    |
 +-----------------------------------------------------+
-`
+```
 
 ---
 
@@ -391,22 +391,22 @@ python app.py
 | Qwen 2.5 72B | 64GB | 48GB | 200 | 8 |
 
 **Cấu hình tối ưu Cloud API:**
-`json
+```json
 {
   "batch_size": 200,
   "parallel": 8,
   "timeout": 120
 }
-`
+```
 
 **Cấu hình tối ưu Local LLM:**
-`json
+```json
 {
   "batch_size": 25,
   "parallel": 1,
   "timeout": 600
 }
-`
+```
 
 ### 11.3 Tối ưu cho TTS
 
@@ -431,7 +431,7 @@ python app.py
 
 ### 12.1 Chiến lược triển khai đề xuất
 
-`
+```ascii
 +-----------------------------------------------------+
 |           CHIẾN LƯỢC 3 TẦNG                         |
 |                                                     |
@@ -456,7 +456,7 @@ python app.py
 |  |  • Google Cloud TTS cho voice tự nhiên        |  |
 |  +-----------------------------------------------+  |
 +-----------------------------------------------------+
-`
+```
 
 ### 12.2 Khuyến nghị theo đối tượng
 
