@@ -49,21 +49,21 @@ Hãy phân tích chi tiết, đánh giá tính khả thi, không đáp ứng và
 ---
 
 ## Bài tập 6.5 Mô hình giải pháp Local Ai Voice/speech to text:
->>>Thông qua việc có 2 files tư liệu sau: C:\AionUi-source\LPAI-ANNTTT-NH-KTNB.md  và C:\AionUi-source\local_ai_voice_not-policy.md
+>>>Thông qua việc có 2 files tư liệu sau: D:\BaiTap6\1.Local_Ai_Voice\LPAI-ANNTTT-NH-KTNB.md  và D:\BaiTap6\1.Local_Ai_Voice\local_ai_voice_not-policy.md
 >>>Tôi có kịch bản cần bạn phân tích thiết kế giải pháp và xây dựng ra công cụ ứng dụng chạy trên Web App nội bộ PC mã code: html, js, css. Tôi có file mp4/mp3 ghi cuộc
 >>>họp nội bộ không được upload cũng như tìm kiếm translate, transcription trên mạng xã hội
->>>nguồn video: (C:\\VideoData\KNIMEBI-1\\Chương trình Kiểm Toán Nội Bộ VietinBank-20260722_135515_Meet1.mp4).
+>>>nguồn video: (D:\BaiTap6\1.Local_Ai_Voice\meeting\Meet1_audio.mp3).
 >>>1. Làm sao cho ứng dụng trên có thể trỏ sources path (không cần upload đỡ tốn thời gian và dung lượng Sources path)là một hoặc nhiều files mp3 hoặc mp4.
 >>>2. Sau đó có thể thêm các tính năng chọn cụ thể: Xuất phụ đề sang Tiếng Việt (gốc) theo chuẩn định dạng srt, vtt (tham
 >>>khảo:https://github.com/SubtitleEdit/subtitleedit).
->>>3. Cho chọn dịch sang Tiếng Anh, Tiếng Đức, Tiếng Pháp, Nga, Trung Quốc, Tiếng Ý, Tiếng Tây Ban Nha sẽ xuất phụ đề dạng tên file có cấu trúc: {{đường dẫn file mp4}}\{Tên file mp4}_{{mã ngôn ngữ}}.{{srt/vtt}} 4. ví dụ: C:\\VideoData\KNIMEBI-1\\Chương trình Kiểm Toán Nội Bộ VietinBank-20260722_135515_Meet1_en.srt.
+>>>3. Cho chọn dịch sang Tiếng Anh, Tiếng Đức, Tiếng Pháp, Nga, Trung Quốc, Tiếng Ý, Tiếng Tây Ban Nha sẽ xuất phụ đề dạng tên file có cấu trúc: {{đường dẫn file mp4}}\{Tên file mp4}_{{mã ngôn ngữ}}.{{srt/vtt}}. ví dụ: D:\BaiTap6\1.Local_Ai_Voice\meeting\Meet1_audio.srt.
 >>>4. Sau khi có được files phụ đề, cho phép xuất hiện tính năng chọn file docx mẫu làm kiểu viết điền vào placehole trong file DOCX ví dụ: {{tóm_tắt}} {{giải_pháp}}
 >>>{{đề_xuất}} hoặc không có mẫu thì viết sẵn các task to do trong list cho phép sửa để thực hiện:
 >>>1. Tóm tắt mục lục nội dung trình bày
 >>>2. Nêu các nội dung từ tổng quát tới chi tiết.
 >>>3. Nếu các chương, chủ đề, ý kiến, vướng mắc, thảo luận và giải pháp theo trình tự thời gian và đối tượng trình bày.
 >>>4. Sơ kết các đánh giá tính khả thi, không đáp ứng, mong muốn và giải pháp cần cân nhắc, các lý do có thể và hợp lý.
->>>Có nút thực hiện để xuất ra markdown. ví dụ: C:\\VideoData\KNIMEBI-1\\Chương trình Kiểm Toán Nội Bộ VietinBank-20260722_135515_Meet1_vi.md.
+>>>Có nút thực hiện để xuất ra markdown. ví dụ: D:\BaiTap6\1.Local_Ai_Voice\meeting\Meet1_audio_vi.md.
 >>>Lưu ý: 1. Về công nghệ dùng model ai: nếu phải chọn Thời gian phụ đề dựa trên Whisper transcription (chính xác về timing) hoặc một số tính năng kỹ thuật như Text To >>>Speech.
 >>>2. Nhận dạng nội dung để chuyển speech mà dùng model ai Whisper detect. Thì cần download và fixed ở source code html, js, css sao cho trong Web html sẽ có các lựa >>>chọn chuẩn model ai để dùng lại tối ưu cho các lần tiếp theo của Công cụ này.
 >>>(Luật an ninh an toàn thông tin trong KTNB chỉ cho phép tải về 1 lần các thư viện, model ai để đóng gói và chạy nội bộ sẽ không có chuyện download nhiều lần model ai, >>>thư viện lặp đi lặp lại).
