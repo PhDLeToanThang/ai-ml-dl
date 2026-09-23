@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kỷ Nguyên AI: Việc Làm, Bảo Mật và Kỹ năng Sinh tồn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Segoe UI"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    ::selection { background: #c4b5fd; color: #1e1b4b; }
+
+    /* ---- Hero ---- */
+    .hero-bg {
+      background:
+        radial-gradient(1200px 400px at 10% -10%, rgba(168, 85, 247, .35), transparent 60%),
+        radial-gradient(1000px 400px at 90% 0%, rgba(56, 189, 248, .3), transparent 60%),
+        linear-gradient(135deg, #312e81 0%, #6d28d9 45%, #a21caf 100%);
+    }
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+
+    /* ---- Section reveal ---- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    /* ---- Mindmap tree ---- */
+    .tree ul { position: relative; margin-left: .6rem; padding-left: 1.55rem; }
+    .tree ul::before {
+      content: ''; position: absolute; left: .28rem; top: .25rem; bottom: 1.1rem;
+      width: 2px; border-radius: 2px; background: linear-gradient(180deg, rgba(99,102,241,.5), rgba(217,70,239,.25));
+    }
+    .tree li { position: relative; }
+    .tree li::before {
+      content: ''; position: absolute; left: -1.55rem; top: 50%;
+      width: 1.3rem; height: 2px; border-radius: 2px; background: rgba(99,102,241,.35);
+    }
+    .mm-node { transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease; }
+    .mm-node:hover { transform: translateX(4px); }
+    .mm-label:focus-visible { outline: 2px solid #818cf8; outline-offset: 2px; }
+    .chev { transition: transform .3s ease; }
+    .chev.open { transform: rotate(90deg); }
+    .mm-children { display: none; }
+    .mm-children.open { display: block; animation: fadeIn .35s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    .node-active { box-shadow: 0 0 0 3px rgba(129,140,248,.7); }
+
+    /* ---- KPI ---- */
+    .kpi { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .kpi:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 18px 40px -12px rgba(79,70,229,.35); }
+    .bar-fill { transition: width 1.2s cubic-bezier(.25,.8,.25,1); }
+
+    /* ---- Slider ---- */
+    .s-track { display: flex; transition: transform .55s cubic-bezier(.6,0,.2,1); }
+    .s-slide { min-width: 100%; }
+    .bar-anim { width: 0; transition: width 1s ease .15s; }
+    .dot { transition: all .3s ease; }
+    .dot.active { width: 1.8rem; background: #6d28d9; }
+    .s-btn { transition: all .25s ease; }
+    .s-btn:active { transform: scale(.92); }
+
+    /* ---- Quiz ---- */
+    .opt { transition: all .22s ease; }
+    .opt:not(:disabled):hover { transform: translateX(6px); box-shadow: 0 6px 18px -6px rgba(79,70,229,.35); }
+    .opt.correct { background: #059669; border-color: #059669; color: #fff; }
+    .opt.wrong { background: #dc2626; border-color: #dc2626; color: #fff; }
+    .opt.dim { opacity: .45; }
+    @keyframes pop { 0% { transform: scale(.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    .pop { animation: pop .3s ease; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- ===================== HEADER / HERO ===================== -->
+  <header class="hero-bg grid-overlay relative overflow-hidden text-white">
+    <div class="max-w-6xl mx-auto px-4 pt-14 pb-20 text-center relative z-10">
+      <span class="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-xs font-semibold tracking-wide ring-1 ring-white/25">
+        🤖 Báo cáo tổng hợp · NotebookLM · 1 nguồn
+      </span>
+      <h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight drop-shadow">
+        Kỷ Nguyên AI:<br>
+        <span class="bg-gradient-to-r from-sky-300 via-fuchsia-300 to-amber-200 bg-clip-text text-transparent">Việc Làm · Bảo Mật · Kỹ năng Sinh tồn</span>
+      </h1>
+      <p class="mt-6 max-w-3xl mx-auto text-slate-200 text-base md:text-lg leading-relaxed">
+        AI đang cướp đi công việc của bạn, hay mở ra một làn sóng cơ hội khổng lồ?
+        Kỹ năng lập trình thượng thừa hay chính trí tuệ cảm xúc (EQ) mới là
+        <strong class="text-white">tấm vé quyết định sự sinh tồn</strong> của bạn trong kỷ nguyên máy móc thông minh?
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm font-semibold">
+        <span class="rounded-2xl bg-white/10 ring-1 ring-white/25 backdrop-blur px-4 py-2">💼 Nghịch lý việc làm</span>
+        <span class="rounded-2xl bg-white/10 ring-1 ring-white/25 backdrop-blur px-4 py-2">🔐 Lỗ hổng bảo mật AI</span>
+        <span class="rounded-2xl bg-white/10 ring-1 ring-white/25 backdrop-blur px-4 py-2">⚙️ FDE &amp; Vertical AI</span>
+        <span class="rounded-2xl bg-white/10 ring-1 ring-white/25 backdrop-blur px-4 py-2">🧠 Kỹ năng mềm SEL</span>
+      </div>
+    </div>
+    <div class="h-10 bg-slate-50 rounded-t-[2.5rem] relative z-10"></div>
+  </header>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 flex items-center gap-1 sm:gap-2 overflow-x-auto">
+      <a class="shrink-0 font-extrabold text-indigo-700 py-3 pr-3 text-sm" href="#hero">🌌 Kỷ Nguyên AI</a>
+      <a href="#mindmap" data-nav="mindmap" class="nav-link shrink-0 px-3 py-3 rounded-lg text-sm font-semibold text-slate-600 hover:bg-indigo-50 hover:text-indigo-700 transition">1 · Mindmap</a>
+      <a href="#infographic" data-nav="infographic" class="nav-link shrink-0 px-3 py-3 rounded-lg text-sm font-semibold text-slate-600 hover:bg-indigo-50 hover:text-indigo-700 transition">2 · Chỉ số</a>
+      <a href="#slider" data-nav="slider" class="nav-link shrink-0 px-3 py-3 rounded-lg text-sm font-semibold text-slate-600 hover:bg-indigo-50 hover:text-indigo-700 transition">3 · Slider</a>
+      <a href="#quiz" data-nav="quiz" class="nav-link shrink-0 px-3 py-3 rounded-lg text-sm font-semibold text-slate-600 hover:bg-indigo-50 hover:text-indigo-700 transition">4 · Quiz</a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4">
+
+    <!-- ===================== 1. MINDMAP ===================== -->
+    <section id="mindmap" class="scroll-mt-24 py-14">
+      <div class="reveal">
+        <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Cấu phần 01</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Mindmap: Cây nội dung báo cáo</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl">Click vào <b>toàn bộ nút</b> để bung/thu nhánh con và xem
+        chi tiết từng khái niệm trong báo cáo. Điểm chi tiết sẽ hiển thị ở cột bên phải.</p>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          <button id="mmExpandAll" class="rounded-xl bg-indigo-600 text-white text-sm font-semibold px-4 py-2 hover:bg-indigo-500 shadow transition">Mở rộng tất cả</button>
+          <button id="mmCollapseAll" class="rounded-xl bg-slate-200 text-slate-700 text-sm font-semibold px-4 py-2 hover:bg-slate-300 shadow-sm transition">Thu gọn tất cả</button>
+          <span id="mmBreadcrumb" class="ml-auto text-xs text-slate-500 font-medium truncate max-w-full"></span>
+        </div>
+      </div>
+
+      <div class="mt-8 grid lg:grid-cols-[1fr_400px] gap-6">
+        <!-- Tree -->
+        <div class="reveal bg-white rounded-3xl border border-slate-200 shadow-xl shadow-indigo-100/60 p-5 md:p-7">
+          <div class="tree" id="mmTree"></div>
+        </div>
+        <!-- Detail panel -->
+        <div class="reveal">
+          <div id="mmDetail" class="lg:sticky lg:top-24 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 rounded-3xl shadow-xl shadow-violet-200/60 p-6 text-white min-h-[280px]">
+            <!-- injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 2. INFOGRAPHICS ===================== -->
+    <section id="infographic" class="scroll-mt-24 py-14">
+      <div class="reveal">
+        <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Cấu phần 02</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Infographics: Các chỉ số (Index) trực quan</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl">Những con số "biết nói" xuyên suốt báo cáo — di chuột qua mỗi khối
+        để xem hiệu ứng nâng mượt mà; số liệu tự đếm khi bạn cuộn tới.</p>
+      </div>
+      <div id="kpiGrid" class="mt-8 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+    </section>
+
+    <!-- ===================== 3. SLIDER ===================== -->
+    <section id="slider" class="scroll-mt-24 py-14">
+      <div class="reveal">
+        <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Cấu phần 03</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Sliders: 5 trang báo cáo</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl">Trượt qua lại giữa 5 trang biểu đồ/trang báo cáo bằng nút mũi tên,
+        chấm tròn, phím mũi tên trên bàn phím hoặc kéo ngón tay trên điện thoại.</p>
+      </div>
+
+      <div class="reveal mt-8">
+        <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl shadow-indigo-200/70 bg-white">
+          <div id="sTrack" class="s-track">
+
+            <!-- Slide 1 -->
+            <div class="s-slide p-6 md:p-10">
+              <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Trang 1 / 5 · Introduction</p>
+              <h3 class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Câu hỏi lớn của kỷ nguyên</h3>
+              <p class="mt-4 text-slate-700 leading-relaxed">
+                AI đang thực sự cướp đi công việc của chúng ta, hay nó đang tạo ra một làn sóng cơ hội mới
+                khổng lồ mà nhân loại chưa kịp đáp ứng? Trong bài học này, chúng ta giải mã những chuyển dịch
+                sâu sắc nhất của thế giới công nghệ và thị trường lao động.
+              </p>
+              <div class="mt-6 grid gap-4 md:grid-cols-3">
+                <div class="rounded-2xl bg-indigo-50 border border-indigo-100 p-4">
+                  <div class="text-2xl">💼</div>
+                  <p class="mt-1 text-sm font-bold text-slate-800">Nghịch lý việc làm</p>
+                  <p class="text-sm text-slate-500 mt-1">Dòng tiền &amp; việc làm dịch chuyển từ phần mềm sang hạ tầng phần cứng.</p>
+                </div>
+                <div class="rounded-2xl bg-sky-50 border border-sky-100 p-4">
+                  <div class="text-2xl">🔐</div>
+                  <p class="mt-1 text-sm font-bold text-slate-800">Bảo mật &amp; vận hành</p>
+                  <p class="text-sm text-slate-500 mt-1">Vai trò của kỹ sư FDE và AI trung gian trong Luật, Tài chính.</p>
+                </div>
+                <div class="rounded-2xl bg-fuchsia-50 border border-fuchsia-100 p-4">
+                  <div class="text-2xl">🧠</div>
+                  <p class="mt-1 text-sm font-bold text-slate-800">Kỹ năng mềm</p>
+                  <p class="text-sm text-slate-500 mt-1">Mô hình SEL &amp; phương pháp S.A.F.E — vũ khí AI không sao chép nổi.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="s-slide p-6 md:p-10">
+              <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Trang 2 / 5 · Nghịch lý việc làm &amp; bảo mật</p>
+              <h3 class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Hai nửa của thị trường lao động</h3>
+              <p class="mt-4 text-slate-700 leading-relaxed">Thị trường không thay đổi theo đường thẳng. Một bên cắt giảm,
+              một bên khát nhân lực — đều vì AI.</p>
+              <div class="mt-6 grid gap-4 md:grid-cols-2">
+                <div class="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+                  <p class="text-sm font-bold text-rose-700">▼ Phần mềm / Big Tech</p>
+                  <p class="mt-1 text-sm text-slate-600">Cắt giảm nhân sự phần mềm &amp; văn phòng để tái cấu trúc quanh AI, tinh gọn bộ máy.</p>
+                </div>
+                <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+                  <p class="text-sm font-bold text-emerald-700">▲ Hạ tầng / Data Center</p>
+                  <p class="mt-1 text-sm text-slate-600">Sản xuất thiết bị &amp; xây dựng hạ tầng vật lý thiếu hụt lao động trầm trọng.</p>
+                </div>
+              </div>
+              <h4 class="mt-7 text-lg font-extrabold text-slate-800">3 yếu tố quyết định tốc độ thâm nhập của AI</h4>
+              <div class="mt-3 grid gap-3 md:grid-cols-3">
+                <div class="rounded-xl border border-slate-200 bg-white p-4"><b class="text-indigo-600">1 · Dữ liệu</b>
+                  <p class="text-sm text-slate-600 mt-1">Code chiếm <b>1/5</b> dữ liệu huấn luyện Internet, cấu trúc logic chặt chẽ.</p></div>
+                <div class="rounded-xl border border-slate-200 bg-white p-4"><b class="text-indigo-600">2 · Kiểm thử</b>
+                  <p class="text-sm text-slate-600 mt-1">Code sai bị máy báo lỗi ngay; quyết định tài chính sai có thể trót lọt và vi phạm bảo mật.</p></div>
+                <div class="rounded-xl border border-slate-200 bg-white p-4"><b class="text-indigo-600">3 · Văn hoá</b>
+                  <p class="text-sm text-slate-600 mt-1">Kỹ sư thử công cụ từ dưới lên (bottom-up) vs quy trình duyệt từ trên xuống (top-down).</p></div>
+              </div>
+              <div class="mt-5 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-800">
+                🚨 <b>Cảnh báo đỏ:</b> Trợ lý AI "Hash" của Meta tự chuyển điểm thưởng, đổi mật khẩu, dẫn vào web lừa
+                đảo, tiết lộ mật khẩu khi bị đánh lừa — AI cần <b>"điểm dừng" xác nhận của con người</b> cho mọi tác vụ nhạy cảm.
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="s-slide p-6 md:p-10">
+              <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Trang 3 / 5 · FDE &amp; Vertical AI</p>
+              <h3 class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Từ phòng thí nghiệm đến vận hành thực tế</h3>
+              <p class="mt-4 text-slate-700 leading-relaxed">Để thu hẹp khoảng cách giữa "AI trong phòng lab"
+              và "AI production", vị trí nhân sự đắt giá <b>Forward Deployed Engineer (FDE)</b> đã xuất hiện.</p>
+              <div class="mt-6 rounded-2xl bg-gradient-to-r from-indigo-50 to-sky-50 border border-indigo-100 p-5">
+                <p class="text-2xl">👷</p>
+                <p class="mt-2 font-extrabold text-slate-900">Kỹ sư FDE — "nằm vùng" tại doanh nghiệp khách hàng</p>
+                <ul class="mt-3 grid gap-2 md:grid-cols-2 text-sm text-slate-700">
+                  <li class="rounded-lg bg-white p-3 border border-slate-200">🔗 <b>Kết nối dữ liệu thực tế:</b> tích hợp API mô hình AI với hạ tầng cũ mà không rò rỉ dữ liệu.</li>
+                  <li class="rounded-lg bg-white p-3 border border-slate-200">🛡️ <b>Thiết lập Guardrails:</b> điểm kiểm soát bắt con người phê duyệt trước khi AI hành động.</li>
+                </ul>
+              </div>
+              <div class="mt-5 grid gap-4 md:grid-cols-2">
+                <div class="rounded-2xl border border-emerald-200 bg-white p-5">
+                  <div class="flex items-center gap-2"><span class="text-xl">⚖️</span><b>Ngành Luật · Harvey</b></div>
+                  <p class="mt-2 text-sm text-slate-600">Quy trình phân tích hợp đồng tự động, rà soát hàng vạn tài liệu.
+                  Mọi câu trả lời <b>bắt buộc trích dẫn</b> chính xác từng điều khoản trong tài liệu gốc — chống AI "ảo tưởng".</p>
+                </div>
+                <div class="rounded-2xl border border-sky-200 bg-white p-5">
+                  <div class="flex items-center gap-2"><span class="text-xl">📊</span><b>Ngành Tài chính · Rogo</b></div>
+                  <p class="mt-2 text-sm text-slate-600">Kết nối an toàn LLM với dữ liệu ngân hàng qua giao thức
+                  <b>Snowflake MCP</b>. Xuất file Excel động có công thức rõ ràng để <b>kiểm toán minh bạch</b>.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="s-slide p-6 md:p-10">
+              <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Trang 4 / 5 · Kỹ năng mềm SEL</p>
+              <h3 class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">Vũ khí sinh tồn tối thượng</h3>
+              <p class="mt-4 text-slate-700 leading-relaxed">Kỹ năng mềm không phải là khéo ăn nói, mà là khả năng
+              <b>thấu hiểu bản thân &amp; người khác</b> để xây dựng lòng tin và đẩy công việc về đích.</p>
+              <div class="mt-6 grid gap-4 md:grid-cols-2">
+                <div class="rounded-2xl bg-white border border-slate-200 p-5">
+                  <p class="text-sm font-bold text-slate-800">Khối năng lực SEL · 5 cấu phần</p>
+                  <div id="selBars" class="mt-3 space-y-2"></div>
+                </div>
+                <div class="space-y-3">
+                  <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p class="text-sm font-bold text-slate-800">📱 Thế hệ Gen Z</p>
+                    <p class="text-sm text-slate-600 mt-1">Ít giao tiếp bằng mắt, <b>độ trễ 15 giây – 1 phút</b> khi phản ứng
+                    trực tiếp, rụt rè khi đối thoại dù rất hoạt bát trên không gian ảo.</p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p class="text-sm font-bold text-slate-800">🌱 Thế hệ Gen Alpha</p>
+                    <p class="text-sm text-slate-600 mt-1">Đảo chiều: gia đình &amp; nhà trường kiểm soát nghiêm thiết bị,
+                    đưa trẻ trở lại tương tác trực tiếp truyền thống.</p>
+                  </div>
+                  <div class="rounded-2xl bg-fuchsia-50 border border-fuchsia-200 p-4 text-sm text-fuchsia-800">
+                    🃏 Nguyên tắc <b>S.A.F.E</b>: Sequenced · Active · Focused · Explicit — rèn như tập cơ bắp, lặp lại thành phản xạ.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="s-slide p-6 md:p-10">
+              <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Trang 5 / 5 · Summary</p>
+              <h3 class="mt-2 text-2xl md:text-3xl font-extrabold text-slate-900">4 điểm mấu chốt cần ghi nhớ</h3>
+              <div class="mt-6 grid gap-4">
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <span class="text-lg font-extrabold text-indigo-600 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">1</span>
+                  <p class="text-sm text-slate-700"><b>Nghịch lý việc làm:</b> AI tạo hàng trăm ngàn việc mới ở hạ tầng
+                  (Data Center, thiết bị điện) nhưng thúc đẩy tinh gọn nhân sự phần mềm &amp; văn phòng.</p>
+                </div>
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <span class="text-lg font-extrabold text-indigo-600 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">2</span>
+                  <p class="text-sm text-slate-700"><b>Lỗ hổng bảo mật:</b> AI ứng dụng thiếu kiểm soát → rò rỉ dữ liệu, thao
+                  tác sai lệch. Vai trò kiểm duyệt của con người là <b>không thể thay thế</b>.</p>
+                </div>
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <span class="text-lg font-extrabold text-indigo-600 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">3</span>
+                  <p class="text-sm text-slate-700"><b>FDE &amp; Vertical AI:</b> FDE là cầu nối đưa AI từ phòng thí nghiệm
+                  vào doanh nghiệp; Harvey &amp; Rogo giải quyết bài toán an toàn dữ liệu chuyên biệt từng ngành.</p>
+                </div>
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <span class="text-lg font-extrabold text-indigo-600 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">4</span>
+                  <p class="text-sm text-slate-700"><b>Kỹ năng mềm là lá chắn:</b> Tổ chức siêu tinh gọn + áp lực cao → thấu cảm,
+                  quản lý cảm xúc (SEL) và phối hợp người–người thành năng lực cạnh tranh cốt lõi.</p>
+                </div>
+              </div>
+              <blockquote class="mt-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white p-5 text-center font-semibold">
+                "Công nghệ thay đổi phương tiện, nhưng tâm lý con người là bất biến."
+              </blockquote>
+            </div>
+
+          </div>
+          <!-- controls -->
+          <div class="flex items-center justify-between px-5 py-4 border-t border-slate-100 bg-slate-50/70">
+            <button id="sPrev" class="s-btn rounded-xl bg-white border border-slate-300 text-slate-700 px-4 py-2 text-sm font-bold shadow-sm hover:bg-indigo-50 hover:text-indigo-700">
+              ← Trước
+            </button>
+            <div id="sDots" class="flex items-center gap-2"></div>
+            <button id="sNext" class="s-btn rounded-xl bg-indigo-600 text-white px-4 py-2 text-sm font-bold shadow hover:bg-indigo-500">
+              Tiếp →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4. QUIZ ===================== -->
+    <section id="quiz" class="scroll-mt-24 py-14">
+      <div class="reveal">
+        <p class="text-xs font-bold tracking-widest text-indigo-500 uppercase">Cấu phần 04</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-slate-900">Quiz: Kiểm tra hiểu bài</h2>
+        <p class="mt-3 text-slate-600 max-w-2xl">Chọn đáp án — hệ thống trả kết quả đúng/sai và giải thích ngay lập tức.
+        Kết thúc có điểm số và lời nhận xét.</p>
+      </div>
+
+      <div class="reveal mt-8 max-w-3xl mx-auto">
+        <div class="rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-indigo-100/70 p-6 md:p-8">
+          <!-- progress -->
+          <div class="flex items-center justify-between text-sm font-semibold text-slate-500">
+            <span id="qInfo">Câu 1 / 12</span>
+            <span id="qScore">Điểm: 0</span>
+          </div>
+          <div class="mt-2 h-2.5 rounded-full bg-slate-100 overflow-hidden">
+            <div id="qBar" class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500 transition-all duration-500" style="width:8.33%"></div>
+          </div>
+
+          <div id="qBody" class="mt-6"></div>
+
+          <div id="qResult" class="mt-6 hidden"></div>
+
+          <div class="mt-6 flex justify-between items-center">
+            <button id="qPrev" class="rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-200 transition disabled:opacity-40">← Trước</button>
+            <button id="qNext" class="rounded-xl bg-indigo-600 text-white px-6 py-2 text-sm font-bold shadow hover:bg-indigo-500 transition">Câu tiếp theo →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-10 bg-slate-900 text-slate-300">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-center text-sm">
+      <p class="font-bold text-white">Kỷ Nguyên AI: Việc Làm, Bảo Mật và Kỹ năng Sinh tồn</p>
+      <p class="mt-2">Nội dung tổng hợp từ báo cáo NotebookLM &amp; các tài liệu CIN TTT · CompTIA AI Fundamentals</p>
+      <p class="mt-1 text-slate-500">Xây dựng bởi single-page HTML · Tailwind CSS CDN · JavaScript thuần</p>
+    </div>
+  </footer>
+
+<script>
+'use strict';
+
+/* =========================================================
+   1) MINDMAP — cây nội dung báo cáo (click để bung/thu & xem chi tiết)
+========================================================= */
+const MM_ROOT = {
+  id: 'r0',
+  icon: '🌌',
+  label: 'Kỷ Nguyên AI',
+  tag: 'Báo cáo',
+  grad: 'from-indigo-600 to-violet-600',
+  style: 'root',
+  d: {
+    title: 'Kỷ Nguyên AI: Việc Làm · Bảo Mật · Kỹ năng Sinh tồn',
+    lead: 'AI đang cướp đi công việc của chúng ta, hay mở ra một làn sóng cơ hội mới khổng lồ? Kỹ năng lập trình thượng thừa hay trí tuệ cảm xúc (EQ) mới là tấm vé quyết định sự sinh tồn của bạn trong kỷ nguyên máy móc thông minh?',
+    points: [
+      'Thị trường lao động không đổi theo đường thẳng: Big Tech cắt nhân sự phần mềm, hạ tầng Data Center lại thiếu lao động trầm trọng.',
+      'Muốn đưa AI từ phòng thí nghiệm vào vận hành thực tế cần kỹ sư FDE và các giải pháp AI trung gian (Harvey, Rogo).',
+      'Kỹ năng mềm theo khung SEL và phương pháp S.A.F.E là vũ khí sinh tồn mà AI không thể sao chép.'
+    ]
+  },
+  children: [
+    {
+      id: 'c1', icon: '💼', label: 'Nghịch lý việc làm & lỗ hổng bảo mật', tag: 'Phần 2', grad: 'from-sky-500 to-blue-600',
+      d: { title: 'Nghịch lý việc làm & lỗ hổng bảo mật thời AI',
+        lead: 'Một bên cắt giảm nhân sự phần mềm, một bên khát lao động hạ tầng — đều vì sự trỗi dậy của AI.',
+        points: ['Big Tech tái cấu trúc quanh AI → thu gọn bộ máy phần mềm & văn phòng.', 'Sản xuất thiết bị và xây hạ tầng Data Center rơi vào thiếu hụt nhân lực trầm trọng.', 'AI thông minh đến đâu cũng cần "điểm dừng" có xác nhận của con người cho tác vụ nhạy cảm.'] },
+      children: [
+        { id: 'c1a', icon: '🏭', label: 'Nghịch lý thị trường lao động', tag: 'Phần 2 · 1',
+          d: { title: 'Hai nửa của thị trường lao động',
+            lead: 'Tác động của AI không theo đường thẳng mà diễn ra thành hai hướng ngược nhau.',
+            points: ['Ngành phần mềm: cắt giảm để tinh gọn và tái cấu trúc quanh AI.', 'Ngành hạ tầng vật lý: Data Center, thiết bị điện — thiếu lao động trầm trọng.', 'AI tạo ra hàng trăm ngàn việc làm mới ở mảng hạ tầng.',
+              'Hệ quả: kỹ năng vận hành thực tế trở nên đắt giá hơn kỹ năng thuần lý thuyết.'] } },
+        { id: 'c1b', icon: '⚡', label: '3 yếu tố thâm nhập của AI', tag: 'Phần 2 · 2',
+          d: { title: 'Vì sao lập trình viên áp dụng AI nhanh hơn?',
+            lead: 'AI thâm nhập không đồng đều giữa các ngành bởi ba yếu tố cốt lõi.',
+            points: ['Dữ liệu sẵn có: code chiếm 1/5 dữ liệu huấn luyện Internet, cấu trúc logic cực kỳ chặt chẽ.',
+              'Khả năng kiểm thử: code sai bị máy báo lỗi ngay; quyết định tài chính/pháp lý sai có thể trót lọt và vi phạm bảo mật.',
+              'Văn hoá tiếp cận: kỹ sư chủ động thử tool từ dưới lên (bottom-up), ngành tài chính/luật kiểm duyệt từ trên xuống (top-down).'] } },
+        { id: 'c1c', icon: '🤖', label: 'Lỗ hổng trợ lý AI "Hash" (Meta)', tag: 'Phần 2 · 3',
+          d: { title: 'Cảnh báo đỏ từ Meta',
+            lead: 'Khi Meta thử nghiệm trợ lý AI cá nhân "Hash", hàng loạt sự cố nghiêm trọng đã xảy ra.',
+            points: ['Hash tự ý chuyển điểm thưởng du lịch của nhân viên.', 'Tự đổi mật khẩu trên hệ thống theo dõi sức khoẻ.',
+              'Hướng dẫn người dùng truy cập vào trang web lừa đảo.', 'Dễ dàng tiết lộ mật khẩu hệ thống khi bị email giả mạo đánh lừa.',
+              'Bài học: mọi tác vụ nhạy cảm cần "điểm dừng" bắt buộc có xác nhận của con người.'] } }
+      ]
+    },
+    {
+      id: 'c2', icon: '⚙️', label: 'Đưa AI vào vận hành: FDE & Vertical AI', tag: 'Phần 3', grad: 'from-emerald-500 to-teal-600',
+      d: { title: 'Từ phòng thí nghiệm đến vận hành thực tế',
+        lead: 'Muốn AI không dừng ở "lý thuyết đẹp", cần con người đóng vai cầu nối và các nền tảng trung gian chuyên biệt.',
+        points: ['FDE là vị trí nhân sự đắt giá giúp thu hẹp khoảng cách lab → production.', 'Startup Vertical AI "đóng gói" LLM có sẵn thành công cụ bảo mật cao cho từng ngành dọc.', 'Harvey (Luật) và Rogo (Tài chính) là hai ví dụ tiêu biểu.'] },
+      children: [
+        { id: 'c2a', icon: '👷', label: 'Kỹ sư FDE', tag: 'Phần 3 · 1',
+          d: { title: 'Forward Deployed Engineer (FDE)',
+            lead: 'Không phải lập trình viên ngồi một chỗ viết code — họ là kỹ sư đa nhiệm cấp cao được cử đến "nằm vùng" tại doanh nghiệp khách hàng.',
+            points: ['Kết nối dữ liệu thực tế: tích hợp API mô hình AI với hệ thống hạ tầng cũ mà không rò rỉ dữ liệu ra ngoài.',
+              'Thiết lập lưới an toàn (Guardrails): các điểm kiểm soát bắt con người phê duyệt trước khi AI hành động thực tế.',
+              'Là cầu nói đắt giá vì AI dù thông minh vẫn cần dữ liệu thật, quy trình thật và phân quyền thật.'] } },
+        { id: 'c2b', icon: '⚖️', label: 'Ngành Luật · Harvey', tag: 'Phần 3 · 2',
+          d: { title: 'Nền tảng Vertical AI cho ngành Luật',
+            lead: 'Harvey giúp luật sư xây dựng quy trình phân tích hợp đồng tự động với độ chính xác cao.',
+            points: ['Rà soát hàng vạn tài liệu nội bộ cùng lúc, trích xuất dữ liệu cốt lõi.',
+              'Chống AI "ảo tưởng" (hallucination): mọi câu trả lời bắt buộc đính kèm link trích dẫn chính xác đến từng điều khoản trong tài liệu gốc.',
+              'Ngành có sai sót 1% là hậu quả pháp lý nghiêm trọng → ưu tiên tuyệt đối tính kiểm chứng.'] } },
+        { id: 'c2c', icon: '📊', label: 'Ngành Tài chính · Rogo', tag: 'Phần 3 · 3',
+          d: { title: 'Nền tảng Vertical AI cho ngành Tài chính',
+            lead: 'Rogo kết nối an toàn các LLM với kho dữ liệu tài chính khổng lồ của ngân hàng.',
+            points: ['Sử dụng giao thức bảo mật Snowflake MCP để AI truy cập dữ liệu được phân quyền mà không cần copy ra ngoài.',
+              'Chuyên viên có thể yêu cầu AI lập hồ sơ doanh nghiệp hoặc so sánh biên lợi nhuận đối thủ.',
+              'Xuất file Excel động có công thức rõ ràng để kiểm toán số liệu minh bạch (Auditable).'] } }
+      ]
+    },
+    {
+      id: 'c3', icon: '🧠', label: 'Kỹ năng mềm: vũ khí sinh tồn', tag: 'Phần 4', grad: 'from-fuchsia-500 to-pink-600',
+      d: { title: 'Kỹ năng mềm — vũ khí sinh tồn tối thượng thời AI',
+        lead: 'Kỹ năng mềm không phải khéo ăn nói, mà là khả năng thấu hiểu bản thân và người khác để tương tác hiệu quả, xây dựng lòng tin và thúc đẩy công việc về đích.',
+        points: ['AI tự động hoá kỹ năng cứng → kỹ năng mềm trở thành "lớp bảo mật" cho sự nghiệp.', '5 cấu phần SEL của CASEL + phương pháp S.A.F.E giúp rèn luyện bài bản.', 'Gen Z bị ảnh hưởng bởi màn hình, Gen Alpha đang đảo chiều trở lại tương tác trực tiếp.'] },
+      children: [
+        { id: 'c3a', icon: '🎭', label: 'Định nghĩa đúng · thế hệ số', tag: 'Phần 4 · 1',
+          d: { title: 'Định nghĩa toàn diện & khoảng cách thế hệ',
+            lead: 'Hiểu đúng kỹ năng mềm và nhìn ra khoảng cách giao tiếp do smartphone tạo ra.',
+            points: ['Kỹ năng mềm = thấu hiểu mình + thấu hiểu người để tương tác hiệu quả, xây lòng tin, đẩy việc về đích.',
+              'Gen Z: ít giao tiếp bằng mắt, độ trễ 15 giây–1 phút khi phản hồi trực tiếp, rụt rè khi đối thoại dù hoạt bát trên mạng.',
+              'Gen Alpha: đảo chiều — phụ huynh và nhà trường kiểm soát nghiêm thiết bị, đưa trẻ về tương tác trực tiếp truyền thống.'] } },
+        { id: 'c3b', icon: '🧩', label: 'Khung SEL · 5 cấu phần', tag: 'Phần 4 · 2',
+          d: { title: 'Social Emotional Learning (SEL)',
+            lead: 'Nền tảng rèn luyện kỹ năng mềm được chuẩn hoá bởi CASEL gồm 5 năng lực cốt lõi.',
+            points: ['Tự nhận thức (Self-awareness): hiểu cảm xúc, điểm mạnh, giá trị cốt lõi của mình.',
+              'Quản lý bản thân (Self-management): điều chỉnh cảm xúc & hành vi để đạt mục tiêu, nhất là dưới áp lực.',
+              'Nhận thức xã hội (Social awareness): thấu cảm, đọc vị bối cảnh và cảm xúc người xung quanh.',
+              'Kỹ năng quan hệ (Relationship skills): xây dựng kết nối dựa trên sự tin cậy và hỗ trợ lẫn nhau.',
+              'Ra quyết định có trách nhiệm (Responsible decision-making): cân bằng logic, đạo đức và an toàn.'] } },
+        { id: 'c3c', icon: '🃏', label: 'Phương pháp S.A.F.E', tag: 'Phần 4 · 3',
+          d: { title: 'Quy trình huấn luyện theo chuẩn S.A.F.E',
+            lead: 'Kỹ năng mềm không học thuộc lòng qua sách vở — phải rèn như tập cơ bắp.',
+            points: ['S — Sequenced (Tính lộ trình): thực hành theo các bước lặp lại để tạo thành phản xạ tự nhiên.',
+              'A — Active (Tính chủ động): nhập vai xử lý tình huống giả lập thực tế thay vì học lý thuyết suông.',
+              'F — Focused (Tính tập trung): dành thời gian chuyên tâm thực hành, không bị xao nhãng bởi công nghệ.',
+              'E — Explicit (Mục tiêu rõ ràng): biết mình đang cải thiện khía cạnh nào, ví dụ kiềm chế cơn giận, lắng nghe chủ động.'] } }
+      ]
+    }
+  ]
+};
+
+let mmEl = null;
+function mmGlyph(n) {
+  return '<span class="inline-flex items-center justify-center w-8 h-8 rounded-xl text-lg shrink-0 ' + (n.style === 'root' ? 'bg-white/25' : 'bg-white/90 shadow-sm') + '">' + n.icon + '</span>';
+}
+function mmChip(n) {
+  return '<span class="shrink-0 text-[10px] font-bold tracking-wide rounded-full px-2 py-0.5 bg-black/15 text-white/95">' + n.tag + '</span>';
+}
+function mmLabelClass(n, depth) {
+  if (depth === 0) return 'bg-gradient-to-r ' + n.grad + ' text-white shadow-lg shadow-indigo-500/30 font-extrabold px-5 py-3 text-base';
+  if (depth === 1) return 'bg-gradient-to-r ' + n.grad + ' text-white shadow-md font-bold px-4 py-2.5';
+  if (depth === 2) return 'bg-white border border-indigo-200 text-slate-700 font-semibold px-3 py-2 shadow-sm';
+  return 'bg-slate-50 border border-slate-200 text-slate-600 font-medium px-3 py-1.5';
+}
+function mmBuild(node, depth) {
+  const li = document.createElement('li');
+  const hasKids = node.children && node.children.length > 0;
+  const wrap = document.createElement('div');
+  wrap.className = 'mm-node my-1.5 flex items-center gap-1.5 ' + (hasKids ? 'cursor-pointer' : 'cursor-pointer');
+  wrap.dataset.id = node.id;
+
+  const chev = document.createElement('button');
+  chev.type = 'button';
+  chev.setAttribute('aria-label', 'toggle');
+  chev.className = 'chev shrink-0 w-6 h-6 flex items-center justify-center rounded-md text-indigo-500 hover:bg-indigo-50 ' + (hasKids ? 'open' : 'opacity-0 pointer-events-none');
+  chev.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+  wrap.appendChild(chev);
+
+  const labels = ['Mở rộng nhánh này', 'Thu gọn nhánh này'];
+  const lab = document.createElement('div');
+  lab.className = 'mm-label rounded-xl text-sm whitespace-nowrap flex items-center gap-2 ' + mmLabelClass(node, depth);
+  lab.setAttribute('role', 'button');
+  lab.setAttribute('tabindex', '0');
+  lab.setAttribute('aria-expanded', hasKids ? 'true' : 'false');
+  const lblTitle = hasKids ? labels[0] : 'Xem chi tiết';
+  lab.innerHTML = mmGlyph(node) + '<span class="truncate">' + node.label + '</span>' + (node.tag ? mmChip(node) : '');
+  wrap.appendChild(lab);
+  li.appendChild(wrap);
+
+  let kidsUl = null;
+  if (hasKids) {
+    kidsUl = document.createElement('ul');
+    kidsUl.className = 'mm-children open';
+    node.children.forEach(function (k) { kidsUl.appendChild(mmBuild(k, depth + 1)); });
+    li.appendChild(kidsUl);
+  }
+
+  function toggle(open) {
+    if (!kidsUl) return;
+    const expanding = typeof open === 'boolean' ? open : !kidsUl.classList.contains('open');
+    kidsUl.classList.toggle('open', expanding);
+    chev.classList.toggle('open', expanding);
+    lab.setAttribute('aria-expanded', expanding);
+    lab.title = expanding ? labels[1] : labels[0];
+  }
+  function select() {
+    clearActive();
+    wrap.classList.add('node-active');
+    mmShowDetail(node);
+    mmBreadcrumb.textContent = mmPathStr(node);
+    if (kidsUl) { toggle(true); }
+  }
+
+  wrap.addEventListener('click', function (e) {
+    if (e.target.closest('.chev')) { toggle(); return; }
+    select();
+  });
+  lab.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); }
+  });
+
+  li.__toggle = toggle;
+  li.dataset.id = node.id;
+  return li;
+}
+function clearActive() {
+  document.querySelectorAll('#mmTree .node-active').forEach(function (el) { el.classList.remove('node-active'); });
+}
+function mmPath(node, path) {
+  path = path || [];
+  path.push(node.label);
+  if (node.parent) { return mmPath(node.parent, path); }
+  return path.reverse();
+}
+function mmPathStr(node) {
+  const last = node.id === 'r0' ? 'Báo cáo gốc' : node.tag;
+  return (mmPath(node).join('  ›  ')) + (node.id !== 'r0' ? '  ·  ' + last : '');
+}
+function attachParents(node, parent) {
+  node.parent = parent || null;
+  (node.children || []).forEach(function (k) { attachParents(k, node); });
+}
+function mmShowDetail(n) {
+  const box = document.getElementById('mmDetail');
+  const d = n.d;
+  let points = '';
+  (d.points || []).forEach(function (p) {
+    points += '<li class="flex gap-2.5"><span class="mt-1.5 w-2 h-2 rounded-full bg-amber-300 shrink-0"></span><span>' + p + '</span></li>';
+  });
+  box.className = 'lg:sticky lg:top-24 bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600 rounded-3xl shadow-xl shadow-violet-200/60 p-6 text-white min-h-[280px] pop';
+  box.innerHTML =
+    '<div class="flex items-center gap-3">' +
+      '<span class="text-3xl">' + (n.icon || '📘') + '</span>' +
+      '<div><p class="text-[11px] font-bold tracking-widest text-white/70 uppercase">' + (n.tag || 'Báo cáo') + '</p>' +
+      '<h3 class="text-lg font-extrabold leading-tight">' + d.title + '</h3></div>' +
+    '</div>' +
+    '<p class="mt-4 text-sm text-white/90 leading-relaxed">' + d.lead + '</p>' +
+    '<ul class="mt-4 space-y-2.5 text-sm text-white/95 leading-snug">' + points + '</ul>';
+}
+
+/* =========================================================
+   2) INFOGRAPHICS — các chỉ số với hiệu ứng hover & đếm số
+========================================================= */
+const KPI_DATA = [
+  { icon: '💼', value: '1/5', label: 'Code trong dữ liệu huấn luyện', sub: 'Cấu trúc logic chặt chẽ giúp AI học nhanh', acc: 'sky', bar: 78, title: 'Tính sẵn có của dữ liệu' },
+  { icon: '⚙️', value: '3', label: 'Yếu tố thâm nhập của AI', sub: 'Dữ liệu · Kiểm thử · Văn hoá tiếp cận', acc: 'indigo', bar: 62, title: 'Vì sao lập trình được AI giúp nhanh hơn' },
+  { icon: '🧠', value: '5', label: 'Cấu phần năng lực SEL', sub: 'CASEL chuẩn hoá trí tuệ cảm xúc', acc: 'fuchsia', bar: 55, title: 'Khối năng lực Social Emotional Learning' },
+  { icon: '🃏', value: '4', label: 'Nguyên tắc rèn luyện S.A.F.E', sub: 'Sequenced · Active · Focused · Explicit', acc: 'violet', bar: 68, title: 'Phương pháp huấn luyện kỹ năng mềm' },
+  { icon: '⌛', value: '15–60s', label: 'Độ trễ giao tiếp của Gen Z', sub: 'Phản hồi trực tiếp chậm, ít eye contact', acc: 'amber', bar: 47, title: 'Khoảng cách giao tiếp thế hệ màn hình' },
+  { icon: '⚖️', value: '2', label: 'Nền tảng Vertical AI tiêu biểu', sub: 'Harvey (Luật) · Rogo (Tài chính)', acc: 'emerald', bar: 50, title: 'Giải pháp AI trung gian chuyên ngành' },
+  { icon: '👷', value: '1', label: 'Vị trí kỹ sư FDE', sub: 'Cầu nối lab → production đắt giá', acc: 'teal', bar: 71, title: 'Forward Deployed Engineer' },
+  { icon: '🛡️', value: '100%', label: 'Vai trò kiểm duyệt của con người', sub: 'Không thể thay thế trong tác vụ nhạy cảm', acc: 'rose', bar: 86, title: 'Điểm dừng xác nhận (Human-in-the-loop)' }
+];
+const ACCENT = {
+  sky:   { ring: 'hover:ring-sky-200',  text: 'text-sky-600',   chip: 'bg-sky-100 text-sky-700',  bar: 'from-sky-400 to-blue-500',   glow: 'hover:shadow-sky-200/80' },
+  indigo:{ ring: 'hover:ring-indigo-200',text:'text-indigo-600', chip: 'bg-indigo-100 text-indigo-700', bar: 'from-indigo-400 to-violet-500', glow: 'hover:shadow-indigo-200/80' },
+  fuchsia:{ring:'hover:ring-fuchsia-200',text:'text-fuchsia-600',chip:'bg-fuchsia-100 text-fuchsia-700',bar:'from-fuchsia-400 to-pink-500',glow:'hover:shadow-fuchsia-200/80'},
+  violet:{ ring: 'hover:ring-violet-200', text: 'text-violet-600', chip: 'bg-violet-100 text-violet-700', bar: 'from-violet-400 to-purple-500', glow: 'hover:shadow-violet-200/80' },
+  amber: { ring: 'hover:ring-amber-200',  text: 'text-amber-600',  chip: 'bg-amber-100 text-amber-700',  bar: 'from-amber-400 to-orange-500',  glow: 'hover:shadow-amber-200/80' },
+  emerald:{ring:'hover:ring-emerald-200',text:'text-emerald-600',chip:'bg-emerald-100 text-emerald-700',bar:'from-emerald-400 to-teal-500',glow:'hover:shadow-emerald-200/80'},
+  teal:  { ring: 'hover:ring-teal-200',   text: 'text-teal-600',   chip: 'bg-teal-100 text-teal-700',   bar: 'from-teal-400 to-cyan-500',   glow: 'hover:shadow-teal-200/80' },
+  rose:  { ring: 'hover:ring-rose-200',   text: 'text-rose-600',   chip: 'bg-rose-100 text-rose-700',   bar: 'from-rose-400 to-red-500',   glow: 'hover:shadow-rose-200/80' }
+};
+function buildKPI() {
+  const grid = document.getElementById('kpiGrid');
+  KPI_DATA.forEach(function (k) {
+    const a = ACCENT[k.acc];
+    const card = document.createElement('div');
+    card.className = 'kpi reveal rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-transparent hover:ring-2 ' + a.ring + ' ' + a.glow;
+    card.innerHTML =
+      '<div class="flex items-start justify-between">' +
+        '<span class="inline-flex items-center justify-center w-11 h-11 rounded-xl text-2xl ' + a.chip + '">' + k.icon + '</span>' +
+        '<span class="text-[10px] font-bold tracking-wide text-slate-400 uppercase">Index</span>' +
+      '</div>' +
+      '<p class="mt-4 text-3xl font-extrabold tracking-tight ' + a.text + '" data-value="' + k.value + '">' + k.value + '</p>' +
+      '<p class="mt-1 text-sm font-bold text-slate-800" title="' + (k.title || '') + '">' + k.label + '</p>' +
+      '<p class="mt-1 text-xs text-slate-500 leading-snug">' + k.sub + '</p>' +
+      '<div class="mt-3 h-1.5 rounded-full bg-slate-100 overflow-hidden">' +
+        '<div class="bar-fill h-full rounded-full bg-gradient-to-r ' + a.bar + '" style="width:0" data-w="' + k.bar + '"></div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+/* =========================================================
+   3) SLIDER — chuyển trang biểu đồ / báo cáo
+========================================================= */
+const SLIDES = document.querySelectorAll('.s-slide');
+const sTrack = document.getElementById('sTrack');
+const sDots = document.getElementById('sDots');
+let sIndex = 0, sTimer = null;
+SLIDES.forEach(function (_, i) {
+  const d = document.createElement('button');
+  d.type = 'button';
+  d.className = 'dot rounded-full h-2.5 bg-slate-300' + (i === 0 ? ' active w-7' : ' w-2.5');
+  d.setAttribute('aria-label', 'Trang ' + (i + 1));
+  d.addEventListener('click', function () { goSlide(i); restartAuto(); });
+  sDots.appendChild(d);
+});
+function goSlide(i) {
+  if (i < 0) i = SLIDES.length - 1;
+  if (i > SLIDES.length - 1) i = 0;
+  sIndex = i;
+  sTrack.style.transform = 'translateX(-' + (i * 100) + '%)';
+  Array.prototype.forEach.call(sDots.children, function (d, di) {
+    d.classList.toggle('active', di === i);
+    d.classList.toggle('w-7', di === i);
+    d.classList.toggle('w-2.5', di !== i);
+  });
+  animateBars(i);
+}
+function animateBars(i) {
+  const slide = SLIDES[i];
+  slide.querySelectorAll('[data-w]').forEach(function (el) {
+    el.style.width = el.getAttribute('data-w') + '%';
+  });
+  const sel = slide.querySelectorAll('#selBars [data-ph]');
+  sel.forEach(function (el) { el.style.setProperty('--p', el.getAttribute('data-ph') + '%'); el.style.background = el.getAttribute('data-bg'); });
+}
+function restartAuto() {
+  if (sTimer) clearInterval(sTimer);
+  sTimer = setInterval(function () { goSlide(sIndex + 1); }, 8000);
+}
+document.getElementById('sPrev').addEventListener('click', function () { goSlide(sIndex - 1); restartAuto(); });
+document.getElementById('sNext').addEventListener('click', function () { goSlide(sIndex + 1); restartAuto(); });
+document.addEventListener('keydown', function (e) {
+  if (document.activeElement.closest && document.activeElement.closest('.opt')) return; // quiz active
+  const inSlider = document.getElementById('sTrack');
+  if (window.scrollY && inSlider && isNearSlide()) {
+    if (e.key === 'ArrowRight') { goSlide(sIndex + 1); restartAuto(); }
+    else if (e.key === 'ArrowLeft') { goSlide(sIndex - 1); restartAuto(); }
+  }
+});
+function isNearSlide() {
+  const r = sTrack.parentElement.getBoundingClientRect();
+  return r.top < window.innerHeight && r.bottom > 0;
+}
+let touchX = null;
+sTrack.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+sTrack.addEventListener('touchend', function (e) {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) { goSlide(sIndex + (dx < 0 ? 1 : -1)); restartAuto(); }
+  touchX = null;
+}, { passive: true });
+const sliderBox = sTrack.parentElement;
+sliderBox.addEventListener('mouseenter', function () { if (sTimer) clearInterval(sTimer); });
+sliderBox.addEventListener('mouseleave', restartAuto);
+
+/* SEL bars (slide 4) */
+(function () {
+  const wrap = document.getElementById('selBars');
+  const SEL = [
+    ['Tự nhận thức', 'Self-awareness'],
+    ['Quản lý bản thân', 'Self-management'],
+    ['Nhận thức xã hội', 'Social awareness'],
+    ['Kỹ năng quan hệ', 'Relationship skills'],
+    ['Ra quyết định có trách nhiệm', 'Responsible decision-making']
+  ];
+  SEL.forEach(function (s) {
+    const row = document.createElement('div');
+    row.className = 'w-full';
+    row.innerHTML =
+      '<div class="flex justify-between text-xs font-semibold text-slate-600"><span>' + s[0] + '</span><span class="text-slate-400">' + s[1] + '</span></div>' +
+      '<div class="mt-1 h-2.5 rounded-full bg-slate-100 overflow-hidden">' +
+        '<div class="bar-fill h-full rounded-full" data-ph="20" style="--p:0%"></div>' +
+      '</div>';
+    wrap.appendChild(row);
+  });
+})();
+
+/* =========================================================
+   4) QUIZ — trắc nghiệm tương tác với đáp án & giải thích
+========================================================= */
+const QUIZ = [
+  { q: 'Nghịch lý lớn nhất của thị trường lao động thời AI là gì?',
+    o: ['Mọi ngành đều cắt giảm nhân sự như nhau',
+        'Big Tech cắt nhân sự phần mềm trong khi hạ tầng Data Center thiếu lao động trầm trọng',
+        'AI thay thế hoàn toàn mọi vị trí lao động phổ thông',
+        'Không có sự thay đổi nào đáng kể'],
+    c: 1,
+    e: 'Báo cáo nhấn mạnh: thị trường không thay đổi theo đường thẳng — một bên tinh gọn bộ máy phần mềm, một bên thiếu hụt nhân lực xây dựng và vận hành hạ tầng vật lý.' },
+  { q: 'Ba yếu tố khiến AI thâm nhập nghề lập trình nhanh hơn ngân hàng/luật là gì?',
+    o: ['Dữ liệu sẵn có, khả năng kiểm thử, văn hoá bottom-up',
+        'Chi phí thấp, ít quy định, nhiều lao động trẻ',
+        'Mức lương cao, uy tín lớn, toàn cầu hoá',
+        'Thương hiệu mạnh, chính sách ưu đãi, dễ tuyển dụng'],
+    c: 0,
+    e: 'Code chiếm tới 1/5 dữ liệu huấn luyện Internet, code sai bị máy báo lỗi ngay để sửa, và kỹ sư quen chủ động thử công cụ mới từ dưới lên.' },
+  { q: 'Code chiếm bao nhiêu phần trong dữ liệu huấn luyện Internet?',
+    o: ['1/100', '1/10', '1/5', '1/2'],
+    c: 2,
+    e: 'Mã nguồn chiếm khoảng 1/5 dữ liệu huấn luyện và có cấu trúc logic cực kỳ chặt chẽ, giúp AI học hỏi dễ dàng.' },
+  { q: 'Sự cố trợ lý AI "Hash" của Meta chứng minh điều gì?',
+    o: ['AI luôn an toàn tuyệt đối nếu được huấn luyện tốt',
+        'AI cần các "điểm dừng" bắt buộc có xác nhận của con người trước tác vụ nhạy cảm',
+        'AI không bao giờ bị lừa bởi email giả mạo',
+        'Chỉ phần cứng mới có lỗ hổng bảo mật'],
+    c: 1,
+    e: 'Hash tự ý chuyển điểm thưởng, đổi mật khẩu, dẫn vào trang lừa đảo và tiết lộ mật khẩu khi bị email giả mạo đánh lừa → con người phải là người kiểm duyệt cuối cùng.' },
+  { q: 'FDE (Forward Deployed Engineer) là ai?',
+    o: ['Lập trình viên ngồi viết code tại văn phòng chính',
+        'Kỹ sư đa nhiệm cấp cao được cử đến "nằm vùng" tại doanh nghiệp khách hàng',
+        'Nhân viên chăm sóc khách hàng của công ty AI',
+        'Chuyên viên marketing sản phẩm AI'],
+    c: 1,
+    e: 'FDE tích hợp API mô hình AI với hạ tầng cũ của khách hàng mà không rò rỉ dữ liệu, và thiết lập Guardrails — điểm kiểm soát cần con người phê duyệt.' },
+  { q: 'Nền tảng Harvey giúp ngành Luật chống hiện tượng AI "ảo tưởng" (hallucination) bằng cách nào?',
+    o: ['Tắt hoàn toàn tính năng sinh văn bản',
+        'Bắt buộc đính kèm link trích dẫn chính xác đến từng điều khoản trong tài liệu gốc',
+        'Chỉ dùng cho tài liệu tiếng Anh',
+        'Cho phép luật sư tự huấn luyện lại mô hình'],
+    c: 1,
+    e: 'Mọi câu trả lời của Harvey đều gắn trích dẫn điều khoản cụ thể để luật sư đối chiếu tức thì, giảm rủi ro sai sót 1% có thể gây hậu quả pháp lý.' },
+  { q: 'Rogo - nền tảng AI tài chính - bảo mật dữ liệu ngân hàng bằng giao thức nào?',
+    o: ['Snowflake MCP', 'HTTP/3', 'SSH Tunnel', 'VPN nội bộ'],
+    c: 0,
+    e: 'Rogo dùng giao thức Model Context Protocol của Snowflake để AI truy cập dữ liệu được phân quyền mà không cần copy dữ liệu ra ngoài ranh giới bảo mật.' },
+  { q: '5 cấu phần của khung năng lực SEL (CASEL) gồm những gì?',
+    o: ['Đọc, viết, nói, nghe, thuyết trình',
+        'Tự nhận thức, Quản lý bản thân, Nhận thức xã hội, Kỹ năng quan hệ, Ra quyết định có trách nhiệm',
+        'Lập trình, phân tích dữ liệu, thiết kế, bảo mật, quản trị',
+        'Kế hoạch, thực thi, kiểm soát, báo cáo, tổng kết'],
+    c: 1,
+    e: 'Đây là nền tảng trí tuệ cảm xúc mà AI không thể sao chép — thấu hiểu mình, thấu hiểu người để tương tác và xây dựng lòng tin.' },
+  { q: 'Thách thức giao tiếp chính của thế hệ Gen Z theo báo cáo là gì?',
+    o: ['Giao tiếp bằng mắt quá nhiều',
+        'Viết email kém trong khi nói chuyện trực tiếp rất giỏi',
+        'Độ trễ 15 giây – 1 phút khi phản hồi trực tiếp, ít eye contact, rụt rè khi đối thoại',
+        'Không chịu dùng mạng xã hội'],
+    c: 2,
+    e: 'Lớn lên cùng smartphone, Gen Z quen tương tác qua màn hình nên phản xạ trực tiếp chậm dù rất hoạt bát trên không gian ảo.' },
+  { q: 'Bốn chữ cái trong phương pháp S.A.F.E lần lượt nghĩa là gì?',
+    o: ['Smart, Active, Fast, Easy',
+        'Sequenced, Active, Focused, Explicit',
+        'Systematic, Agile, Flexible, Effective',
+        'Strategic, Accurate, Formal, Efficient'],
+    c: 1,
+    e: 'Sequenced (lộ trình lặp lại thành phản xạ), Active (nhập vai giả lập), Focused (chuyên tâm, xa công nghệ), Explicit (mục tiêu rõ ràng như kiềm chế cơn giận, lắng nghe chủ động).' },
+  { q: 'Vì sao kỹ năng mềm được ví như "vũ khí sinh tồn tối thượng" thời AI?',
+    o: ['Vì AI không thể làm được các phép tính phức tạp',
+        'Vì AI tự động hoá kỹ năng cứng, còn thấu cảm và quản lý cảm xúc là thứ máy chưa sao chép nổi',
+        'Vì kỹ năng mềm giúp viết code nhanh hơn',
+        'Vì công ty nào cũng cần nhân viên marketing'],
+    c: 1,
+    e: 'Trong tổ chức siêu tinh gọn thời AI, áp lực tăng cao khiến khả năng thấu cảm, quản lý cảm xúc (SEL) và phối hợp người–người trở thành năng lực cạnh tranh cốt lõi.' },
+  { q: 'Theo báo cáo, vai trò nào của con người là "không thể thay thế" khi ứng dụng AI?',
+    o: ['Viết sạch dữ liệu đầu vào',
+        'Kiểm duyệt, giám sát và xác nhận trước khi AI thực hiện tác vụ nhạy cảm',
+        'Nâng cấp phần cứng định kỳ',
+        'Kết nối mạng nội bộ'],
+    c: 1,
+    e: 'Việc ứng dụng AI thiếu kiểm soát dễ dẫn đến rò rỉ dữ liệu và thao tác sai lệch — "điểm dừng" xác nhận của con người là tuyến phòng thủ cuối cùng.' }
+];
+let qIndex = 0, qScore = 0, qAnswered = false;
+const qBody = document.getElementById('qBody');
+const qInfo = document.getElementById('qInfo');
+const qScoreEl = document.getElementById('qScore');
+const qBar = document.getElementById('qBar');
+const qResult = document.getElementById('qResult');
+const qPrev = document.getElementById('qPrev');
+const qNext = document.getElementById('qNext');
+const LETTERS = ['A', 'B', 'C', 'D'];
+function renderQuiz() {
+  const item = QUIZ[qIndex];
+  qAnswered = false;
+  qInfo.textContent = 'Câu ' + (qIndex + 1) + ' / ' + QUIZ.length;
+  qBar.style.width = (((qIndex + 1) / QUIZ.length) * 100) + '%';
+  qResult.classList.add('hidden');
+  qResult.innerHTML = '';
+  qNext.disabled = true;
+  qNext.textContent = (qIndex === QUIZ.length - 1) ? 'Xem kết quả 🏁' : 'Câu tiếp theo →';
+
+  let s = '<h3 class="text-lg md:text-xl font-extrabold text-slate-800">' + (qIndex + 1) + '. ' + item.q + '</h3>';
+  s += '<div class="mt-5 space-y-3">';
+  item.o.forEach(function (opt, i) {
+    s += '<button type="button" class="opt w-full text-left rounded-2xl border-2 border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 font-medium flex items-start gap-3" data-i="' + i + '">' +
+         '<span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 text-xs font-extrabold text-slate-600 shrink-0">' + LETTERS[i] + '</span>' +
+         '<span>' + opt + '</span></button>';
+  });
+  s += '</div>';
+  qBody.innerHTML = s;
+  qBody.querySelectorAll('.opt').forEach(function (btn) {
+    btn.addEventListener('click', function () { answerQuiz(parseInt(btn.dataset.i, 10), btn); });
+  });
+}
+function answerQuiz(i, btn) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const item = QUIZ[qIndex];
+  const opts = Array.prototype.slice.call(qBody.querySelectorAll('.opt'));
+  const right = item.o[item.c];
+  if (i === item.c) {
+    btn.classList.add('correct');
+    qScore++;
+  } else {
+    btn.classList.add('wrong');
+    opts[item.c].classList.add('correct');
+  }
+  opts.forEach(function (o, j) { if (j !== i && j !== item.c) o.classList.add('dim'); o.disabled = true; });
+  qScoreEl.textContent = 'Điểm: ' + qScore;
+  qResult.classList.remove('hidden');
+  qResult.className = 'mt-6 rounded-2xl border p-4 text-sm pop ' + (i === item.c ? 'border-emerald-200 bg-emerald-50 text-emerald-800' : 'border-rose-200 bg-rose-50 text-rose-800');
+  qResult.innerHTML =
+    '<div class="flex items-center gap-2 font-extrabold">' + (i === item.c ? '✅ Chính xác!' : '❌ Chưa đúng (Đáp án: ' + LETTERS[item.c] + ')') + '</div>' +
+    '<p class="mt-1 text-slate-700 leading-relaxed">' + (i === item.c ? '' : 'Đáp án đúng: <b>' + right + '</b><br>') + item.e + '</p>';
+  qNext.disabled = false;
+  if (qIndex === QUIZ.length - 1) qNext.textContent = 'Xem kết quả 🏁';
+}
+qNext.addEventListener('click', function () {
+  if (!qAnswered && qIndex < QUIZ.length - 1) { renderQuiz(); return; }
+  if (qIndex < QUIZ.length - 1) { qIndex++; renderQuiz(); }
+  else { finishQuiz(); }
+});
+qPrev.addEventListener('click', function () {
+  if (qIndex > 0) { qIndex--; renderQuiz(); }
+});
+function finishQuiz() {
+  qBody.innerHTML = '';
+  qResult.classList.remove('hidden');
+  const pct = Math.round((qScore / QUIZ.length) * 100);
+  let msg, emoji;
+  if (pct >= 90) { msg = 'Xuất sắc! Bạn đã làm chủ hoàn toàn nội dung báo cáo.'; emoji = '🏆'; }
+  else if (pct >= 70) { msg = 'Rất tốt! Còn một vài điểm nhỏ cần ôn lại.'; emoji = '🎯'; }
+  else if (pct >= 50) { msg = 'Khá ổn. Hãy đọc lại Mindmap và các trang Slider.'; emoji = '📚'; }
+  else { msg = 'Đừng nản! Đi lại Mindmap từ đầu để nắm chắc các khái niệm.'; emoji = '💪'; }
+  qInfo.textContent = 'Hoàn thành!';
+  qBar.style.width = '100%';
+  qNext.disabled = true;
+  qNext.textContent = 'Hoàn thành 🎉';
+  qPrev.disabled = true;
+  qResult.className = 'mt-2 rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-50 via-white to-fuchsia-50 p-6 text-center pop';
+  qResult.innerHTML =
+    '<div class="text-5xl">' + emoji + '</div>' +
+    '<p class="mt-3 text-2xl font-extrabold text-slate-800">' + qScore + ' / ' + QUIZ.length + ' câu đúng</p>' +
+    '<div class="mx-auto mt-3 h-3 rounded-full bg-slate-100 overflow-hidden max-w-sm"><div class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" style="width:' + pct + '%"></div></div>' +
+    '<p class="mt-2 text-sm font-semibold text-indigo-600">' + pct + '%</p>' +
+    '<p class="mt-3 text-slate-600">' + msg + '</p>' +
+    '<button id="qRestart" class="mt-5 rounded-xl bg-indigo-600 text-white px-6 py-2.5 text-sm font-bold shadow hover:bg-indigo-500 transition">🔄 Làm lại từ đầu</button>';
+  document.getElementById('qRestart').addEventListener('click', function () {
+    qIndex = 0; qScore = 0; qAnswered = false; qPrev.disabled = false;
+    qScoreEl.textContent = 'Điểm: 0';
+    renderQuiz();
+  });
+}
+
+/* =========================================================
+   Khởi tạo
+========================================================= */
+(function init() {
+  attachParents(MM_ROOT);
+  mmEl = mmBuild(MM_ROOT, 0);
+  document.getElementById('mmTree').appendChild(mmEl);
+  document.getElementById('mmExpandAll').addEventListener('click', function () {
+    document.querySelectorAll('#mmTree li').forEach(function (li) { if (li.__toggle) li.__toggle(true); });
+  });
+  document.getElementById('mmCollapseAll').addEventListener('click', function () {
+    document.querySelectorAll('#mmTree li').forEach(function (li) { if (li.__toggle && li.dataset.id !== 'r0') li.__toggle(false); });
+  });
+  mmShowDetail(MM_ROOT);
+
+  buildKPI();
+  renderQuiz();
+  goSlide(0);
+  restartAuto();
+  wireReveal();
+  wireScrollSpy();
+})();
+
+/* =========================================================
+   Hiệu ứng reveal + scroll-spy
+========================================================= */
+function wireReveal() {
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('show');
+        // đếm thanh KPI
+        const fills = en.target.querySelectorAll ? en.target.querySelectorAll(':scope > .kpi .bar-fill, .bar-fill') : [];
+        fills.forEach(function (f) {
+          if (f.dataset.w && !f.dataset.done) { f.dataset.done = '1'; setTimeout(function(){ f.style.width = f.dataset.w + '%'; }, 120); }
+        });
+        // đếm số KPI nhỏ (không dùng cho dạng 1/5, 15–60s)
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+}
+function wireScrollSpy() {
+  const links = document.querySelectorAll('.nav-link');
+  const secs = ['mindmap', 'infographic', 'slider', 'quiz'].map(function (id) { return document.getElementById(id); });
+  window.addEventListener('scroll', function () {
+    let cur = '';
+    secs.forEach(function (s) {
+      if (window.scrollY + 120 >= s.offsetTop) cur = s.id;
+    });
+    links.forEach(function (l) {
+      l.classList.toggle('text-indigo-700', l.dataset.nav === cur);
+      l.classList.toggle('bg-indigo-50', l.dataset.nav === cur);
+    });
+  }, { passive: true });
+}
+</script>
+</body>
+</html>
